@@ -1,13 +1,14 @@
 import Banner from "../components/Banner"
 import logo from "../assets/logo.png"
+import { CgSpinner } from "react-icons/cg";
 import { useState } from "react"
+import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
 const Signup = () => {
     const [phone, setPhone] = useState("")
     const [password, setPassword] = useState("")
-    const handlePhone = (event) => {
-        setPhone(event.target.value)
-        console.log(phone)
-    }
+    const [loading, setLoading] = useState(false)
+
     const handlePassword = (event) => {
         setPassword(event.target.value)
     }
@@ -15,8 +16,11 @@ const Signup = () => {
         const newUser = [phone, password]
         console.log(newUser)
     }
+    const handleLoading = () =>{
+        setLoading(true)
+    }
     return (
-        <div className="h-screen flex">
+        <div className="h-screen flex bg-emerald-500">
             {/* left */}
             <div className="w-1/2 flex-col mt-24">
                 {/* logo */}
@@ -31,16 +35,14 @@ const Signup = () => {
                 <form className="mt-3">
                     {/* phone number */}
                     <div className="w-500 mx-auto">
-                        <div>
-                            <label className="block">Phone number</label>
-                        </div>
                         {/* input phone number */}
                         <div>
-                            <input className="border border-2 border-solid border-black w-full"
+                            {/* <input className="border border-2 border-solid border-black w-full"
                                 type="text"
                                 name="phone"
                                 value={phone}
-                                onChange={handlePhone} />
+                                onChange={handlePhone} /> */}
+                                <PhoneInput country={"vn"}/>
                         </div>
                     </div>
                     {/* password */}
@@ -56,12 +58,15 @@ const Signup = () => {
                     </div>
                     {/* button */}
                     <div className="w-500 mx-auto mt-2">
-                        <button className="bg-blue-300 w-full border-2 border-solid border border-black"
-                            onClick={handleSubmit}
-                        >Sign up</button>
+                        <button className="bg-blue-300 w-full border-2 border-solid border border-black flex justify-center"
+                            onClick={handleLoading}
+
+                        >{loading && <CgSpinner size={20} className="mt-1 animate-spin" />}
+                            <span>Send code via SMS</span>
+                        </button>
                     </div>
                 </form>
-            </div>
+             </div> 
             {/* right */}
             <Banner />
         </div>

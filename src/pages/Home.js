@@ -1,7 +1,12 @@
+import Banner from "../components/Banner"
+import OTP from "../components/OTP"
 
-const Home = () =>{
+const Home = () => {
     return (
-        <div></div>
+        <div className="h-screen flex bg-emerald-500">
+            <OTP />
+            <Banner />
+        </div>
     )
 }
 export default Home
