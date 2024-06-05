@@ -2,7 +2,10 @@ import { useState } from "react"
 import logo from "../assets/logo.png"
 import { Link } from "react-router-dom"
 import Banner from "../components/Banner"
+import LoginService from "../services/LoginService"
+import { useNavigate } from "react-router-dom"
 const Signin = () => {
+  const navigate = useNavigate(); 
   const [phone, setPhone] = useState("")
   const [password, setPassword] = useState("")
   const handlePhone = (event) => {
@@ -12,10 +15,15 @@ const Signin = () => {
   const handlePassword = (event) => {
     setPassword(event.target.value)
   }
-  const handleSubmit = () => {
-    const newUser = [phone, password]
-    console.log(newUser)
+  const handleLogin= async() => {
+    try {
+      const userLogin = await LoginService(phone, password)
+      navigate("/home", { state: { user: userLogin } });
+    } catch (error) {
+      throw new Error(error)
+    }
   }
+
   return (
     <div className="h-screen flex">
       {/* left */}
@@ -29,7 +37,7 @@ const Signin = () => {
           <p className="text-3xl">Sign in to your account</p>
         </div>
         {/* form */}
-        <form className="mt-3">
+        <div className="mt-3">
           <div className="w-500 mx-auto">
             <label className="block">Phone number</label>
             {/* phone number */}
@@ -61,10 +69,10 @@ const Signin = () => {
           {/* button */}
           <div className="w-500 mx-auto mt-2">
             <button className="bg-blue-300 w-full border-2 border-solid border border-black"
-              onClick={handleSubmit}
+              onClick={handleLogin}
             >Sign in</button>
           </div>
-        </form>
+        </div>
         {/* link sign up */}
         <div className="flex justify-center">
           <Link to="/signup" className="text-blue-500">Create account</Link>

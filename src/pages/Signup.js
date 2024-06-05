@@ -8,17 +8,25 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import OtpInput from "otp-input-react";
 import { auth } from "../config/firebase.config";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+import RegisterService from "../services/RegisterService";
 const Signup = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const [otp, setOTP] = useState("");
-  const navigate = useNavigate(); 
-  const handlePassword = (event) => {
-    setPassword(event.target.value);
+  const navigate = useNavigate();
+  const handleRegister = async () => {
+    const register = await RegisterService(phone, password);
+    navigate("/home", { state: { user: register } });
   };
+  const handlePassword = (event) =>{
+    setPassword(event.target.value)
+  }
+  const handlePhone = (event) =>{
+    setPhone(event.target.value)
+  }
   const onCaptchVerify = () => {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -61,7 +69,7 @@ const Signup = () => {
         console.log(res);
         //   setUser(res.user);
         setLoading(false);
-        navigate("/home");
+        handleRegister()
       })
       .catch((err) => {
         console.log(err);
@@ -100,14 +108,14 @@ const Signup = () => {
             </div>
             {/* button verify */}
             <div className="mt-4 flex justify-center">
-              <button 
+              <button
                 className="bg-emerald-600 w-500 flex gap-1 items-center flex justify-center py-2.5 text-white rounded"
                 onClick={onOTPVerify}
               >
                 {loading && (
                   <CgSpinner size={20} className="mt-1 animate-spin" />
                 )}
-                <span>Verify OTP</span> 
+                <span>Verify OTP</span>
               </button>
             </div>
           </div>
@@ -128,7 +136,7 @@ const Signup = () => {
             <div className="w-500 mx-auto">
               {/* input phone number */}
               <div>
-                <PhoneInput country={"vn"} value={phone} onChange={setPhone} />
+                <PhoneInput country={"vn"} value={phone} onChange={handlePhone} />
               </div>
             </div>
             {/* password */}
@@ -142,6 +150,7 @@ const Signup = () => {
                   className="border border-2 border-solid border-black w-full"
                   value={password}
                   onChange={handlePassword}
+                  type="password"
                 />
               </div>
             </div>
