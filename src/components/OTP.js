@@ -1,4 +1,4 @@
-import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
+import { BsFillShieldLockFill } from "react-icons/bs";
 import logo from "../assets/logo.png"
 import OtpInput from "otp-input-react";
 const OTP = () => {
@@ -26,11 +26,13 @@ const OTP = () => {
                             disabled={false}
                             autoFocus
                             className="opt-container"
+
                         ></OtpInput>
                     </div>
                     {/* button verify */}
                     <div className="mt-4 flex justify-center">
-                        <button className="bg-emerald-600 w-500 flex gap-1 items-center flex justify-center py-2.5 text-white rounded">Verify</button>
+                        <button className="bg-emerald-600 w-500 flex gap-1 items-center flex justify-center py-2.5 text-white rounded"
+                        >Verify</button>
                     </div>
                 </div>
             </div>
