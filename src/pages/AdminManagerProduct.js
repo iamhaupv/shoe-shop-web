@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FindAllProduct from "../services/FindAllProduct";
 import DeleteProductByIdService from "../services/DeleteProductByIdService";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const AdminManagerProduct = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   // get all product
@@ -29,16 +30,16 @@ const AdminManagerProduct = () => {
   // delete product
   const handleDeleteProduct = async (productId) => {
     try {
-      // Lấy token từ localStorage
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("Token is missing");
-      }
       // Hiển thị hộp thoại xác nhận trước khi xóa
       const confirmDelete = window.confirm(
         "Bạn có chắc chắn muốn xóa sản phẩm này?"
       );
       if (confirmDelete) {
+        // Lấy token từ localStorage
+        const token = localStorage.getItem("token");
+        if (!token) {
+          throw new Error("Token is missing");
+        }
         // Gọi API để xóa sản phẩm
         await DeleteProductByIdService(token, productId);
         // Cập nhật danh sách sản phẩm sau khi sản phẩm đã được xóa thành công
@@ -83,11 +84,18 @@ const AdminManagerProduct = () => {
               <td>{product.name}</td>
               <td>{product.quantity}</td>
               <td>
-                <button className="bg-red-500 border-2 border-solid border-black" onClick={() => handleDeleteProduct(product._id)}>
+                {/* delete */}
+                <button
+                  className="bg-red-500 border-2 border-solid border-black"
+                  onClick={() => handleDeleteProduct(product._id)}
+                >
                   delete
                 </button>
-                |
-                <button className="bg-blue-500 border-2 border-solid border-black" onClick={() => handleUpdateProduct(product._id)}>
+                |{/* update */}
+                <button
+                  className="bg-blue-500 border-2 border-solid border-black"
+                  onClick={() => handleUpdateProduct(product._id)}
+                >
                   update
                 </button>
               </td>
