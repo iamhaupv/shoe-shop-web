@@ -34,11 +34,16 @@ const AdminManagerProduct = () => {
       if (!token) {
         throw new Error("Token is missing");
       }
-
-      // Gọi API để xóa sản phẩm
-      await DeleteProductByIdService(token, productId);
-      // Cập nhật danh sách sản phẩm sau khi sản phẩm đã được xóa thành công
-      setProducts(products.filter((product) => product._id !== productId));
+      // Hiển thị hộp thoại xác nhận trước khi xóa
+      const confirmDelete = window.confirm(
+        "Bạn có chắc chắn muốn xóa sản phẩm này?"
+      );
+      if (confirmDelete) {
+        // Gọi API để xóa sản phẩm
+        await DeleteProductByIdService(token, productId);
+        // Cập nhật danh sách sản phẩm sau khi sản phẩm đã được xóa thành công
+        setProducts(products.filter((product) => product._id !== productId));
+      }
     } catch (error) {
       console.error("Error deleting product:", error);
     }
@@ -48,14 +53,19 @@ const AdminManagerProduct = () => {
     navigate(`/update-product?id=${productId}`);
   };
   // add product
-  const handleAddProduct = () =>{
-    navigate("/add-product")
-  }
+  const handleAddProduct = () => {
+    navigate("/add-product");
+  };
   return (
     <div>
       {/* Bảng hiển thị danh sách sản phẩm */}
       <div>
-        <button onClick={handleAddProduct} className="bg-green-500 border-2 border-solid ">Add</button>
+        <button
+          onClick={handleAddProduct}
+          className="bg-green-500 border-2 border-solid "
+        >
+          Add
+        </button>
       </div>
       <table>
         <thead>
@@ -73,10 +83,11 @@ const AdminManagerProduct = () => {
               <td>{product.name}</td>
               <td>{product.quantity}</td>
               <td>
-                <button onClick={()=> handleDeleteProduct(product._id)}>
+                <button className="bg-red-500 border-2 border-solid border-black" onClick={() => handleDeleteProduct(product._id)}>
                   delete
                 </button>
-                |<button onClick={() => handleUpdateProduct(product._id)}>
+                |
+                <button className="bg-blue-500 border-2 border-solid border-black" onClick={() => handleUpdateProduct(product._id)}>
                   update
                 </button>
               </td>

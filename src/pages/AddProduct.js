@@ -1,10 +1,28 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import AddProductService from "../services/AddProductService";
 const AddProduct = () => {
+  const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState("");
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    navigate("/admin-manager-product")
-  }
+  const handleSubmit = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      await AddProductService(token, name, quantity);
+      const confirmAdd = window.confirm(
+        "Bạn có chắc chắn muốn thêm sản phẩm này?"
+      );
+      if (confirmAdd) {
+        navigate("/admin-manager-product");
+      }
+    } catch (error) {}
+  };
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+  const handleQuantity = (event) => {
+    setQuantity(event.target.value);
+  };
   return (
     <div>
       <div>
@@ -14,6 +32,8 @@ const AddProduct = () => {
             {/* name */}
             <td>
               <input
+                onChange={handleName}
+                value={name}
                 type="text"
                 className="border border-2 border-solid border-black"
               />
@@ -24,6 +44,8 @@ const AddProduct = () => {
             {/* quantity */}
             <td>
               <input
+                onChange={handleQuantity}
+                value={quantity}
                 type="text"
                 className="border border-2 border-solid border-black"
               />
