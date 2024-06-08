@@ -18,7 +18,8 @@ const Signin = () => {
   const handleLogin= async() => {
     try {
       const userLogin = await LoginService(phone, password)
-      navigate("/home", { state: { user: userLogin } });
+      localStorage.setItem('token', userLogin.data.token);
+      navigate("/admin-manager-product", { state: { user: userLogin.data } });
     } catch (error) {
       throw new Error(error)
     }

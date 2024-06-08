@@ -14,3 +14,9 @@
   .opt-container input {
     @apply !mr-0 flex-1 py-5 outline-none;
   }
+.h-200{
+  height: 200px;
+}
+.w-800{
+  width: 800px;
+}
