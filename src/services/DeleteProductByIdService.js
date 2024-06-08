@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const DeleteProductById = async(token, _id) => {
+const DeleteProductByIdService = async(token, _id) => {
     try {
         const reponse = await axios.post(
             "http://localhost:3000/products/delete-product-by-id",
@@ -16,4 +16,4 @@ const DeleteProductById = async(token, _id) => {
         throw new Error(error)
     }
 }
-export default DeleteProductById
+export default DeleteProductByIdService

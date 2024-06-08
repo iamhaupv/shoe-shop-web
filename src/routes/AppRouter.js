@@ -5,6 +5,7 @@ import Signup from "../pages/Signup";
 import Signin from "../pages/Signin";
 import View from "../pages/View";
 import AdminManagerProduct from "../pages/AdminManagerProduct";
+import UpdateProduct from "../pages/UpdateProduct";
 
 const AppRouter = () => {
     return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
                 <Route path="/signup" element={<Signup/>} />
                 <Route path="/view" element={<View/>} />
                 <Route path="/admin-manager-product" element={<AdminManagerProduct/>} />
+                <Route path="/update-product" element = {<UpdateProduct/>} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>

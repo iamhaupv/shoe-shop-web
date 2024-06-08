@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import FindAllProduct from "../services/FindAllProduct";
-import DeleteProductById from "../services/DeleteProductById";
+import DeleteProductByIdService from "../services/DeleteProductByIdService";
+import { useNavigate } from "react-router-dom";
 const AdminManagerProduct = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
-
+  // get all product
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -24,6 +26,7 @@ const AdminManagerProduct = () => {
     // Gọi hàm fetchProducts khi component được render
     fetchProducts();
   }, []);
+  // delete product
   const handleDeleteProduct = async (productId) => {
     try {
       // Lấy token từ localStorage
@@ -33,15 +36,17 @@ const AdminManagerProduct = () => {
       }
 
       // Gọi API để xóa sản phẩm
-      await DeleteProductById(token, productId);
-      console.log(productId)
+      await DeleteProductByIdService(token, productId);
       // Cập nhật danh sách sản phẩm sau khi sản phẩm đã được xóa thành công
       setProducts(products.filter((product) => product._id !== productId));
     } catch (error) {
       console.error("Error deleting product:", error);
     }
   };
-
+  // update product
+  const handleUpdateProduct = (productId) => {
+    navigate(`/update-product?id=${productId}`);
+  };
   return (
     <div>
       {/* Bảng hiển thị danh sách sản phẩm */}
@@ -64,8 +69,12 @@ const AdminManagerProduct = () => {
               <td>{product.name}</td>
               <td>{product.quantity}</td>
               <td>
-                <button onClick={() => handleDeleteProduct(product._id)}>delete</button> |
-                <a href={`update?${product._id}`}>update</a>
+                <button onClick={()=> handleDeleteProduct(product._id)}>
+                  delete
+                </button>
+                |<button onClick={() => handleUpdateProduct(product._id)}>
+                  update
+                </button>
               </td>
             </tr>
           ))}
