@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import FindProductByIdService from "../services/FindProductByIdService";
-
+import { useNavigate } from "react-router-dom";
 const UpdateProduct = () => {
   const [product, setProduct] = useState({});
   const location = useLocation();
-
+  const navigate = useNavigate()
   useEffect(() => {
     const fetchProduct = async (id) => {
       try {
@@ -23,8 +23,8 @@ const UpdateProduct = () => {
     const queryParams = new URLSearchParams(location.search);
     let productId = queryParams.get('id'); // Get the value of the 'id' query parameter
 
-    console.log('Query Params:', queryParams.toString()); // Log all query parameters
-    console.log('Product ID:', productId); // Log the extracted product ID
+    // console.log('Query Params:', queryParams.toString()); // Log all query parameters
+    // console.log('Product ID:', productId); // Log the extracted product ID
 
     if (productId !== null && productId !== undefined) {
       // Remove any trailing '=' if present
@@ -34,7 +34,9 @@ const UpdateProduct = () => {
       console.warn("Product ID is missing in the URL query parameters.");
     }
   }, [location.search]);
-
+  const handleSubmit = () => {
+    navigate("/admin-manager-product")
+  }
   return (
     <div>
       <div>
@@ -58,7 +60,7 @@ const UpdateProduct = () => {
             </tr>
             <tr>
               <td>
-                <input type="submit" className="bg-red-500 border-2" />
+                <input type="submit" className="bg-red-500 border-2" onClick={handleSubmit} />
               </td>
             </tr>
           </tbody>

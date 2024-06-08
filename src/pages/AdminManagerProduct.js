@@ -47,11 +47,15 @@ const AdminManagerProduct = () => {
   const handleUpdateProduct = (productId) => {
     navigate(`/update-product?id=${productId}`);
   };
+  // add product
+  const handleAddProduct = () =>{
+    navigate("/add-product")
+  }
   return (
     <div>
       {/* Bảng hiển thị danh sách sản phẩm */}
       <div>
-        <a href="add">Add</a>
+        <button onClick={handleAddProduct} className="bg-green-500 border-2 border-solid ">Add</button>
       </div>
       <table>
         <thead>

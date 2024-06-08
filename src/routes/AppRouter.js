@@ -6,6 +6,7 @@ import Signin from "../pages/Signin";
 import View from "../pages/View";
 import AdminManagerProduct from "../pages/AdminManagerProduct";
 import UpdateProduct from "../pages/UpdateProduct";
+import AddProduct from "../pages/AddProduct";
 
 const AppRouter = () => {
     return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
                 <Route path="/view" element={<View/>} />
                 <Route path="/admin-manager-product" element={<AdminManagerProduct/>} />
                 <Route path="/update-product" element = {<UpdateProduct/>} />
+                <Route path="/add-product" element={<AddProduct/>} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
