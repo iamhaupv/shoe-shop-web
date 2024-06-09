@@ -8,6 +8,7 @@ import AdminManagerProduct from "../pages/AdminManagerProduct";
 import UpdateProduct from "../pages/UpdateProduct";
 import AddProduct from "../pages/AddProduct";
 import LogninAdmin from "../pages/LoginAdmin";
+import RegisterAdmin from "../pages/RegisterAdmin";
 
 const AppRouter = () => {
   return (
@@ -24,6 +25,7 @@ const AppRouter = () => {
         <Route path="/update-product" element={<UpdateProduct />} />
         <Route path="/add-product" element={<AddProduct />} />
         <Route path="/wp-admin" element={<LogninAdmin />} />
+        <Route path="wp-admin-register" element={<RegisterAdmin/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>

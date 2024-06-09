@@ -9,21 +9,25 @@ import { BsFillShieldLockFill } from "react-icons/bs";
 import OtpInput from "otp-input-react";
 import { auth } from "../config/firebase.config";
 import { useNavigate } from "react-router-dom";
-import RegisterService from "../services/RegisterService";
-const Signup = () => {
+import RegisterAdminService from "../services/RegisterAdminService";
+const RegisterAdmin = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const [otp, setOTP] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const handleRegister = async () => {
-    const register = await RegisterService(phone, password);
-    navigate("/home", { state: { user: register } });
+    const register = await RegisterAdminService(phone, password);
+    navigate("/admin-manager-product", { state: { user: register } });
   };
-  const handlePassword = (event) =>{
-    setPassword(event.target.value)
-  }
+  const handleShowPassword = (e) => {
+    setShowPassword(e.target.checked);
+  };
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
   const onCaptchVerify = () => {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -66,7 +70,7 @@ const Signup = () => {
         console.log(res);
         //   setUser(res.user);
         setLoading(false);
-        handleRegister()
+        handleRegister();
       })
       .catch((err) => {
         console.log(err);
@@ -133,7 +137,11 @@ const Signup = () => {
             <div className="w-500 mx-auto">
               {/* input phone number */}
               <div>
-                <PhoneInput country={"vn"} value={phone} onChange={(phone) => setPhone(phone)} />
+                <PhoneInput
+                  country={"vn"}
+                  value={phone}
+                  onChange={(phone) => setPhone(phone)}
+                />
               </div>
             </div>
             {/* password */}
@@ -150,6 +158,16 @@ const Signup = () => {
                   type="password"
                 />
               </div>
+            </div>
+            {/* show password */}
+            <div className="flex w-500 mx-auto mt-2">
+              <input
+                type="checkbox"
+                value={showPassword}
+                className="border-2 border-solid border-black"
+                onChange={handleShowPassword}
+              />
+              <label className="ml-2">Show password</label>
             </div>
             {/* button */}
             <div className="w-500 mx-auto mt-2">
@@ -173,4 +191,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default RegisterAdmin;
