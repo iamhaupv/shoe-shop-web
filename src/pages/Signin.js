@@ -22,7 +22,7 @@ const Signin = () => {
     try {
       const userLogin = await LoginService(phone, password);
       localStorage.setItem("token", userLogin.data.token);
-      navigate("/admin-manager-product", { state: { user: userLogin.data } });
+      navigate("/home", { state: { user: userLogin.data } });
     } catch (error) {
       throw new Error(error);
     }

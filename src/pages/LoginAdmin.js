@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LoginAdminService from "../services/LoginAdminService";
+//
 const LogninAdmin = () => {
+  const navigate = useNavigate();
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -15,6 +18,16 @@ const LogninAdmin = () => {
   //   password
   const handlePassword = (event) => {
     setPassword(event.target.value);
+  };
+  //   login
+  const handleLogin = async () => {
+    try {
+      const user = await LoginAdminService(phoneNumber, password);
+      localStorage.setItem("token", user.data.token);
+      navigate("/admin-manager-product", { state: { user: user.data } });
+    } catch (error) {
+      throw new Error(error);
+    }
   };
   return (
     <div>
@@ -47,6 +60,15 @@ const LogninAdmin = () => {
             onChange={handleShowPassword}
           />
           <label>Show password</label>
+        </div>
+        {/* button submit */}
+        <div className="w-500 mx-auto">
+          <button
+            className="border border-2 border-solid border-black bg-blue-400"
+            onClick={handleLogin}
+          >
+            Login
+          </button>
         </div>
       </div>
     </div>
