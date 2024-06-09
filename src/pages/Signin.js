@@ -1,29 +1,32 @@
-import { useState } from "react"
-import logo from "../assets/logo.png"
-import { Link } from "react-router-dom"
-import Banner from "../components/Banner"
-import LoginService from "../services/LoginService"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
+import Banner from "../components/Banner";
+import LoginService from "../services/LoginService";
+import { useNavigate } from "react-router-dom";
 const Signin = () => {
-  const navigate = useNavigate(); 
-  const [phone, setPhone] = useState("")
-  const [password, setPassword] = useState("")
+  const navigate = useNavigate();
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = (e) => {
+    setShowPassword(e.target.checked);
+  };
   const handlePhone = (event) => {
-    setPhone(event.target.value)
-    console.log(phone)
-  }
+    setPhone(event.target.value);
+  };
   const handlePassword = (event) => {
-    setPassword(event.target.value)
-  }
-  const handleLogin= async() => {
+    setPassword(event.target.value);
+  };
+  const handleLogin = async () => {
     try {
-      const userLogin = await LoginService(phone, password)
-      localStorage.setItem('token', userLogin.data.token);
+      const userLogin = await LoginService(phone, password);
+      localStorage.setItem("token", userLogin.data.token);
       navigate("/admin-manager-product", { state: { user: userLogin.data } });
     } catch (error) {
-      throw new Error(error)
+      throw new Error(error);
     }
-  }
+  };
 
   return (
     <div className="h-screen flex">
@@ -44,45 +47,65 @@ const Signin = () => {
             {/* phone number */}
             <div>
               {/* input phone number */}
-              <input className="border border-2 border-solid border-black w-full"
+              <input
+                className="border border-2 border-solid border-black w-full"
                 type="text"
                 name="phone"
                 value={phone}
-                onChange={handlePhone} />
+                onChange={handlePhone}
+              />
             </div>
           </div>
           <div className="w-500 mx-auto">
             <div className="flex items-center justify-between">
               <label>Password</label>
               <div className="">
-                <a className="text-blue-500" href="https://fb.com">Forgot password?</a>
+                <a className="text-blue-500" href="https://fb.com">
+                  Forgot password?
+                </a>
               </div>
             </div>
             {/* password */}
             <div className="flex justify-center">
               {/* input password */}
-              <input className="border border-2 border-solid border-black w-full"
+              <input
+                className="border border-2 border-solid border-black w-full"
                 value={password}
                 onChange={handlePassword}
+                type={showPassword ? "text" : "password"}
               />
             </div>
           </div>
-          {/* button */}
+          {/* show password */}
           <div className="w-500 mx-auto mt-2">
-            <button className="bg-blue-300 w-full border-2 border-solid border border-black"
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={handleShowPassword}
+            />
+            <label className="ml-2">Show password</label>
+          </div>
+          {/* button submit */}
+          <div className="w-500 mx-auto mt-2">
+            <button
+              className="bg-blue-300 w-full border-2 border-solid border border-black"
               onClick={handleLogin}
-            >Sign in</button>
+            >
+              Sign in
+            </button>
           </div>
         </div>
         {/* link sign up */}
         <div className="flex justify-center">
-          <Link to="/signup" className="text-blue-500">Create account</Link>
+          <Link to="/signup" className="text-blue-500">
+            Create account
+          </Link>
         </div>
       </div>
       {/* right */}
       <Banner />
     </div>
-  )
-}
+  );
+};
 
-export default Signin
+export default Signin;
