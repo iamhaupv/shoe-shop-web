@@ -1,16 +1,77 @@
-import { useNavigate } from "react-router-dom"
-
+import { useNavigate } from "react-router-dom";
+import FindAllProduct from "../services/product/FindAllProduct";
+import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus, faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import AddProductToCart from "../services/cart/AddProductToCartService";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Home = () => {
-    const navigate = useNavigate()
-    const handleSubmit = () => {
-        navigate("/my-cart")
+  const [products, setProducts] = useState([]);
+  const navigate = useNavigate();
+  // find all product
+  useEffect(() => {
+    const fetchAllProducts = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Token invalid");
+      }
+      const response = await FindAllProduct(token);
+      setProducts(response.data);
+    };
+    fetchAllProducts();
+  }, []);
+  const handleSubmit = () => {
+    navigate("/my-cart");
+  };
+  // handle add product to cart
+  const handleAddProductToCart = async (productId) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Token invalid!");
+      }
+      const user = JSON.parse(atob(token.split(".")[1]));
+      await AddProductToCart(token, user.data.phoneNumber, productId);
+      toast.success("Add to cart successfully!");
+    } catch (error) {
+      throw new Error(error);
     }
-    return (
-        <div className="h-screen flex bg-emerald-500">
-            <div>
-                <input onClick={handleSubmit}  type="submit" className="bg-red-500 border-2 border-solid border-black" />
-            </div>
-        </div>
-    )
-}
-export default Home
+  };
+  return (
+    <div className="h-screen">
+      <ToastContainer />
+      <div>
+        <button
+          className="bg-red-500 border-2 border-solid border-black"
+          onClick={handleSubmit}
+        >
+          <FontAwesomeIcon icon={faCartShopping} />
+        </button>
+        <table>
+          <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>quantity</td>
+          </tr>
+          {products.map((product, index) => (
+            <tr>
+              <td>{product._id}</td>
+              <td>{product.name}</td>
+              <td>{product.quantity}</td>
+              <td>
+                <button
+                  className="bg-green-400 text-2xl"
+                  onClick={() => handleAddProductToCart(product._id)}
+                >
+                  <FontAwesomeIcon icon={faCartPlus} />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </table>
+      </div>
+    </div>
+  );
+};
+export default Home;

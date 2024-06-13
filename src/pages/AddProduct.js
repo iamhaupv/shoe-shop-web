@@ -8,6 +8,9 @@ const AddProduct = () => {
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Token invalid!");
+      }
       await AddProductService(token, name, quantity);
       const confirmAdd = window.confirm(
         "Bạn có chắc chắn muốn thêm sản phẩm này?"
