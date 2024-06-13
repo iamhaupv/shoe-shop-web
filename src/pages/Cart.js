@@ -3,6 +3,7 @@ import FindCartByIdService from "../services/cart/FindCartByIdService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import AddProductToCartService from "../services/cart/AddProductToCartService";
+import RemoveProductFromCartService from "../services/cart/RemoveProductFromCartService";
 const Cart = () => {
   const [products, setProducts] = useState([]);
 
@@ -43,9 +44,24 @@ const Cart = () => {
       throw new Error(error);
     }
   };
-  const handleRemoveProductFromCart = async() =>{
-
-  }
+  const handleRemoveProductFromCart = async (productId) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        throw new Error("Token invalid");
+      }
+      const user = JSON.parse(atob(token.split(".")[1]));
+      const response = await RemoveProductFromCartService(
+        token,
+        user.data.phoneNumber,
+        productId
+      );
+      console.log(response)
+      setProducts(response.data.cart.products);
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
   return (
     <div>
       <div>
@@ -74,7 +90,10 @@ const Cart = () => {
                     <FontAwesomeIcon icon={faPlus} />
                   </button>
                   {/* button remove */}
-                  <button className="bg-red-400 border-2 border-solid border-black text-3xl ml-2">
+                  <button
+                    className="bg-red-400 border-2 border-solid border-black text-3xl ml-2"
+                    onClick={() => handleRemoveProductFromCart(product.product)}
+                  >
                     <FontAwesomeIcon icon={faMinus} />
                   </button>
                 </td>
