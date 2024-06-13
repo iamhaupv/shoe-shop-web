@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import FindAllProduct from "../services/FindAllProduct";
-import DeleteProductByIdService from "../services/DeleteProductByIdService";
-import { useNavigate, useLocation } from "react-router-dom";
+import FindAllProduct from "../services/product/FindAllProduct";
+import DeleteProductByIdService from "../services/product/DeleteProductByIdService";
+import { useNavigate } from "react-router-dom";
 const AdminManagerProduct = () => {
-  const location = useLocation();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   // get all product

@@ -9,7 +9,7 @@ import { BsFillShieldLockFill } from "react-icons/bs";
 import OtpInput from "otp-input-react";
 import { auth } from "../config/firebase.config";
 import { useNavigate } from "react-router-dom";
-import RegisterAdminService from "../services/RegisterAdminService";
+import RegisterAdminService from "../services/admin/RegisterAdminService";
 const RegisterAdmin = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -155,7 +155,7 @@ const RegisterAdmin = () => {
                   className="border border-2 border-solid border-black w-full"
                   value={password}
                   onChange={handlePassword}
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                 />
               </div>
             </div>
@@ -163,7 +163,7 @@ const RegisterAdmin = () => {
             <div className="flex w-500 mx-auto mt-2">
               <input
                 type="checkbox"
-                value={showPassword}
+                checked={showPassword}
                 className="border-2 border-solid border-black"
                 onChange={handleShowPassword}
               />

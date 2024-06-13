@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import FindProductByIdService from "../services/FindProductByIdService";
-import UpdateProductService from "../services/UpdateProductService";
+import FindProductByIdService from "../services/product/FindProductByIdService";
+import UpdateProductService from "../services/product/UpdateProductService";
 
 const UpdateProduct = () => {
   const [name, setName] = useState("");

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AddProductService from "../services/AddProductService";
+import AddProductService from "../services/product/AddProductService";
 const AddProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");

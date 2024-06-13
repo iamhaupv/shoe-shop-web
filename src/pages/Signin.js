@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Banner from "../components/Banner";
-import LoginService from "../services/LoginService";
+import LoginService from "../services/user/LoginService";
 import { useNavigate } from "react-router-dom";
 const Signin = () => {
   const navigate = useNavigate();

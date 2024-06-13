@@ -37,7 +37,7 @@ const Header = () => {
             </button>
           </div>
           <div className="ml-auto mr-5">
-            <FontAwesomeIcon icon={faCartShopping} className="text-gray-700 text-4xl" />
+            <a href="/signin"><FontAwesomeIcon icon={faCartShopping} className="text-gray-700 text-4xl" /></a>
           </div>
         </div>
       </div>
