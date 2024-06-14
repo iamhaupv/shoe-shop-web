@@ -3,6 +3,7 @@ import Header from "../components/Header"
 import Nav from "../components/Nav"
 import Title from "../components/Title"
 import RowJordan from "../components/RowJordan"
+import RowNike from "../components/RowNike"
 
 const View = () =>{
     return (
@@ -13,7 +14,7 @@ const View = () =>{
             <Title shoeName={"Jordan"} />
             <RowJordan/>
             <Title shoeName={"Nike"} />
-            <RowJordan/>
+            <RowNike/>
         </div>
     )
 }
