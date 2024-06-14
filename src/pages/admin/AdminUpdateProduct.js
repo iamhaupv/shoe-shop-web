@@ -50,7 +50,7 @@ const AdminUpdateProduct = () => {
     console.log(productNew)
     console.log(_id)
     await UpdateProductService(token, _id, productNew);
-    navigate("/admin-manager-product");
+    navigate("/wp-admin/manager-product");
   };
   const handleName = (event) => {
     setName(event.target.value);

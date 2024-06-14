@@ -16,7 +16,7 @@ const AddProduct = () => {
         "Bạn có chắc chắn muốn thêm sản phẩm này?"
       );
       if (confirmAdd) {
-        navigate("/admin-manager-product");
+        navigate("/wp-admin/manager-product");
       }
     } catch (error) {}
   };
