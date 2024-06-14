@@ -4,6 +4,7 @@ import Nav from "../components/Nav"
 import Title from "../components/Title"
 import RowJordan from "../components/RowJordan"
 import RowNike from "../components/RowNike"
+import RowAdidas from "../components/RowAdidas"
 
 const View = () =>{
     return (
@@ -15,6 +16,8 @@ const View = () =>{
             <RowJordan/>
             <Title shoeName={"Nike"} />
             <RowNike/>
+            <Title shoeName={"Adidas"}/>
+            <RowAdidas/>
         </div>
     )
 }
