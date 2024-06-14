@@ -1,9 +1,9 @@
 import axios from "axios";
-
+import GlobalHost from "../../GlobalHost";
 const UpdateProductService = async (token, _id, {name, quantity}) => {
   try {
     const response = await axios.patch(
-      `http://localhost:3000/products/update-product/${_id}`, // Ensure the endpoint is correct
+      `${GlobalHost.host_product}/update-product/${_id}`, // Ensure the endpoint is correct
       {name, quantity}, // Send the productNew directly
       {
         headers: {
