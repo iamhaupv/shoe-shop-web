@@ -1,7 +1,8 @@
 import BannerVoucher from "../components/BannerVoucher"
-import Content from "../components/Content"
 import Header from "../components/Header"
 import Nav from "../components/Nav"
+import Title from "../components/Title"
+import RowJordan from "../components/RowJordan"
 
 const View = () =>{
     return (
@@ -9,7 +10,10 @@ const View = () =>{
             <Header/>
             <Nav/>
             <BannerVoucher/>
-            <Content/>
+            <Title shoeName={"Jordan"} />
+            <RowJordan/>
+            <Title shoeName={"Nike"} />
+            <RowJordan/>
         </div>
     )
 }

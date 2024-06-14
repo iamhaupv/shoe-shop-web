@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Nav = () => {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="bg-gray-900 py-4">
+    <div className={`bg-gray-900 py-4 ${isSticky ? "sticky top-0 z-50" : ""}`}>
       <div className="container mx-auto">
         <ul className="flex justify-center space-x-8">
           <li>
