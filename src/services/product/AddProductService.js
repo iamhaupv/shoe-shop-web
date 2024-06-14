@@ -1,9 +1,9 @@
 import axios from "axios";
-
+import GlobalHost from "../../GlobalHost";
 const AddProductService = async (token, name, quantity) => {
   try {
     const reponse = await axios.post(
-      "http://localhost:3000/products/add-product",
+      `${GlobalHost.host_product}/add-product`,
       { name, quantity },
       {
         headers: {
