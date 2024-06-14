@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginAdminService from "../services/admin/LoginAdminService";
+import LoginAdminService from "../../services/admin/LoginAdminService";
 //
 const LogninAdmin = () => {
   const navigate = useNavigate();

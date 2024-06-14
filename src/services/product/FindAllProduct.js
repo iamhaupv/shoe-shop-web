@@ -4,6 +4,7 @@ const FindAllProduct = async (token) => {
   try {
     const reponse = await axios.post(
       `${GlobalHost.host_product}/find-all-product`,
+      {},
       {
         headers: {
           Authorization: `Bearer ${token}`,

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import FindProductByIdService from "../services/product/FindProductByIdService";
-import UpdateProductService from "../services/product/UpdateProductService";
+import FindProductByIdService from "../../services/product/FindProductByIdService";
+import UpdateProductService from "../../services/product/UpdateProductService";
 
-const UpdateProduct = () => {
+const AdminUpdateProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(Number);
   const [product, setProduct] = useState({});
@@ -108,4 +108,4 @@ const UpdateProduct = () => {
   );
 };
 
-export default UpdateProduct;
+export default AdminUpdateProduct;

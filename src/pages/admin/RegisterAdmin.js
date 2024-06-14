@@ -1,5 +1,5 @@
-import Banner from "../components/Banner";
-import logo from "../assets/logo.png";
+import Banner from "../../components/Banner";
+import logo from "../../assets/logo.png";
 import { CgSpinner } from "react-icons/cg";
 import { useState } from "react";
 import "react-phone-input-2/lib/style.css";
@@ -7,9 +7,9 @@ import PhoneInput from "react-phone-input-2";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { BsFillShieldLockFill } from "react-icons/bs";
 import OtpInput from "otp-input-react";
-import { auth } from "../config/firebase.config";
+import { auth } from "../../config/firebase.config";
 import { useNavigate } from "react-router-dom";
-import RegisterAdminService from "../services/admin/RegisterAdminService";
+import RegisterAdminService from "../../services/admin/RegisterAdminService";
 const RegisterAdmin = () => {
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");

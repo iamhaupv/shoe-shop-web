@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import FindCartByIdService from "../services/cart/FindCartByIdService";
+import FindCartByIdService from "../../services/cart/FindCartByIdService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import AddProductToCartService from "../services/cart/AddProductToCartService";
-import RemoveProductFromCartService from "../services/cart/RemoveProductFromCartService";
+import AddProductToCartService from "../../services/cart/AddProductToCartService";
+import RemoveProductFromCartService from "../../services/cart/RemoveProductFromCartService";
 const Cart = () => {
   const [products, setProducts] = useState([]);
 
