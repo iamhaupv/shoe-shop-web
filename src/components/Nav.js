@@ -1,81 +1,86 @@
+import React from "react";
+
 const Nav = () => {
   return (
-    <div>
-      <ul class="grid grid-cols-3 gap-4">
-        <li>
-          <a
-            href="/jordan"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Giày Jordan
-          </a>
-        </li>
-        <li>
-          <a
-            href="/nike"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Giày Nike
-          </a>
-        </li>
-        <li>
-          <a
-            href="/adidas"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Giày Adidas
-          </a>
-        </li>
-        <li>
-          <a
-            href="/mlb"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Giày MLB
-          </a>
-        </li>
-        <li>
-          <a
-            href="/balance"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Balance
-          </a>
-        </li>
-        <li>
-          <a
-            href="/converse"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Converse
-          </a>
-        </li>
-        <li>
-          <a
-            href="/dior"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Dior
-          </a>
-        </li>
-        <li>
-          <a
-            href="/gucci"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            Gucci
-          </a>
-        </li>
-        <li>
-          <a
-            href="/LV"
-            class="block py-2 px-4 bg-gray-200 hover:bg-gray-300 rounded"
-          >
-            LV
-          </a>
-        </li>
-      </ul>
+    <div className="bg-gray-900 py-4">
+      <div className="container mx-auto">
+        <ul className="flex justify-center space-x-8">
+          <li>
+            <a
+              href="/jordan"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Giày Jordan
+            </a>
+          </li>
+          <li>
+            <a
+              href="/nike"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Giày Nike
+            </a>
+          </li>
+          <li>
+            <a
+              href="/adidas"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Giày Adidas
+            </a>
+          </li>
+          <li>
+            <a
+              href="/mlb"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Giày MLB
+            </a>
+          </li>
+          <li>
+            <a
+              href="/balance"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Balance
+            </a>
+          </li>
+          <li>
+            <a
+              href="/converse"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Converse
+            </a>
+          </li>
+          <li>
+            <a
+              href="/dior"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Dior
+            </a>
+          </li>
+          <li>
+            <a
+              href="/gucci"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              Gucci
+            </a>
+          </li>
+          <li>
+            <a
+              href="/LV"
+              className="text-white hover:text-gray-300 transition duration-300"
+            >
+              LV
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };
+
 export default Nav;
