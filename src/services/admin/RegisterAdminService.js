@@ -1,9 +1,9 @@
 import axios from "axios";
-
+import GlobalHost from "../../GlobalHost";
 const RegisterAdminService = async (phoneNumber, password) => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/wp-admin/register",
+      `${GlobalHost.host_admin}/register`,
       { phoneNumber, password }
     );
     return response.data;
