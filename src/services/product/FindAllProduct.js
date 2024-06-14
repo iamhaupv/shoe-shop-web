@@ -1,10 +1,9 @@
 import axios from "axios";
-
+import GlobalHost from "../../GlobalHost";
 const FindAllProduct = async (token) => {
   try {
     const reponse = await axios.post(
-      "http://localhost:3000/products/find-all-product",
-      {},
+      `${GlobalHost.host_product}/find-all-product`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
