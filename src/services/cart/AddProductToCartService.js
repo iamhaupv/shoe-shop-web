@@ -1,9 +1,9 @@
 import axios from "axios";
-
+import GlobalHost from "../../GlobalHost";
 const AddProductToCartService = async (token, phoneNumber, productId) => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/carts/add-product-to-cart",
+      `${GlobalHost.host_cart}/add-product-to-cart`,
       {
         phoneNumber,
         productId,
