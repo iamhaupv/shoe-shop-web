@@ -50,11 +50,11 @@ const AdminManagerProduct = () => {
   };
   // update product
   const handleUpdateProduct = (productId) => {
-    navigate(`/wp-admin/update-product?id=${productId}`);
+    navigate(`/wp-admin/products/update-product?id=${productId}`);
   };
   // add product
   const handleAddProduct = () => {
-    navigate("/wp-admin/add-product");
+    navigate("/wp-admin/products/add-product");
   };
   return (
     <div>

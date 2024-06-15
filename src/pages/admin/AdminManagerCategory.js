@@ -27,7 +27,7 @@ const AdminManagerCategory = () => {
     fetchAllCategories();
   }, []);
   const handleAdd = () => {
-    navigate("/wp-admin/add-categories");
+    navigate("/wp-admin/categories/add-categories");
   };
   const handleDeleteCategory = async (categoryId) => {
     try {
@@ -49,6 +49,9 @@ const AdminManagerCategory = () => {
       throw new Error(error);
     }
   };
+  const handleUpdateCategory = async() => {
+    navigate("/wp-admin/categories/update-category")
+  }
   return (
     <div className="flex justify-center mx-auto">
       <div>
@@ -84,13 +87,13 @@ const AdminManagerCategory = () => {
                     : ""}
                 </td>
                 <td>
+                  {/* button delete */}
                   <button onClick={() => handleDeleteCategory(category._id)}>
                     <FontAwesomeIcon icon={faTrashCan} />
                   </button>
-                  <button>
-                    <a href="fb.com">
-                      <FontAwesomeIcon icon={faPenToSquare} />
-                    </a>
+                  {/* butoon update */}
+                  <button onClick={handleUpdateCategory}>
+                    <FontAwesomeIcon icon={faPenToSquare} />
                   </button>
                 </td>
               </tr>
