@@ -3,6 +3,7 @@ import {
   faCirclePlus,
   faTrashCan,
   faPenToSquare,
+  faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import FindAllCategoriesService from "../../services/category/FindAllCategoriesService";
@@ -49,11 +50,21 @@ const AdminManagerCategory = () => {
       throw new Error(error);
     }
   };
-  const handleUpdateCategory = async(id) => {
-    navigate(`/wp-admin/categories/update-category?id=${id}`)
+  const handleUpdateCategory = async (id) => {
+    navigate(`/wp-admin/categories/update-category?id=${id}`);
+  };
+  // return
+  const handleReturn = () => {
+    navigate("/wp-admin-manager")
   }
   return (
     <div className="flex justify-center mx-auto">
+      {/* return */}
+      <div>
+        <button className="text-3xl" onClick={handleReturn}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
       <div>
         <button
           className="border-2 border-solid border-black text-3xl bg-green-400"

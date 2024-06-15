@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddCategoryService from "../../services/category/AddCategoryService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const AdminAddCategory = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -28,8 +30,19 @@ const AdminAddCategory = () => {
   const handleDescription = (event) => {
     setDescription(event.target.value);
   };
+  // return
+  const handleReturn = () => {
+    navigate("/wp-admin/categories/manager-categories");
+  };
   return (
     <div>
+      {/* return */}
+      <div>
+        <button className="text-3xl" onClick={handleReturn}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
+      {/* table */}
       <div>
         <table>
           <thead>

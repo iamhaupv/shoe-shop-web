@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import UpdateCategoryService from "../../services/category/UpdateCategoryService";
 import { useLocation, useNavigate } from "react-router-dom";
 import FindCategoryById from "../../services/category/FindCategoryByIdService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const AdminUpdateCategory = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -16,7 +18,7 @@ const AdminUpdateCategory = () => {
           throw new Error("Token invalid");
         }
         const response = await FindCategoryById(token, id);
-        console.log(response)
+        console.log(response);
         setCategory(response.data);
         setName(response.data.name);
         setDes(response.data.description);
@@ -49,8 +51,19 @@ const AdminUpdateCategory = () => {
       throw new Error(error);
     }
   };
+  //   return
+  const handleReturn = () => {
+    navigate("/wp-admin/categories/manager-categories");
+  };
   return (
     <div>
+      {/* return */}
+      <div>
+        <button className="text-3xl" onClick={handleReturn}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
+      {/* table */}
       <div>
         <table>
           <thead>

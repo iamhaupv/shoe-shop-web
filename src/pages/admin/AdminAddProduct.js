@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductService from "../../services/product/AddProductService";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const AdminAddProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -26,8 +28,18 @@ const AdminAddProduct = () => {
   const handleQuantity = (event) => {
     setQuantity(event.target.value);
   };
+  // return
+  const handleReturn = () => {
+    navigate("/wp-admin/products/manager-products")
+  }
   return (
     <div>
+      {/* return */}
+      <div>
+        <button onClick={handleReturn} className="text-3xl">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
       <div>
         <table>
           <tr>

@@ -2,6 +2,13 @@ import React, { useEffect, useState } from "react";
 import FindAllProduct from "../../services/product/FindAllProduct";
 import DeleteProductByIdService from "../../services/product/DeleteProductByIdService";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faPlus,
+  faTrash,
+  faPenToSquare,
+} from "@fortawesome/free-solid-svg-icons";
 const AdminManagerProduct = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -56,15 +63,25 @@ const AdminManagerProduct = () => {
   const handleAddProduct = () => {
     navigate("/wp-admin/products/add-product");
   };
+  // return
+  const handleReturn = () => {
+    navigate("/wp-admin-manager");
+  };
   return (
     <div>
-      {/* Bảng hiển thị danh sách sản phẩm */}
+      {/* return */}
+      <div>
+        <button onClick={handleReturn} className="text-3xl">
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
+      {/* create shoe */}
       <div>
         <button
           onClick={handleAddProduct}
-          className="bg-green-500 border-2 border-solid "
+          className="bg-green-500 border-2 border-solid text-4xl"
         >
-          Add
+          <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>
       <table>
@@ -85,17 +102,17 @@ const AdminManagerProduct = () => {
               <td>
                 {/* delete */}
                 <button
-                  className="bg-red-500 border-2 border-solid border-black"
+                  className="bg-red-500 border-2 border-solid border-black text-3xl"
                   onClick={() => handleDeleteProduct(product._id)}
                 >
-                  delete
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
-                |{/* update */}
+                {/* update */}
                 <button
-                  className="bg-blue-500 border-2 border-solid border-black"
+                  className="bg-blue-500 border-2 border-solid border-black text-3xl"
                   onClick={() => handleUpdateProduct(product._id)}
                 >
-                  update
+                  <FontAwesomeIcon icon={faPenToSquare} />
                 </button>
               </td>
             </tr>

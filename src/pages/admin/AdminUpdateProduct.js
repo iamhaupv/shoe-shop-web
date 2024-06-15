@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FindProductByIdService from "../../services/product/FindProductByIdService";
 import UpdateProductService from "../../services/product/UpdateProductService";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const AdminUpdateProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(Number);
@@ -46,9 +47,7 @@ const AdminUpdateProduct = () => {
     const queryParams = new URLSearchParams(location.search);
     const _id = queryParams.get("id");
     const token = localStorage.getItem("token");
-    const productNew = {name, quantity};
-    console.log(productNew)
-    console.log(_id)
+    const productNew = { name, quantity };
     await UpdateProductService(token, _id, productNew);
     navigate("/wp-admin/manager-product");
   };
@@ -59,9 +58,19 @@ const AdminUpdateProduct = () => {
   const handleQuantity = (event) => {
     setQuantity(event.target.value);
   };
-
+  // return
+  const handleReturn = () => {
+    navigate("/wp-admin/products/manager-products");
+  };
   return (
     <div>
+      {/* return */}
+      <div>
+        <button className="text-3xl" onClick={handleReturn}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
+      {/* table */}
       <div>
         <table>
           <tbody>
