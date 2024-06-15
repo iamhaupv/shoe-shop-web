@@ -1,30 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faUserTie,
   faShoePrints,
   faGear,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import TaskbarUser from "../../components/TaskbarUser";
 const AdminManger = () => {
-  const [user, setUser] = useState("");
   const navigate = useNavigate();
-  const handleUser = () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("Token invalid");
-      }
-      const u = JSON.parse(atob(token.split(".")[1]));
-      setUser(u.data.phoneNumber);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
-  useEffect(() => {
-    handleUser();
-  }, []); // Run once on component mount
   const handleManagerShoe = () => {
     navigate("/wp-admin/products/manager-products");
   };
@@ -45,10 +28,7 @@ const AdminManger = () => {
   return (
     <div>
       {/* username */}
-      <div>
-        <FontAwesomeIcon icon={faUserTie} />
-        <label>{user}</label>
-      </div>
+      <TaskbarUser />
       {/* logout */}
       <div>
         <button

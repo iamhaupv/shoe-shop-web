@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import FindAllCategoriesService from "../../services/category/FindAllCategoriesService";
 import { useNavigate } from "react-router-dom";
 import DeleteCategoryByIdService from "../../services/category/DeleteCategoryByIdService";
+import TaskbarUser from "../../components/TaskbarUser";
 const AdminManagerCategory = () => {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
@@ -59,6 +60,8 @@ const AdminManagerCategory = () => {
   }
   return (
     <div className="flex justify-center mx-auto">
+      {/* taskbar user */}
+      <TaskbarUser/>
       {/* return */}
       <div>
         <button className="text-3xl" onClick={handleReturn}>
