@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductService from "../../services/product/AddProductService";
-const AddProduct = () => {
+const AdminAddProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const navigate = useNavigate();
@@ -70,4 +70,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AdminAddProduct;
