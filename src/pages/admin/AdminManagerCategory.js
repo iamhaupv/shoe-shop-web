@@ -49,8 +49,8 @@ const AdminManagerCategory = () => {
       throw new Error(error);
     }
   };
-  const handleUpdateCategory = async() => {
-    navigate("/wp-admin/categories/update-category")
+  const handleUpdateCategory = async(id) => {
+    navigate(`/wp-admin/categories/update-category?id=${id}`)
   }
   return (
     <div className="flex justify-center mx-auto">
@@ -92,7 +92,7 @@ const AdminManagerCategory = () => {
                     <FontAwesomeIcon icon={faTrashCan} />
                   </button>
                   {/* butoon update */}
-                  <button onClick={handleUpdateCategory}>
+                  <button onClick={() => handleUpdateCategory(category._id)}>
                     <FontAwesomeIcon icon={faPenToSquare} />
                   </button>
                 </td>
