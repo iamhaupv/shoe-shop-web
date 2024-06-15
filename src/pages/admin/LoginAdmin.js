@@ -24,7 +24,7 @@ const LogninAdmin = () => {
     try {
       const user = await LoginAdminService(phoneNumber, password);
       localStorage.setItem("token", user.data.token);
-      navigate("/wp-admin/manager-product", { state: { user: user.data } });
+      navigate("/wp-admin-manager", { state: { user: user.data } });
     } catch (error) {
       throw new Error(error);
     }

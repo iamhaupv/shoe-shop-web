@@ -16,7 +16,7 @@ const AdminAddCategory = () => {
         "Bạn có chắc chắn muốn thêm sản phẩm này?"
       );
       if (confirmAdd) {
-        navigate("/wp-admin/manager-categories");
+        navigate("/wp-admin/categories/manager-categories");
       }
     } catch (error) {
       throw new Error(error);

@@ -13,6 +13,7 @@ import Cart from "../pages/user/Cart";
 import AdminManagerCategory from "../pages/admin/AdminManagerCategory";
 import AdminAddCategory from "../pages/admin/AdminAddCategory";
 import AdminUpdateCategory from "../pages/admin/AdminUpdateCategory";
+import AdminManger from "../pages/admin/AdminManager";
 
 const AppRouter = () => {
   return (
@@ -25,6 +26,8 @@ const AppRouter = () => {
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/my-cart" element={<Cart />} />
+        {/* admin manager */}
+        <Route path="/wp-admin-manager" element={<AdminManger />} />
         {/* admin product */}
         <Route
           path="/wp-admin/products/manager-products"
@@ -34,7 +37,10 @@ const AppRouter = () => {
           path="/wp-admin/products/update-product"
           element={<AdminUpdateProduct />}
         />
-        <Route path="/wp-admin/products/add-product" element={<AdminAddProduct />} />
+        <Route
+          path="/wp-admin/products/add-product"
+          element={<AdminAddProduct />}
+        />
         <Route path="/wp-admin" element={<LogninAdmin />} />
         <Route path="wp-admin-register" element={<RegisterAdmin />} />
         {/* admin category */}

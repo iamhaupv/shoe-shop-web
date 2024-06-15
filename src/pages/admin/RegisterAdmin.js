@@ -20,7 +20,7 @@ const RegisterAdmin = () => {
   const navigate = useNavigate();
   const handleRegister = async () => {
     const register = await RegisterAdminService(phone, password);
-    navigate("/wp-admin/manager-product", { state: { user: register } });
+    navigate("/wp-admin-manager", { state: { user: register } });
   };
   const handleShowPassword = (e) => {
     setShowPassword(e.target.checked);
