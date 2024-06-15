@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import FindAllProduct from "../../services/product/FindAllProduct";
+import FindAllProductService from "../../services/product/FindAllProductService";
 import DeleteProductByIdService from "../../services/product/DeleteProductByIdService";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,7 +23,7 @@ const AdminManagerProduct = () => {
         }
 
         // Gọi API để lấy danh sách sản phẩm
-        const response = await FindAllProduct(token);
+        const response = await FindAllProductService(token);
         setProducts(response.data); // Gán mảng sản phẩm vào state
       } catch (error) {
         console.error("Error fetching products:", error);

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import FindAllProduct from "../../services/product/FindAllProduct";
+import FindAllProduct from "../../services/product/FindAllProductService";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faCartShopping } from "@fortawesome/free-solid-svg-icons";

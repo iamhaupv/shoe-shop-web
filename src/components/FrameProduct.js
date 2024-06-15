@@ -1,6 +1,7 @@
-const FrameProduct = ({imageName}) => {
+const FrameProduct = ({imageName, name}) => {
+
   return (
-    <div className="w-1/4 bg-blue-200 h-[500px] border-2 border-solid border-black overflow-hidden transition-transform hover:shadow-lg hover:scale-105">
+    <div className="w-1/4 bg-blue-200 h-[500px] border-2 border-solid border-black overflow-hidden transition-transform hover:shadow-lg hover:scale-105 ml-2">
       {/* img */}
       <div className="h-[350px] px-4 mt-4 w-full overflow-hidden">
         <img 
@@ -11,7 +12,7 @@ const FrameProduct = ({imageName}) => {
       </div>
       {/* name */}
       <div className="px-4">
-        <p>Jordan-1 là 1 đôi giày thể thao phù hợp với tất cả các thể loại</p>
+        <p>{name}</p>
       </div>
       {/* price */}
       <div className="px-4">

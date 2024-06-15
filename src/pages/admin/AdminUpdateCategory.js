@@ -68,6 +68,9 @@ const AdminUpdateCategory = () => {
         <table>
           <thead>
             <tr>
+                <td>{category._id}</td>
+            </tr>
+            <tr>
               <td>Name</td>
               <td>
                 <input
