@@ -1,24 +1,33 @@
 import { useEffect, useState } from "react";
 import UpdateCategoryService from "../../services/category/UpdateCategoryService";
 import { useLocation, useNavigate } from "react-router-dom";
+import FindCategoryById from "../../services/category/FindCategoryByIdService";
 const AdminUpdateCategory = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [des, setDes] = useState("");
+  const [category, setCategory] = useState({});
   useEffect(() => {
-    const fetchCategory = () => {
+    const fetchCategory = async (id) => {
       try {
         const token = localStorage.getItem("token");
         if (!token) {
           throw new Error("Token invalid");
         }
-        
+        const response = await FindCategoryById(token, id);
+        console.log(response)
+        setCategory(response.data);
+        setName(response.data.name);
+        setDes(response.data.description);
       } catch (error) {
         throw new Error(error);
       }
     };
-    fetchCategory();
+    const queryParams = new URLSearchParams(location.search);
+    const productId = queryParams.get("id");
+
+    fetchCategory(productId);
   }, [location.search]);
   //   name
   const handleName = (event) => {
@@ -35,7 +44,7 @@ const AdminUpdateCategory = () => {
       const id = queryParams.get("id");
       const token = localStorage.getItem("token");
       await UpdateCategoryService(token, id, { name, des });
-      navigate("/wp-admin/products/manager-product");
+      navigate("/wp-admin/categories/manager-categories");
     } catch (error) {
       throw new Error(error);
     }

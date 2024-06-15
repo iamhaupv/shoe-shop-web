@@ -27,7 +27,7 @@ const AppRouter = () => {
         <Route path="/my-cart" element={<Cart />} />
         {/* admin product */}
         <Route
-          path="/wp-admin/products/manager-product"
+          path="/wp-admin/products/manager-products"
           element={<AdminManagerProduct />}
         />
         <Route
@@ -43,11 +43,11 @@ const AppRouter = () => {
           element={<AdminManagerCategory />}
         />
         <Route
-          path="/wp-admin/categories/add-categories"
+          path="/wp-admin/categories/add-category"
           element={<AdminAddCategory />}
         />
         <Route
-          path="/wp-admin/categories/updatecategory"
+          path="/wp-admin/categories/update-category"
           element={<AdminUpdateCategory />}
         />
         <Route path="*" element={<NotFound />} />

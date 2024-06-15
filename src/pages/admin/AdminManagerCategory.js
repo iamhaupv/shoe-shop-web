@@ -27,7 +27,7 @@ const AdminManagerCategory = () => {
     fetchAllCategories();
   }, []);
   const handleAdd = () => {
-    navigate("/wp-admin/categories/add-categories");
+    navigate("/wp-admin/categories/add-category");
   };
   const handleDeleteCategory = async (categoryId) => {
     try {
