@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductService from "../../services/product/AddProductService";
+import UploadImagesService from "../../services/product/UploadImagesService"; // Import the service
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useDropzone } from "react-dropzone";
@@ -9,6 +10,7 @@ const AdminAddProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [images, setImages] = useState([]);
+  const [size, setSize] = useState("36");
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -17,12 +19,21 @@ const AdminAddProduct = () => {
       if (!token) {
         throw new Error("Token invalid!");
       }
-      // Thêm images vào tham số của AddProductService
-      await AddProductService(token, name, quantity, images);
+
       const confirmAdd = window.confirm(
         "Bạn có chắc chắn muốn thêm sản phẩm này?"
       );
       if (confirmAdd) {
+        // Upload images
+        const uploadedImages = [];
+        for (let image of images) {
+          const uploadedImage = await UploadImagesService(token, image);
+          uploadedImages.push(uploadedImage);
+        }
+
+        // Add product with uploaded image URLs
+        await AddProductService(token, name, quantity, uploadedImages, size);
+
         navigate("/wp-admin/manager-product");
       }
     } catch (error) {
@@ -42,7 +53,10 @@ const AdminAddProduct = () => {
     navigate("/wp-admin/products/manager-products");
   };
 
-  // Xử lý khi người dùng thêm ảnh
+  const handleSizeChange = (event) => {
+    setSize(event.target.value);
+  };
+
   const onDrop = (acceptedFiles) => {
     const updatedImages = acceptedFiles.map((file) =>
       Object.assign(file, {
@@ -135,6 +149,25 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            <tr>
+              <td className="px-4 py-2 border-b">Size</td>
+              <td className="px-4 py-2 border-b">
+                <select
+                  value={size}
+                  onChange={handleSizeChange}
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                >
+                  {["36", "37", "38", "39", "40", "41", "42", "43", "44"].map(
+                    (sizeOption) => (
+                      <option key={sizeOption} value={sizeOption}>
+                        {sizeOption}
+                      </option>
+                    )
+                  )}
+                </select>
+              </td>
+            </tr>
+            {/* button thêm sản phẩm */}
             <tr>
               <td colSpan="2" className="px-4 py-2 text-center">
                 <button
