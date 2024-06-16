@@ -21,11 +21,12 @@ const RowJordan = () => {
     };
     fetchAllProduct();
   }, []);
-
+  // Lấy 4 phần tử đầu tiên trong mảng
+  const firstFourShoes = shoes.slice(0, 4);
   return (
     <div className="flex flex-wrap w-full mx-auto px-[50px] mt-4 ">
-      {shoes.map((shoe, index) => (
-        <FrameProduct key={index} name={shoe.name} imageName={jordan1} />
+      {firstFourShoes.map((shoe, index) => (
+        <FrameProduct key={index} price={shoe.price} name={shoe.name} imageName={jordan1} />
       ))}
     </div>
   );

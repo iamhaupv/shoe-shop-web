@@ -1,4 +1,4 @@
-const FrameProduct = ({imageName, name}) => {
+const FrameProduct = ({imageName, name, price}) => {
 
   return (
     <div className="w-1/4 bg-blue-200 h-[500px] border-2 border-solid border-black overflow-hidden transition-transform hover:shadow-lg hover:scale-105">
@@ -16,7 +16,7 @@ const FrameProduct = ({imageName, name}) => {
       </div>
       {/* price */}
       <div className="px-4">
-        <p>70000000$</p>
+        <p>{price}</p>
       </div>
       {/* đã bán */}
       <div className="px-4">
