@@ -149,6 +149,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* size */}
             <tr>
               <td className="px-4 py-2 border-b">Size</td>
               <td className="px-4 py-2 border-b">
@@ -165,6 +166,66 @@ const AdminAddProduct = () => {
                     )
                   )}
                 </select>
+              </td>
+            </tr>
+            {/* Description */}
+            <tr>
+              <td className="px-4 py-2 border-b">Description</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* color */}
+            <tr>
+              <td className="px-4 py-2 border-b">Color</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* material */}
+            <tr>
+              <td className="px-4 py-2 border-b">Material</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* design */}
+            <tr>
+              <td className="px-4 py-2 border-b">Design</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* createdAt */}
+            <tr>
+              <td className="px-4 py-2 border-b">CreatedAt</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* updatedAt */}
+            <tr>
+              <td className="px-4 py-2 border-b">UpdateAt</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  className="border border-gray-300 rounded-md p-2 w-full "
+                />
               </td>
             </tr>
             {/* button thêm sản phẩm */}
