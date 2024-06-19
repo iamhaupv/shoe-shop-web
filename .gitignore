@@ -8,7 +8,7 @@
 /src/config/firebase.config.js
 # testing
 /coverage
-
+.env
 # production
 /build
 
