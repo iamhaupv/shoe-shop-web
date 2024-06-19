@@ -16,13 +16,7 @@ const firebaseConfig = {
   // messagingSenderId: process.env.MESSAGING_SENDER_ID,
   // appId: process.env.APP_ID,
   // measurementId: process.envMEASUREMENT_ID,
-  apiKey: "AIzaSyDK7w2cjk-NWkN7C2OAuScipe8AxyC0Ei8",
-  authDomain: "shoe-shop-8d586.firebaseapp.com",
-  projectId: "shoe-shop-8d586",
-  storageBucket: "shoe-shop-8d586.appspot.com",
-  messagingSenderId: "641960018941",
-  appId: "1:641960018941:web:7e0f41a18f581df9bb4f94",
-  measurementId: "G-CEKN8H261T",
+ 
 };
 
 // Initialize Firebase
