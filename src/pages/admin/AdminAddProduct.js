@@ -9,10 +9,17 @@ import { useDropzone } from "react-dropzone";
 const AdminAddProduct = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [images, setImages] = useState([]);
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [color, setColor] = useState("");
+  const [material, setMaterial] = useState("");
+  const [design, setDesign] = useState("");
   const [size, setSize] = useState("36");
-  const navigate = useNavigate();
+  const [images, setImages] = useState([]);
 
+  const navigate = useNavigate();
+  // handle submit
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -40,23 +47,11 @@ const AdminAddProduct = () => {
       console.error("Error adding product:", error);
     }
   };
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
-  };
-
+  // back
   const handleReturn = () => {
     navigate("/wp-admin/products/manager-products");
   };
-
-  const handleSizeChange = (event) => {
-    setSize(event.target.value);
-  };
-
+  // ondrop
   const onDrop = (acceptedFiles) => {
     const updatedImages = acceptedFiles.map((file) =>
       Object.assign(file, {
@@ -65,18 +60,17 @@ const AdminAddProduct = () => {
     );
     setImages([...images, ...updatedImages]);
   };
-
+  // remove image
   const handleRemoveImage = (index) => {
     const updatedImages = [...images];
     updatedImages.splice(index, 1);
     setImages(updatedImages);
   };
-
+  // acept images
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     onDrop,
   });
-
   return (
     <div className="p-6">
       {/* Return Button */}
@@ -133,18 +127,43 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   value={name}
-                  onChange={handleNameChange}
+                  onChange={(e)=>setName(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 />
               </td>
             </tr>
+            {/* quantity */}
             <tr>
               <td className="px-4 py-2 border-b">Quantity</td>
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
                   value={quantity}
-                  onChange={handleQuantityChange}
+                  onChange={(e)=> setQuantity(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* category */}
+            <tr>
+              <td className="px-4 py-2 border-b">Category</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  value={category}
+                  onChange={(e)=>setCategory(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                />
+              </td>
+            </tr>
+            {/* price */}
+            <tr>
+              <td className="px-4 py-2 border-b">Price</td>
+              <td className="px-4 py-2 border-b">
+                <input
+                  type="text"
+                  value={price}
+                  onChange={(e)=>setPrice(e.target.price)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 />
               </td>
@@ -155,7 +174,7 @@ const AdminAddProduct = () => {
               <td className="px-4 py-2 border-b">
                 <select
                   value={size}
-                  onChange={handleSizeChange}
+                  onChange={(e)=>setSize(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 >
                   {["36", "37", "38", "39", "40", "41", "42", "43", "44"].map(
@@ -175,6 +194,8 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
+                  value={description}
+                  onChange={(e)=>setDescription(e.target.value)}
                 />
               </td>
             </tr>
@@ -185,6 +206,8 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
+                  value={color}
+                  onChange={(e)=>setColor(e.target.value)}
                 />
               </td>
             </tr>
@@ -195,6 +218,8 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
+                  value={material}
+                  onChange={(e)=>setMaterial(e.target.value)}
                 />
               </td>
             </tr>
@@ -205,6 +230,8 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
+                  value={design}
+                  onChange={(e)=>setDesign(e.target.value)}
                 />
               </td>
             </tr>
