@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AddProductService from "../../services/product/AddProductService";
-import UploadImagesService from "../../services/product/UploadImagesService"; // Import the service
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useDropzone } from "react-dropzone";
@@ -19,7 +18,8 @@ const AdminAddProduct = () => {
   const [images, setImages] = useState([]);
 
   const navigate = useNavigate();
-  // handle submit
+
+  // Handle form submission
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem("token");
@@ -27,31 +27,35 @@ const AdminAddProduct = () => {
         throw new Error("Token invalid!");
       }
 
-      const confirmAdd = window.confirm(
-        "Bạn có chắc chắn muốn thêm sản phẩm này?"
-      );
-      if (confirmAdd) {
-        // Upload images
-        const uploadedImages = [];
-        for (let image of images) {
-          const uploadedImage = await UploadImagesService(token, image);
-          uploadedImages.push(uploadedImage);
-        }
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("quantity", quantity);
+      formData.append("category", category);
+      formData.append("price", price);
+      formData.append("description", description);
+      formData.append("color", color);
+      formData.append("material", material);
+      formData.append("design", design);
+      formData.append("size", size);
 
-        // Add product with uploaded image URLs
-        await AddProductService(token, name, quantity, uploadedImages, size);
+      images.forEach((image) => {
+        formData.append("images", image);
+      });
 
-        navigate("/wp-admin/manager-product");
-      }
+      await AddProductService(token, formData);
+
+      navigate("/wp-admin/products/manager-products");
     } catch (error) {
       console.error("Error adding product:", error);
     }
   };
-  // back
+
+  // Navigate back
   const handleReturn = () => {
     navigate("/wp-admin/products/manager-products");
   };
-  // ondrop
+
+  // Handle file drop
   const onDrop = (acceptedFiles) => {
     const updatedImages = acceptedFiles.map((file) =>
       Object.assign(file, {
@@ -60,17 +64,20 @@ const AdminAddProduct = () => {
     );
     setImages([...images, ...updatedImages]);
   };
-  // remove image
+
+  // Remove image from preview
   const handleRemoveImage = (index) => {
     const updatedImages = [...images];
     updatedImages.splice(index, 1);
     setImages(updatedImages);
   };
-  // acept images
+
+  // Setup dropzone configuration
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
     onDrop,
   });
+
   return (
     <div className="p-6">
       {/* Return Button */}
@@ -91,10 +98,10 @@ const AdminAddProduct = () => {
         >
           <input {...getInputProps()} className="hidden" />
           <p className="text-gray-600 text-center">
-            Kéo và thả hình ảnh hoặc click để chọn ảnh
+            Drag and drop images here or click to select images
           </p>
           <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-            Chọn ảnh
+            Choose images
           </button>
         </div>
         {/* Image Preview */}
@@ -127,54 +134,50 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   value={name}
-                  onChange={(e)=>setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 />
               </td>
             </tr>
-            {/* quantity */}
             <tr>
               <td className="px-4 py-2 border-b">Quantity</td>
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
                   value={quantity}
-                  onChange={(e)=> setQuantity(e.target.value)}
+                  onChange={(e) => setQuantity(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 />
               </td>
             </tr>
-            {/* category */}
             <tr>
               <td className="px-4 py-2 border-b">Category</td>
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
                   value={category}
-                  onChange={(e)=>setCategory(e.target.value)}
+                  onChange={(e) => setCategory(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 />
               </td>
             </tr>
-            {/* price */}
             <tr>
               <td className="px-4 py-2 border-b">Price</td>
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
                   value={price}
-                  onChange={(e)=>setPrice(e.target.price)}
+                  onChange={(e) => setPrice(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 />
               </td>
             </tr>
-            {/* size */}
             <tr>
               <td className="px-4 py-2 border-b">Size</td>
               <td className="px-4 py-2 border-b">
                 <select
                   value={size}
-                  onChange={(e)=>setSize(e.target.value)}
+                  onChange={(e) => setSize(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 >
                   {["36", "37", "38", "39", "40", "41", "42", "43", "44"].map(
@@ -187,7 +190,6 @@ const AdminAddProduct = () => {
                 </select>
               </td>
             </tr>
-            {/* Description */}
             <tr>
               <td className="px-4 py-2 border-b">Description</td>
               <td className="px-4 py-2 border-b">
@@ -195,11 +197,10 @@ const AdminAddProduct = () => {
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
                   value={description}
-                  onChange={(e)=>setDescription(e.target.value)}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </td>
             </tr>
-            {/* color */}
             <tr>
               <td className="px-4 py-2 border-b">Color</td>
               <td className="px-4 py-2 border-b">
@@ -207,11 +208,10 @@ const AdminAddProduct = () => {
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
                   value={color}
-                  onChange={(e)=>setColor(e.target.value)}
+                  onChange={(e) => setColor(e.target.value)}
                 />
               </td>
             </tr>
-            {/* material */}
             <tr>
               <td className="px-4 py-2 border-b">Material</td>
               <td className="px-4 py-2 border-b">
@@ -219,11 +219,10 @@ const AdminAddProduct = () => {
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
                   value={material}
-                  onChange={(e)=>setMaterial(e.target.value)}
+                  onChange={(e) => setMaterial(e.target.value)}
                 />
               </td>
             </tr>
-            {/* design */}
             <tr>
               <td className="px-4 py-2 border-b">Design</td>
               <td className="px-4 py-2 border-b">
@@ -231,43 +230,22 @@ const AdminAddProduct = () => {
                   type="text"
                   className="border border-gray-300 rounded-md p-2 w-full"
                   value={design}
-                  onChange={(e)=>setDesign(e.target.value)}
+                  onChange={(e) => setDesign(e.target.value)}
                 />
-              </td>
-            </tr>
-            {/* createdAt */}
-            <tr>
-              <td className="px-4 py-2 border-b">CreatedAt</td>
-              <td className="px-4 py-2 border-b">
-                <input
-                  type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
-                />
-              </td>
-            </tr>
-            {/* updatedAt */}
-            <tr>
-              <td className="px-4 py-2 border-b">UpdateAt</td>
-              <td className="px-4 py-2 border-b">
-                <input
-                  type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full "
-                />
-              </td>
-            </tr>
-            {/* button thêm sản phẩm */}
-            <tr>
-              <td colSpan="2" className="px-4 py-2 text-center">
-                <button
-                  onClick={handleSubmit}
-                  className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-600"
-                >
-                  Thêm sản phẩm
-                </button>
               </td>
             </tr>
           </tbody>
         </table>
+      </div>
+
+      {/* Submit Button */}
+      <div className="mb-6">
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+        >
+          Add Product
+        </button>
       </div>
     </div>
   );

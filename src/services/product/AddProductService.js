@@ -1,38 +1,19 @@
 import axios from "axios";
 import GlobalHost from "../../GlobalHost";
-const AddProductService = async (
-  token,
-  name,
-  quantity,
-  category,
-  price,
-  description,
-  color,
-  material,
-  design,
-  images
-) => {
+
+const AddProductService = async (token, formData) => {
   try {
-    const reponse = await axios.post(
+    const response = await axios.post(
       `${GlobalHost.host_product}/add-product`,
-      {
-        name,
-        quantity,
-        category,
-        price,
-        description,
-        color,
-        material,
-        design,
-        images,
-      },
+      formData,
       {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
       }
     );
-    return reponse.data;
+    return response.data;
   } catch (error) {
     throw new Error(error);
   }
