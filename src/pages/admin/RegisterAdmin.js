@@ -174,6 +174,7 @@ const RegisterAdmin = () => {
               <button
                 className="bg-blue-300 w-full border-2 border-solid border border-black flex justify-center"
                 onClick={onSignup}
+                disabled={loading}
               >
                 {loading && (
                   <CgSpinner size={20} className="mt-1 animate-spin" />
