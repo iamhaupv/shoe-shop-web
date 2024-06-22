@@ -109,8 +109,6 @@ const AdminAddProduct = () => {
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
       </div>
-
-      
       {/* Product Details Form */}
       <div className="mb-6">
         <table className="min-w-full border-collapse">
