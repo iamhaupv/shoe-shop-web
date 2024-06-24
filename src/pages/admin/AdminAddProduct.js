@@ -54,43 +54,6 @@ const AdminAddProduct = () => {
 
     fetchCategories();
   }, []);
-
-  // Handle form submission
-  const handleSubmit = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("Token invalid!");
-      }
-      handleChangeName(name);
-      handleChangeQuantity(quantity);
-      handleChangeCategory(selectedCategory);
-      handleChangePrice(price);
-      handleChangeDes(description);
-      handleChangeColor(color);
-      handleChangeMaterial(material);
-      handleChangeDesign(design);
-      // form
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("quantity", quantity);
-      formData.append("category", selectedCategory); // Use selectedCategory state
-      formData.append("price", price);
-      formData.append("description", description);
-      formData.append("color", color);
-      formData.append("material", material);
-      formData.append("design", design);
-      formData.append("size", size);
-      images.forEach((image) => {
-        formData.append("images", image);
-      });
-      await AddProductService(token, formData);
-      navigate("/wp-admin/products/manager-products");
-    } catch (error) {
-      console.error("Error adding product:", error);
-    }
-  };
-
   // Navigate back
   const handleReturn = () => {
     navigate("/wp-admin/products/manager-products");
@@ -260,6 +223,73 @@ const AdminAddProduct = () => {
     regexDesign(e.target.value);
     setIconDesign(true);
   };
+  // Handle form submission
+  const handleSubmit = async () => {
+    // Trigger blur events to validate all fields
+    handleBlurName({ target: { value: name } });
+    handleBlurQuantity({ target: { value: quantity } });
+    handleBlurCategory();
+    handleBlurPrice({ target: { value: price } });
+    handleBlurDes({ target: { value: description } });
+    handleBlurColor({ target: { value: color } });
+    handleBlurMaterial({ target: { value: material } });
+    handleBlurDesign({ target: { value: design } });
+  
+    // Delay to ensure state updates before checking
+    setTimeout(async () => {
+      // Check all validation conditions before proceeding
+      if (
+        !name ||
+        nameError ||
+        !quantity ||
+        quantityError ||
+        !selectedCategory ||
+        categoryError ||
+        !price ||
+        priceError ||
+        !description ||
+        desError ||
+        !color ||
+        colorError ||
+        !material ||
+        materialError ||
+        !design ||
+        designError
+      ) {
+        // Display error messages or handle invalid form submission
+        console.error("Invalid form data, please check all fields.");
+        return;
+      }
+  
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          throw new Error("Token invalid!");
+        }
+  
+        // Prepare form data
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("quantity", quantity);
+        formData.append("category", selectedCategory);
+        formData.append("price", price);
+        formData.append("description", description);
+        formData.append("color", color);
+        formData.append("material", material);
+        formData.append("design", design);
+        formData.append("size", size);
+        images.forEach((image) => {
+          formData.append("images", image);
+        });
+  
+        await AddProductService(token, formData);
+        navigate("/wp-admin/products/manager-products");
+      } catch (error) {
+        console.error("Error adding product:", error);
+      }
+    }, 0);
+  };
+  
   return (
     <div className="p-6">
       {/* Return Button */}
