@@ -26,6 +26,9 @@ const AdminAddProduct = () => {
   const [iconCategory, setIconCategory] = useState(false); // icon category
   const [priceError, setPriceError] = useState(false); // price error
   const [iconPrice, setIconPrice] = useState(false); // icon price
+  const [desError, setDesError] = useState(false) // description error
+  const [iconDes, setIconDes] = useState(false) // icon description
+
   const navigate = useNavigate(); // navigate
 
   // Fetch categories from API on component mount
@@ -176,6 +179,24 @@ const AdminAddProduct = () => {
     regexPrice(e.target.value);
     setIconPrice(true);
   };
+  // regex description
+  const regexDes = (value) => {
+    const regex = /^[\w\s]{0,1000}$/
+    if(value === "" || !regex.test(value))
+      setDesError(true)
+    else setDesError(false)
+  }
+  // handle change description
+  const handleChangeDes = (e) => {
+    regexDes(e.target.value)
+    setDescription(e.target.value)
+    setIconDes(false)
+  }
+  // handle blur description
+  const handleBlurDes = (e) => {
+    regexDes(e.target.value)
+    setIconDes(true)
+  }
   return (
     <div className="p-6">
       {/* Return Button */}
@@ -327,10 +348,20 @@ const AdminAddProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    desError ? "border-red-500" : ""
+                  }`}
                   value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={handleChangeDes}
+                  onBlur={handleBlurDes}
                 />
+              </td>
+              <td>
+                {
+                  iconDes && (
+                    desError ? (<span className="text-red-500">*</span>) : (<span className="text-green-500"><FontAwesomeIcon icon={faCheck} /></span>)
+                  )
+                }
               </td>
             </tr>
             {/* color */}
