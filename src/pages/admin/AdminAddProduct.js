@@ -26,9 +26,14 @@ const AdminAddProduct = () => {
   const [iconCategory, setIconCategory] = useState(false); // icon category
   const [priceError, setPriceError] = useState(false); // price error
   const [iconPrice, setIconPrice] = useState(false); // icon price
-  const [desError, setDesError] = useState(false) // description error
-  const [iconDes, setIconDes] = useState(false) // icon description
-
+  const [desError, setDesError] = useState(false); // description error
+  const [iconDes, setIconDes] = useState(false); // icon description
+  const [colorError, setColorError] = useState(false); // color error
+  const [iconColor, setIconColor] = useState(false); // icon color
+  const [materialError, setMaterialError] = useState(false); // material error
+  const [iconMaterial, setIconMaterial] = useState(false); // icon material
+  const [designError, setDesignError] = useState(false); // design error
+  const [iconDesign, setIconDesign] = useState(false); // icon design
   const navigate = useNavigate(); // navigate
 
   // Fetch categories from API on component mount
@@ -57,6 +62,14 @@ const AdminAddProduct = () => {
       if (!token) {
         throw new Error("Token invalid!");
       }
+      handleChangeName(name);
+      handleChangeQuantity(quantity);
+      handleChangeCategory(selectedCategory);
+      handleChangePrice(price);
+      handleChangeDes(description);
+      handleChangeColor(color);
+      handleChangeMaterial(material);
+      handleChangeDesign(design);
       // form
       const formData = new FormData();
       formData.append("name", name);
@@ -181,22 +194,72 @@ const AdminAddProduct = () => {
   };
   // regex description
   const regexDes = (value) => {
-    const regex = /^[\w\s]{0,1000}$/
-    if(value === "" || !regex.test(value))
-      setDesError(true)
-    else setDesError(false)
-  }
+    const regex = /^[\w\s]{0,1000}$/;
+    if (value === "" || !regex.test(value)) setDesError(true);
+    else setDesError(false);
+  };
   // handle change description
   const handleChangeDes = (e) => {
-    regexDes(e.target.value)
-    setDescription(e.target.value)
-    setIconDes(false)
-  }
+    regexDes(e.target.value);
+    setDescription(e.target.value);
+    setIconDes(false);
+  };
   // handle blur description
   const handleBlurDes = (e) => {
-    regexDes(e.target.value)
-    setIconDes(true)
-  }
+    regexDes(e.target.value);
+    setIconDes(true);
+  };
+  // regex color
+  const regexColor = (value) => {
+    const regex = /^[\w\s]{0,50}$/;
+    if (value === "" || !regex.test(value)) setColorError(true);
+    else setColorError(false);
+  };
+  // handle change color
+  const handleChangeColor = (e) => {
+    regexColor(e.target.value);
+    setColor(e.target.value);
+    setIconColor(false);
+  };
+  // handle blur color
+  const handleBlurColor = (e) => {
+    regexColor(e.target.value);
+    setIconColor(true);
+  };
+  // regex material
+  const regexMaterial = (value) => {
+    const regex = /^[\w\s]{0, 100}$/;
+    if (value === "" || regex.test(value)) setMaterialError(true);
+    else setMaterialError(false);
+  };
+  // handle change material
+  const handleChangeMaterial = (e) => {
+    regexMaterial(e.target.value);
+    setMaterial(e.target.value);
+    setIconMaterial(false);
+  };
+  // handle blur material
+  const handleBlurMaterial = (e) => {
+    regexMaterial(e.target.value);
+    setIconMaterial(true);
+  };
+  // regex design
+  const regexDesign = (value) => {
+    const regex = /^[\w\s]{0,100}$/;
+    if (value === "" || !regex.test(value)) setDesignError(true);
+    else setDesignError(false);
+  };
+  // handle change design
+  const handleChangeDesign = (e) => {
+    regexDesign(e.target.value);
+    setDesign(e.target.value);
+    setIconDesign(false);
+  };
+  // handle blur design
+  const handleBlurDesign = (e) => {
+    regexDesign(e.target.value);
+    setIconDesign(true);
+  };
   return (
     <div className="p-6">
       {/* Return Button */}
@@ -357,11 +420,14 @@ const AdminAddProduct = () => {
                 />
               </td>
               <td>
-                {
-                  iconDes && (
-                    desError ? (<span className="text-red-500">*</span>) : (<span className="text-green-500"><FontAwesomeIcon icon={faCheck} /></span>)
-                  )
-                }
+                {iconDes &&
+                  (desError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* color */}
@@ -370,10 +436,23 @@ const AdminAddProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    colorError ? "border-red-500" : ""
+                  }`}
                   value={color}
-                  onChange={(e) => setColor(e.target.value)}
+                  onChange={handleChangeColor}
+                  onBlur={handleBlurColor}
                 />
+              </td>
+              <td>
+                {iconColor &&
+                  (colorError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* material */}
@@ -382,10 +461,23 @@ const AdminAddProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    materialError ? "border-red-500" : ""
+                  }`}
                   value={material}
-                  onChange={(e) => setMaterial(e.target.value)}
+                  onChange={handleChangeMaterial}
+                  onBlur={handleBlurMaterial}
                 />
+              </td>
+              <td>
+                {iconMaterial &&
+                  (materialError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* design */}
@@ -394,10 +486,23 @@ const AdminAddProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    designError ? "border-red-500" : ""
+                  }`}
                   value={design}
-                  onChange={(e) => setDesign(e.target.value)}
+                  onChange={handleChangeDesign}
+                  onBlur={handleBlurDesign}
                 />
+              </td>
+              <td>
+                {iconDesign &&
+                  (designError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
           </tbody>
