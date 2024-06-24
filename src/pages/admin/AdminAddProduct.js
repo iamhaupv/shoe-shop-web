@@ -24,6 +24,8 @@ const AdminAddProduct = () => {
   const [iconQuantity, setIconQuantity] = useState(false); // icon quantity
   const [categoryError, setCategoryError] = useState(false); // category error
   const [iconCategory, setIconCategory] = useState(false); // icon category
+  const [priceError, setPriceError] = useState(false); // price error
+  const [iconPrice, setIconPrice] = useState(false); // icon price
   const navigate = useNavigate(); // navigate
 
   // Fetch categories from API on component mount
@@ -152,8 +154,27 @@ const AdminAddProduct = () => {
   };
   // handle blur category
   const handleBlurCategory = () => {
-    if(selectedCategory === "")
-      setIconCategory(true)
+    if (selectedCategory === "") setIconCategory(true);
+  };
+  // regex price
+  const regexPrice = (value) => {
+    const regex = /^[1-9]\d*$/;
+    if (value === "" || !regex.test(value)) {
+      setPriceError(true);
+    } else {
+      setPriceError(false);
+    }
+  };
+  // handle change price
+  const handleChangePrice = (e) => {
+    regexPrice(e.target.value);
+    setPrice(e.target.value);
+    setIconPrice(false);
+  };
+  // handle blur price
+  const handleBlurPrice = (e) => {
+    regexPrice(e.target.value);
+    setIconPrice(true);
   };
   return (
     <div className="p-6">
@@ -263,9 +284,22 @@ const AdminAddProduct = () => {
                 <input
                   type="text"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  onChange={handleChangePrice}
+                  onBlur={handleBlurPrice}
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    priceError ? "border-red-500" : ""
+                  }`}
                 />
+              </td>
+              <td>
+                {iconPrice &&
+                  (priceError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* size */}
