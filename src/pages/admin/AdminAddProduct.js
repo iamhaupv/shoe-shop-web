@@ -57,13 +57,10 @@ const AdminAddProduct = () => {
       formData.append("material", material);
       formData.append("design", design);
       formData.append("size", size);
-
       images.forEach((image) => {
         formData.append("images", image);
       });
-
       await AddProductService(token, formData);
-
       navigate("/wp-admin/products/manager-products");
     } catch (error) {
       console.error("Error adding product:", error);
@@ -113,6 +110,7 @@ const AdminAddProduct = () => {
       <div className="mb-6">
         <table className="min-w-full border-collapse">
           <tbody>
+            {/* name */}
             <tr>
               <td className="px-4 py-2 border-b">Name</td>
               <td className="px-4 py-2 border-b">
@@ -124,6 +122,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* quantity */}
             <tr>
               <td className="px-4 py-2 border-b">Quantity</td>
               <td className="px-4 py-2 border-b">
@@ -135,6 +134,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* category */}
             <tr>
               <td className="px-4 py-2 border-b">Category</td>
               <td className="px-4 py-2 border-b">
@@ -152,6 +152,7 @@ const AdminAddProduct = () => {
                 </select>
               </td>
             </tr>
+            {/* price */}
             <tr>
               <td className="px-4 py-2 border-b">Price</td>
               <td className="px-4 py-2 border-b">
@@ -163,6 +164,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* size */}
             <tr>
               <td className="px-4 py-2 border-b">Size</td>
               <td className="px-4 py-2 border-b">
@@ -181,6 +183,7 @@ const AdminAddProduct = () => {
                 </select>
               </td>
             </tr>
+            {/* description */}
             <tr>
               <td className="px-4 py-2 border-b">Description</td>
               <td className="px-4 py-2 border-b">
@@ -192,6 +195,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* color */}
             <tr>
               <td className="px-4 py-2 border-b">Color</td>
               <td className="px-4 py-2 border-b">
@@ -203,6 +207,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* material */}
             <tr>
               <td className="px-4 py-2 border-b">Material</td>
               <td className="px-4 py-2 border-b">
@@ -214,6 +219,7 @@ const AdminAddProduct = () => {
                 />
               </td>
             </tr>
+            {/* design */}
             <tr>
               <td className="px-4 py-2 border-b">Design</td>
               <td className="px-4 py-2 border-b">

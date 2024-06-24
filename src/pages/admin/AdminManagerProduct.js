@@ -16,7 +16,6 @@ const AdminManagerProduct = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imageInterval, setImageInterval] = useState(null);
 
-  // get all product
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -27,6 +26,7 @@ const AdminManagerProduct = () => {
 
         const response = await FindAllProductService(token);
         setProducts(response.data);
+        setCurrentImageIndex(0); // Reset currentImageIndex when products change
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -35,26 +35,28 @@ const AdminManagerProduct = () => {
     fetchProducts();
   }, []);
 
-  // Setup image interval
   useEffect(() => {
-    if (products.length > 0) {
-      // Clear previous interval if exists
-      if (imageInterval) {
-        clearInterval(imageInterval);
+    const changeImageInterval = () => {
+      if (products.length > 0) {
+        // Clear previous interval if exists
+        if (imageInterval) {
+          clearInterval(imageInterval);
+        }
+
+        // Set new interval to change image every 2 seconds
+        const interval = setInterval(() => {
+          setCurrentImageIndex((prevIndex) => {
+            const productImagesLength = products[prevIndex]?.images?.length || 0;
+            return prevIndex === productImagesLength - 1 ? 0 : prevIndex + 1;
+          });
+        }, 2000);
+
+        // Store interval ID in state to clear later
+        setImageInterval(interval);
       }
+    };
 
-      // Set new interval to change image every 2 seconds
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) =>
-          prevIndex === products[currentImageIndex].images.length - 1
-            ? 0
-            : prevIndex + 1
-        );
-      }, 1000);
-
-      // Store interval ID in state to clear later
-      setImageInterval(interval);
-    }
+    changeImageInterval();
 
     return () => {
       // Clear interval on component unmount
@@ -62,9 +64,8 @@ const AdminManagerProduct = () => {
         clearInterval(imageInterval);
       }
     };
-  }, [products, currentImageIndex, imageInterval]);
+  }, [products]);
 
-  // delete product
   const handleDeleteProduct = async (productId) => {
     try {
       const confirmDelete = window.confirm(
@@ -83,17 +84,14 @@ const AdminManagerProduct = () => {
     }
   };
 
-  // update product
   const handleUpdateProduct = (productId) => {
     navigate(`/wp-admin/products/update-product?id=${productId}`);
   };
 
-  // add product
   const handleAddProduct = () => {
     navigate("/wp-admin/products/add-product");
   };
 
-  // return
   const handleReturn = () => {
     navigate("/wp-admin-manager");
   };
@@ -139,7 +137,9 @@ const AdminManagerProduct = () => {
           {/* Map through products to display each product */}
           {products.map((product, index) => (
             <tr key={index}>
-              <td>{product._id}</td>
+              <td>
+                <input value={product._id} type="hidden"/>
+              </td>
               <td>{product.name}</td>
               <td>{product.quantity}</td>
               <td>{product.category}</td>
@@ -154,9 +154,9 @@ const AdminManagerProduct = () => {
                 <div className="image-container">
                   {product.images.length > 0 && (
                     <img
-                      src={product.images[currentImageIndex]}
-                      alt={`Product ${product._id} - Image ${currentImageIndex}`}
-                      className="product-image"
+                      src={product.images[currentImageIndex % product.images.length]}
+                      alt={`Product ${product._id}`}
+                      className="product-image w-[100px] h-[100px]"
                     />
                   )}
                 </div>

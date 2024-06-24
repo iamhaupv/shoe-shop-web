@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import FindProductByIdService from "../../services/product/FindProductByIdService";
-import UpdateProductService from "../../services/product/UpdateProductService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { useDropzone } from "react-dropzone";
+import UpdateProductService from "../../services/product/UpdateProductService";
+import FindProductByIdService from "../../services/product/FindProductByIdService";
 import FindAllCategoriesService from "../../services/category/FindAllCategoriesService";
+
 const AdminUpdateProduct = () => {
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState(Number);
+  const [quantity, setQuantity] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -23,9 +24,10 @@ const AdminUpdateProduct = () => {
   const [product, setProduct] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
-  // find all category
+
+  // Find all categories
   useEffect(() => {
-    const fetchAllCategory = async () => {
+    const fetchAllCategories = async () => {
       try {
         const token = localStorage.getItem("token");
         if (!token) {
@@ -34,12 +36,13 @@ const AdminUpdateProduct = () => {
         const response = await FindAllCategoriesService(token);
         setCategories(response.data);
       } catch (error) {
-        throw new Error(error);
+        console.error("Error fetching categories:", error);
       }
     };
-    fetchAllCategory();
+    fetchAllCategories();
   }, []);
-  // find product by id
+
+  // Find product by id
   useEffect(() => {
     const fetchProduct = async (id) => {
       try {
@@ -48,11 +51,10 @@ const AdminUpdateProduct = () => {
           throw new Error("Token is missing");
         }
         const response = await FindProductByIdService(token, id);
-        console.log(response);
         setProduct(response.data);
         setName(response.data.name);
         setQuantity(response.data.quantity.toString());
-        setSelectedCategory(response.category);
+        setSelectedCategory(response.data.category._id);
         setPrice(response.data.price);
         setDescription(response.data.description);
         setColor(response.data.color);
@@ -61,7 +63,7 @@ const AdminUpdateProduct = () => {
         setDesign(response.data.design);
         setCreatedAt(response.data.createdAt);
         setUpdateAt(response.data.updateAt);
-        setImages(response.data.images)
+        setImages(response.data.images);
       } catch (error) {
         console.error("Error fetching product:", error);
       }
@@ -86,15 +88,47 @@ const AdminUpdateProduct = () => {
     }
     const queryParams = new URLSearchParams(location.search);
     const _id = queryParams.get("id");
+
     const token = localStorage.getItem("token");
-    const productNew = { name, quantity };
-    await UpdateProductService(token, _id, productNew);
-    navigate("/wp-admin/manager-product");
-  };
-  // return
+    if (!token) {
+      throw new Error("Token invalid!");
+    }
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("quantity", quantity);
+    formData.append("category", selectedCategory);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("color", color);
+    formData.append("material", material);
+    formData.append("design", design);
+    formData.append("size", size);
+
+    // Add images to formData
+    images.forEach((image, index) => {
+        if (image instanceof File) {
+            formData.append("images", image);
+        } else {
+            formData.append(`existingImages[${index}]`, image);
+        }
+    });
+
+    console.log("FormData content:");
+    for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+    }
+
+    const response = await UpdateProductService(token, _id, formData);
+    console.log(response.data);
+    navigate("/wp-admin/products/manager-products");
+};
+
+
+  // Return to previous page
   const handleReturn = () => {
     navigate("/wp-admin/products/manager-products");
   };
+
   // Handle file drop
   const onDrop = (acceptedFiles) => {
     const updatedImages = acceptedFiles.map((file) =>
@@ -117,24 +151,25 @@ const AdminUpdateProduct = () => {
     accept: "image/*",
     onDrop,
   });
+
   return (
     <div>
-      {/* return */}
+      {/* Return button */}
       <div>
         <button className="text-3xl" onClick={handleReturn}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
       </div>
-      {/* table form */}
+      {/* Form table */}
       <div>
         <table>
           <tbody>
-            {/* id */}
+            {/* ID */}
             <tr>
               <td className="px-4 py-2 border-b">ID</td>
               <td className="px-4 py-2 border-b">{product._id}</td>
             </tr>
-            {/* name */}
+            {/* Name */}
             <tr>
               <td className="px-4 py-2 border-b">Name</td>
               <td className="px-4 py-2 border-b">
@@ -146,7 +181,7 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
-            {/* quantity */}
+            {/* Quantity */}
             <tr>
               <td className="px-4 py-2 border-b">Quantity</td>
               <td className="px-4 py-2 border-b">
@@ -158,14 +193,16 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
-            {/* category */}
+            {/* Category */}
             <tr>
               <td className="px-4 py-2 border-b">Category</td>
               <td className="px-4 py-2 border-b">
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-full"
                 >
+                  <option value="" disabled>Select a category</option>
                   {categories.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.name}
@@ -174,7 +211,7 @@ const AdminUpdateProduct = () => {
                 </select>
               </td>
             </tr>
-            {/* price */}
+            {/* Price */}
             <tr>
               <td className="px-4 py-2 border-b">Price</td>
               <td className="px-4 py-2 border-b">
@@ -186,19 +223,37 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
+            {/* Size */}
+            <tr>
+              <td className="px-4 py-2 border-b">Size</td>
+              <td className="px-4 py-2 border-b">
+                <select
+                  value={size}
+                  onChange={(e) => setSize(e.target.value)}
+                  className="border border-gray-300 rounded-md p-2 w-full"
+                >
+                  {["36", "37", "38", "39", "40", "41", "42", "43", "44"].map(
+                    (sizeOption) => (
+                      <option key={sizeOption} value={sizeOption}>
+                        {sizeOption}
+                      </option>
+                    )
+                  )}
+                </select>
+              </td>
+            </tr>
             {/* Description */}
             <tr>
               <td className="px-4 py-2 border-b">Description</td>
               <td className="px-4 py-2 border-b">
-                <input
-                  type="text"
+                <textarea
                   className="border border-gray-300 rounded-md p-2 w-full"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </td>
             </tr>
-            {/* color */}
+            {/* Color */}
             <tr>
               <td className="px-4 py-2 border-b">Color</td>
               <td className="px-4 py-2 border-b">
@@ -222,7 +277,7 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
-            {/* design */}
+            {/* Design */}
             <tr>
               <td className="px-4 py-2 border-b">Design</td>
               <td className="px-4 py-2 border-b">
@@ -234,61 +289,47 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
-            {/* size */}
-            <tr>
-              <td className="px-4 py-2 border-b">Size</td>
-              <td className="px-4 py-2 border-b">
-                <select
-                  value={size}
-                  onChange={(e) => setSize(e.target.value)}
-                  className="border border-gray-300 rounded-md p-2 w-full"
-                >
-                  {["36", "37", "38", "39", "40", "41", "42", "43", "44"].map(
-                    (sizeOption) => (
-                      <option key={sizeOption} value={sizeOption}>
-                        {sizeOption}
-                      </option>
-                    )
-                  )}
-                </select>
-              </td>
-            </tr>
             {/* Image Upload Section */}
-            <div className="mb-6">
-              <div
-                {...getRootProps()}
-                className="border-dashed border-2 border-gray-400 p-6 rounded-md flex flex-col items-center cursor-pointer hover:border-blue-500"
-              >
-                <input {...getInputProps()} className="hidden" />
-                <p className="text-gray-600 text-center">
-                  Drag and drop images here or click to select images
-                </p>
-                <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                  Choose images
-                </button>
-              </div>
-              {/* Image Preview */}
-              <div className="mt-4 grid grid-cols-3 gap-4">
-                {images.map((image, index) => (
-                  <div key={index} className="relative">
-                    <img
-                      src={image}
-                      alt={`Product preview ${index}`}
-                      className="w-full h-48 object-cover rounded-md"
-                    />
-                    <button
-                      className="absolute top-0 right-0 mt-2 mr-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs hover:bg-red-600"
-                      onClick={() => handleRemoveImage(index)}
-                    >
-                      X
+            <tr>
+              <td className="px-4 py-2 border-b">Images</td>
+              <td className="px-4 py-2 border-b">
+                <div className="mb-6">
+                  <div
+                    {...getRootProps()}
+                    className="border-dashed border-2 border-gray-400 p-6 rounded-md flex flex-col items-center cursor-pointer hover:border-blue-500"
+                  >
+                    <input {...getInputProps()} className="hidden" />
+                    <p className="text-gray-600 text-center">
+                      Drag and drop images here or click to select images
+                    </p>
+                    <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+                      Choose images
                     </button>
                   </div>
-                ))}
-              </div>
-            </div>
-            {/* createdAt */}
+                  {/* Image Preview */}
+                  <div className="mt-4 grid grid-cols-3 gap-4">
+                    {images.map((image, index) => (
+                      <div key={index} className="relative">
+                        <img
+                          src={image.preview ? image.preview : image}
+                          alt={`Product preview ${index}`}
+                          className="w-full h-48 object-cover rounded-md"
+                        />
+                        <button
+                          className="absolute top-0 right-0 mt-2 mr-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs hover:bg-red-600"
+                          onClick={() => handleRemoveImage(index)}
+                        >
+                          X
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {/* CreatedAt */}
             <tr>
-              <td className="px-4 py-2 border-b">CreateAt</td>
+              <td className="px-4 py-2 border-b">CreatedAt</td>
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
@@ -299,7 +340,7 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
-            {/* updateAt */}
+            {/* UpdateAt */}
             <tr>
               <td className="px-4 py-2 border-b">UpdateAt</td>
               <td className="px-4 py-2 border-b">
@@ -312,15 +353,15 @@ const AdminUpdateProduct = () => {
                 />
               </td>
             </tr>
-            {/* button submit */}
+            {/* Button submit */}
             <tr>
-              <td className="px-4 py-2 border-b">
-                <input
-                  type="button"
-                  className="border border-gray-300 rounded-md p-2 w-full"
-                  value="Update"
+              <td className="px-4 py-2 border-b" colSpan="2">
+                <button
+                  className="border border-gray-300 rounded-md p-2 w-full bg-blue-500 text-white hover:bg-blue-600"
                   onClick={handleSubmit}
-                />
+                >
+                  Update
+                </button>
               </td>
             </tr>
           </tbody>

@@ -1,13 +1,14 @@
 import axios from "axios";
 import GlobalHost from "../../GlobalHost";
-const UpdateProductService = async (token, _id, {name, quantity}) => {
+const UpdateProductService = async (token, _id, formData) => {
   try {
     const response = await axios.patch(
-      `${GlobalHost.host_product}/update-product/${_id}`, // Ensure the endpoint is correct
-      {name, quantity}, // Send the productNew directly
+      `${GlobalHost.host_product}/update-product/${_id}`,
+      formData,
       {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
       }
     );
