@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useDropzone } from "react-dropzone";
 import UpdateProductService from "../../services/product/UpdateProductService";
 import FindProductByIdService from "../../services/product/FindProductByIdService";
@@ -22,8 +22,22 @@ const AdminUpdateProduct = () => {
   const [createdAt, setCreatedAt] = useState("");
   const [updateAt, setUpdateAt] = useState("");
   const [product, setProduct] = useState({});
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [nameError, setNameError] = useState(false); // name error
+  const [iconName, setIconName] = useState(false); // icon name
+  const [quantityError, setQuantityError] = useState(false); // quantity error
+  const [iconQuantity, setIconQuantity] = useState(false); // icon quantity
+  const [priceError, setPriceError] = useState(false); // price error
+  const [iconPrice, setIconPrice] = useState(false); // icon price
+  const [desError, setDesError] = useState(false); // description error
+  const [iconDes, setIconDes] = useState(false); // icon description
+  const [colorError, setColorError] = useState(false); // color error
+  const [iconColor, setIconColor] = useState(false); // icon color
+  const [materialError, setMaterialError] = useState(false); // material error
+  const [iconMaterial, setIconMaterial] = useState(false); // icon material
+  const [designError, setDesignError] = useState(false); // design error
+  const [iconDesign, setIconDesign] = useState(false); // icon design
+  const location = useLocation(); // location
+  const navigate = useNavigate(); // navigate
 
   // Find all categories
   useEffect(() => {
@@ -106,23 +120,22 @@ const AdminUpdateProduct = () => {
 
     // Add images to formData
     images.forEach((image, index) => {
-        if (image instanceof File) {
-            formData.append("images", image);
-        } else {
-            formData.append(`existingImages[${index}]`, image);
-        }
+      if (image instanceof File) {
+        formData.append("images", image);
+      } else {
+        formData.append(`existingImages[${index}]`, image);
+      }
     });
 
     console.log("FormData content:");
     for (let [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
+      console.log(`${key}: ${value}`);
     }
 
     const response = await UpdateProductService(token, _id, formData);
     console.log(response.data);
     navigate("/wp-admin/products/manager-products");
-};
-
+  };
 
   // Return to previous page
   const handleReturn = () => {
@@ -151,7 +164,123 @@ const AdminUpdateProduct = () => {
     accept: "image/*",
     onDrop,
   });
-
+  // regex name
+  const regexName = (value) => {
+    const regex = /^[\w\d\s]{1,100}$/;
+    if (value === "" || !regex.test(value)) setNameError(true);
+    else setNameError(false);
+  };
+  // handle change name
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+    regexName(e.target.value);
+    setIconName(false);
+  };
+  // handle blur name
+  const handleBlurName = (e) => {
+    regexName(e.target.value);
+    setIconName(true);
+  };
+  // regex quantity
+  const regexQuantity = (value) => {
+    const regex = /^[1-9][\d]{1,4}$/;
+    if (value === "" || !regex.test(value)) setQuantityError(true);
+    else setQuantityError(false);
+  };
+  // handle change quantity
+  const handleChangeQuantity = (e) => {
+    regexQuantity(e.tartge.value);
+    setQuantity(e.target.value);
+    setIconQuantity(false);
+  };
+  // handle blur quantity
+  const handleBlurQuantity = (e) => {
+    regexQuantity(e.target.value);
+    setIconQuantity(true);
+  };
+  // regex price
+  const regexPrice = (value) => {
+    const regex = /^[1-9][\d]{1,8}$/;
+    if (value === "" || !regex.test(value)) setPriceError(true);
+    else setPriceError(false);
+  };
+  // handle change price
+  const handleChangePrice = (e) => {
+    regexPrice(e.target.value);
+    setPrice(e.target.value);
+    setIconPrice(false);
+  };
+  // handle blur price
+  const handleBlurPrice = (e) => {
+    regexPrice(e.target.value);
+    setIconPrice(true);
+  };
+  // regex description
+  const regexDes = (value) => {
+    const regex = /^[\w\d\s]{1,1000}$/;
+    if (regex === "" || !regex.test(value)) setDesError(true);
+    else setDesError(false);
+  };
+  // handle change description
+  const handleChangeDes = (e) => {
+    regexDes(e.target.value);
+    setDescription(e.target.value);
+    setIconDes(false);
+  };
+  const handleBlurDes = (e) => {
+    regexDes(e.target.value);
+    setIconDes(true);
+  };
+  // regex color
+  const regexColor = (value) => {
+    const regex = /^[\w\d\s]{0,50}$/;
+    if (value === "" || !regex.test(value)) setColorError(true);
+    else setColorError(false);
+  };
+  // handle change color
+  const handleChangeColor = (e) => {
+    regexColor(e.target.value);
+    setColor(e.target.value);
+    setIconColor(false);
+  };
+  // hanle blur color
+  const hanleBlurColor = (e) => {
+    regexColor(e.target.value);
+    setIconColor(true);
+  };
+  // regex material
+  const regexMaterial = (value) => {
+    const regex = /^[\w\d\s]{1,100}$/;
+    if (value === "" || !regex.test(value)) setMaterialError(true);
+    else setMaterialError(false);
+  };
+  // handle change material
+  const handleChangeMaterial = (e) => {
+    regexMaterial(e.target.value);
+    setMaterial(e.target.value);
+    setIconMaterial(false);
+  };
+  // handle blur material
+  const handleBlurMaterial = (e) => {
+    regexMaterial(e.target.value);
+    setIconMaterial(true);
+  };
+  const regexDesign = (value) => {
+    const regex = /^[\w\s\d]{1,100}$/;
+    if (value === "" || !regex.test(value)) setDesignError(true);
+    else setDesignError(false);
+  };
+  // handle change design
+  const handleChangeDesign = (e) => {
+    regexDesign(e.target.value);
+    setDesign(e.target.value);
+    setIconDesign(false);
+  };
+  // handle blur desgin
+  const handleBlurDesign = (e) => {
+    regexDesign(e.target.value);
+    setIconDesign(true);
+  };
   return (
     <div>
       {/* Return button */}
@@ -174,11 +303,24 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">Name</td>
               <td className="px-4 py-2 border-b">
                 <input
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={handleChangeName}
+                  onBlur={handleBlurName}
                   value={name}
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    nameError ? "border-red-500" : ""
+                  }`}
                 />
+              </td>
+              <td>
+                {iconName &&
+                  (nameError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Quantity */}
@@ -186,11 +328,24 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">Quantity</td>
               <td className="px-4 py-2 border-b">
                 <input
-                  onChange={(e) => setQuantity(e.target.value)}
+                  onBlur={handleBlurQuantity}
+                  onChange={handleChangeQuantity}
                   value={quantity}
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    quantityError ? "border-red-500" : ""
+                  }`}
                 />
+              </td>
+              <td>
+                {iconQuantity &&
+                  (quantityError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Category */}
@@ -202,7 +357,6 @@ const AdminUpdateProduct = () => {
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="border border-gray-300 rounded-md p-2 w-full"
                 >
-                  <option value="" disabled>Select a category</option>
                   {categories.map((category) => (
                     <option key={category._id} value={category._id}>
                       {category.name}
@@ -217,10 +371,23 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    priceError ? "border-red-500" : ""
+                  }`}
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={handleChangePrice}
+                  onBlur={handleBlurPrice}
                 />
+              </td>
+              <td>
+                {iconPrice &&
+                  (priceError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500 ">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Size */}
@@ -247,10 +414,23 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">Description</td>
               <td className="px-4 py-2 border-b">
                 <textarea
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    desError ? "border-red-500" : ""
+                  }`}
                   value={description}
-                  onChange={(e) => setDescription(e.target.value)}
+                  onChange={handleChangeDes}
+                  onBlur={handleBlurDes}
                 />
+              </td>
+              <td>
+                {iconDes &&
+                  (desError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Color */}
@@ -259,10 +439,23 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    colorError ? "border-red-500" : ""
+                  }`}
                   value={color}
-                  onChange={(e) => setColor(e.target.value)}
+                  onChange={handleChangeColor}
+                  onBlur={hanleBlurColor}
                 />
+              </td>
+              <td>
+                {iconColor &&
+                  (colorError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Material */}
@@ -271,10 +464,23 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    materialError ? "border-red-500" : ""
+                  }`}
                   value={material}
-                  onChange={(e) => setMaterial(e.target.value)}
+                  onChange={handleChangeMaterial}
+                  onBlur={handleBlurMaterial}
                 />
+              </td>
+              <td>
+                {iconMaterial &&
+                  (materialError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Design */}
@@ -283,10 +489,23 @@ const AdminUpdateProduct = () => {
               <td className="px-4 py-2 border-b">
                 <input
                   type="text"
-                  className="border border-gray-300 rounded-md p-2 w-full"
+                  className={`border border-gray-300 rounded-md p-2 w-full ${
+                    desError ? "border-red-500" : ""
+                  }`}
                   value={design}
-                  onChange={(e) => setDesign(e.target.value)}
+                  onChange={handleChangeDesign}
+                  onBlur={handleBlurDesign}
                 />
+              </td>
+              <td>
+                {iconDesign &&
+                  (designError ? (
+                    <span className="text-red-500">*</span>
+                  ) : (
+                    <span className="text-green-500">
+                      <FontAwesomeIcon icon={faCheck} />
+                    </span>
+                  ))}
               </td>
             </tr>
             {/* Image Upload Section */}
