@@ -11,23 +11,27 @@ import { auth } from "../../config/firebase.config";
 import { useNavigate } from "react-router-dom";
 import RegisterService from "../../services/user/RegisterService";
 const Signup = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [showOTP, setShowOTP] = useState(false);
-  const [otp, setOTP] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // show password
+  const [phone, setPhone] = useState(""); // phone number
+  const [password, setPassword] = useState(""); // password
+  const [loading, setLoading] = useState(false); // loading
+  const [showOTP, setShowOTP] = useState(false); // show otp
+  const [otp, setOTP] = useState(""); // otp
   const navigate = useNavigate();
+  // handle show password
   const handleShowPassword = (e) => {
     setShowPassword(e.target.checked);
   };
+  // handle register
   const handleRegister = async () => {
     const register = await RegisterService(phone, password);
     navigate("/home", { state: { user: register } });
   };
+  // handle password
   const handlePassword = (event) => {
     setPassword(event.target.value);
   };
+  // on captcha verify
   const onCaptchVerify = () => {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -46,6 +50,7 @@ const Signup = () => {
       );
     }
   };
+  // on sign up
   const onSignup = () => {
     setLoading(true);
     onCaptchVerify();
@@ -62,6 +67,7 @@ const Signup = () => {
         setLoading(false);
       });
   };
+  // on OTP verify
   const onOTPVerify = () => {
     setLoading(true);
     window.confirmationResult
@@ -77,6 +83,8 @@ const Signup = () => {
         setLoading(false);
       });
   };
+  console.log(phone)
+  // check user exist
   return (
     <div className="h-screen flex bg-emerald-500">
       <div id="recaptcha-container"></div>
