@@ -68,7 +68,7 @@ const AdminUpdateProduct = () => {
         setProduct(response.data);
         setName(response.data.name);
         setQuantity(response.data.quantity.toString());
-        setSelectedCategory(response.data.category._id);
+        setSelectedCategory(response.data.category);
         setPrice(response.data.price);
         setDescription(response.data.description);
         setColor(response.data.color);
@@ -119,18 +119,13 @@ const AdminUpdateProduct = () => {
     formData.append("size", size);
 
     // Add images to formData
-    images.forEach((image, index) => {
-      if (image instanceof File) {
-        formData.append("images", image);
-      } else {
-        formData.append(`existingImages[${index}]`, image);
-      }
+    images.forEach((image) => {
+      formData.append("images", image);
     });
 
-    console.log("FormData content:");
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    // for (let [key, value] of formData.entries()) {
+    //   console.log(`${key}: ${value}`);
+    // }
 
     const response = await UpdateProductService(token, _id, formData);
     console.log(response.data);
