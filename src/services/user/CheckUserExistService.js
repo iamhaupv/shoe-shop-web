@@ -1,16 +1,11 @@
 import axios from "axios";
 import GlobalHost from "../../GlobalHost";
 
-const CheckUserExistService = async (token, phoneNumber) => {
+const CheckUserExistService = async (phoneNumber) => {
   try {
     const response = await axios.get(
       `${GlobalHost.host_user}/check-user-exist`,
-      { phoneNumber },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      { phoneNumber }
     );
     return response.data;
   } catch (error) {

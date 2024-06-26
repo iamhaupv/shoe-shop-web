@@ -1,7 +1,7 @@
 import Banner from "../../components/Banner";
 import logo from "../../assets/logo.png";
 import { CgSpinner } from "react-icons/cg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
@@ -10,6 +10,7 @@ import OtpInput from "otp-input-react";
 import { auth } from "../../config/firebase.config";
 import { useNavigate } from "react-router-dom";
 import RegisterService from "../../services/user/RegisterService";
+import CheckUserExistService from "../../services/user/CheckUserExistService";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false); // show password
   const [phone, setPhone] = useState(""); // phone number
@@ -17,7 +18,9 @@ const Signup = () => {
   const [loading, setLoading] = useState(false); // loading
   const [showOTP, setShowOTP] = useState(false); // show otp
   const [otp, setOTP] = useState(""); // otp
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // navigate
+  const [iconExist, setIconExist] = useState(false); // icon exist
+  const [timer, setTimer] = useState(null); // time
   // handle show password
   const handleShowPassword = (e) => {
     setShowPassword(e.target.checked);
@@ -83,8 +86,26 @@ const Signup = () => {
         setLoading(false);
       });
   };
-  console.log(phone)
-  // check user exist
+  // handle change phone
+  const handleChangePhone = async (e) => {
+    setPhone(e.target.value);
+    clearTimeout(timer);
+    const newTimer = setTimeout(() => {
+      checkUserExist(e.target.value);
+    }, 1500); // Adjust debounce delay as needed
+    setTimer(newTimer);
+  };
+
+  const checkUserExist = async () => {
+    try {
+      const userExists = await CheckUserExistService(phone);
+      setIconExist(userExists);
+    } catch (error) {
+      console.error("Error checking user existence:", error);
+      // Handle error while checking user existence
+    }
+  };
+
   return (
     <div className="h-screen flex bg-emerald-500">
       <div id="recaptcha-container"></div>
@@ -145,10 +166,10 @@ const Signup = () => {
             <div className="w-500 mx-auto">
               {/* input phone number */}
               <div>
-                <PhoneInput
-                  country={"vn"}
+                <input
+                  className="border border-2 border-solid border-black w-full"
                   value={phone}
-                  onChange={(phone) => setPhone(phone)}
+                  onChange={handleChangePhone}
                 />
               </div>
             </div>
