@@ -12,11 +12,7 @@ const Home = () => {
   // find all product
   useEffect(() => {
     const fetchAllProducts = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        throw new Error("Token invalid");
-      }
-      const response = await FindAllProduct(token);
+      const response = await FindAllProduct();
       setProducts(response.data);
     };
     fetchAllProducts();
