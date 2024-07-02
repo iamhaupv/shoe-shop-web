@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
@@ -16,6 +16,7 @@ export default function FormLogin() {
   const [iconPassword, setIconPassword] = useState(false); // icon password
   // eyes
   const [eye, setEye] = useState(false);
+  const [formValid, setFormValid] = useState(false);
   // regex phone
   const regexPhone = (value) => {
     const regex = /^(0[3|5|7|8|9]\d{8}|0\d{9})$/;
@@ -52,6 +53,12 @@ export default function FormLogin() {
   const handleShowPassword = () => {
     setEye(!eye);
   };
+  // form valid
+  useEffect(() => {
+    setFormValid(
+      !phoneError && !passwordError && phone.length >= 8 && password.length >= 8
+    );
+  }, [phone, password, phoneError, passwordError]);
   return (
     <div className="h-[450px] w-[400px] bg-white rounded-[5px] shadow-gray-2xl mt-2 px-6">
       {/* div title */}
@@ -107,7 +114,14 @@ export default function FormLogin() {
       </div>
       {/* div button login */}
       <div className="mt-8">
-        <button className="bg-orange-500 w-full h-10">Đăng nhập</button>
+        <button
+          disabled={!formValid}
+          className={`bg-orange-500 w-full h-10 ${
+            !formValid && "cursor-not-allowed"
+          }`}
+        >
+          Đăng nhập
+        </button>
       </div>
       {/* div forget password & sms */}
       <div className="mt-[5px] flex justify-between items-center">
