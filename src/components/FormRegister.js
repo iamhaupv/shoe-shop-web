@@ -9,7 +9,7 @@ export default function FormRegister({ title, value_button }) {
       </div>
       {/* div phone */}
       <div className="mt-6">
-        <input className="border-2 border-gray border-solid w-full h-10" />
+        <input className="text-sm border-2 border-gray border-solid w-full h-10 px-2" placeholder="Số điện thoại" />
       </div>
       {/* div submit */}
       <div className="mt-6">
@@ -21,11 +21,11 @@ export default function FormRegister({ title, value_button }) {
         <div className="text-gray-300">HOẶC</div>
         <div className="h-0.5 w-[45%] bg-gray-200"></div>
       </div>
-      {/* div button*/}
+      {/* div button fb & gg */}
       <div className="mt-6 flex justify-between items-center">
         {/* Facebook */}
         <div>
-          <button className="w-[140px] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow flex items-center space-x-2">
+          <button className="w-[140px] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 border border-gray-400 rounded shadow flex items-center justify-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 48 48"
@@ -41,7 +41,7 @@ export default function FormRegister({ title, value_button }) {
         </div>
         {/* Google */}
         <div>
-          <button className="w-[140px] bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow flex items-center space-x-2">
+          <button className="w-[140px] bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow flex items-center justify-center space-x-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 48 48"
@@ -82,7 +82,7 @@ export default function FormRegister({ title, value_button }) {
         </p>
       </div>
       {/* foreign login */}
-      <div className="mt-6 text-sm text-gray-600 flex justify-center items-center">
+      <div className="mt-4 text-sm text-gray-600 flex justify-center items-center">
         <span>
           Bạn chưa có tài khoản?{" "}
           <a className="text-orange-500" href="fb.com">
