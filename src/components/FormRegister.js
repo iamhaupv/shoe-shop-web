@@ -1,24 +1,62 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 export default function FormRegister({ title, value_button }) {
+  const [phone, setPhone] = useState(""); // phone
+  const [phoneError, setPhoneError] = useState(false); // phone error
+  const [iconPhone, setIconPhone] = useState(true); // icon phone
+  // regex phone
+  const regexPhone = (value) => {
+    const regex = /^(0[3|5|7|8|9]\d{8}|0\d{9})$/;
+    if (value === "" || !regex.test(value)) setPhoneError(true);
+    else setPhoneError(false);
+  };
+  // handle change phone
+  const handleChangePhone = (e) => {
+    regexPhone(e.target.value);
+    setPhone(e.target.value);
+  };
+  // handle blur phone
+  const handleBlurPhone = (e) => {
+    regexPhone(e.target.value);
+    setIconPhone(true);
+  };
   return (
-    <div className="h-[400px] w-[400px] bg-white rounded-[5px] shadow-gray-2xl mt-2 px-6">
+    <div className="h-[450px] w-[400px] bg-white rounded-[5px] shadow-gray-2xl mt-2 px-6">
       {/* div title */}
       <div className="mt-4">
         <span className="text-2xl">{title}</span>
       </div>
       {/* div phone */}
-      <div className="mt-6">
-        <input className="text-sm border-2 border-gray border-solid w-full h-10 px-2" placeholder="Số điện thoại" />
+      <div className="mt-6 flex items-center relative ">
+        <input
+          value={phone}
+          onChange={handleChangePhone}
+          onBlur={handleBlurPhone}
+          className={`text-sm border-2 border-gray border-solid w-full h-10 px-2 ${
+            phoneError ? "border-red-500 bg-red-50" : ""
+          }`}
+          placeholder="Số điện thoại"
+        />
+        {iconPhone &&
+          (phoneError ? (
+            <span className="text-sm text-red-500 absolute top-10">
+              Số điện thoại không hợp lệ
+            </span>
+          ) : (
+            <span className="absolute right-4 text-green-500 flex justify-center items-center right-[100px]">
+              <FontAwesomeIcon icon={faCircleCheck} />
+            </span>
+          ))}
       </div>
       {/* div submit */}
-      <div className="mt-6">
+      <div className="mt-8">
         <button className="bg-orange-500 w-full h-10">{value_button}</button>
       </div>
       {/* line */}
       <div className="flex items-center justify-center space-x-4 mt-6">
         <div className="h-0.5 w-[45%] bg-gray-200"></div>
-        <div className="text-gray-300">HOẶC</div>
+        <div className="text-gray-300 text-sm">HOẶC</div>
         <div className="h-0.5 w-[45%] bg-gray-200"></div>
       </div>
       {/* div button fb & gg */}
@@ -69,20 +107,22 @@ export default function FormRegister({ title, value_button }) {
         </div>
       </div>
       {/* description */}
-      <div className="mt-6 text-sm text-gray-600">
-        <p className="flex justify-center items-center">Bằng việc đăng ký bạn đã đồng ý với ShopIamhau về</p>
+      <div className="mt-8 text-sm text-gray-600">
+        <p className="flex justify-center items-center">
+          Bằng việc đăng ký bạn đã đồng ý với ShopIamhau về
+        </p>
         <p className="flex justify-center items-center">
           <a className="text-orange-500" href="fb.com">
             điều khoản dịch vụ
-          </a> &nbsp;{" "}
-          & &nbsp; {" "}
+          </a>{" "}
+          &nbsp; & &nbsp;{" "}
           <a className="text-orange-500" href="fb.com">
             chính sách bảo mật
           </a>
         </p>
       </div>
       {/* foreign login */}
-      <div className="mt-4 text-sm text-gray-600 flex justify-center items-center">
+      <div className="mt-8 text-sm text-gray-600 flex justify-center items-center">
         <span>
           Bạn chưa có tài khoản?{" "}
           <a className="text-orange-500" href="fb.com">
