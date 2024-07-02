@@ -8,8 +8,8 @@ export default function ContainerForm() {
       className="bg-orange-500 h-screen w-full flex mx-auto px-[300px] bg-center bg-cover"
       style={{ backgroundImage: `url(${banner_ver1})` }}
     >
-        <FormRegister title={"Đăng ký"} value_button={"Tiếp theo"}/>
-        {/* <FormLogin/> */}
+        {/* <FormRegister title={"Đăng ký"} value_button={"Tiếp theo"}/> */}
+        <FormLogin/>
     </div>
   );
 }

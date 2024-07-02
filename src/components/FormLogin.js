@@ -1,6 +1,57 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleCheck,
+  faEyeSlash,
+  faEye,
+} from "@fortawesome/free-solid-svg-icons";
 export default function FormLogin() {
+  const [phone, setPhone] = useState(""); // phone
+  const [password, setPassword] = useState(""); // password
+  // error
+  const [phoneError, setPhoneError] = useState(false); // phone error
+  const [passwordError, setPasswordError] = useState(false); // password error
+  // icon
+  const [iconPhone, setIconPhone] = useState(false); // icon phone
+  const [iconPassword, setIconPassword] = useState(false); // icon password
+  // eyes
+  const [eye, setEye] = useState(false);
+  // regex phone
+  const regexPhone = (value) => {
+    const regex = /^(0[3|5|7|8|9]\d{8}|0\d{9})$/;
+    if (value === "" || !regex.test(value)) setPhoneError(true);
+    else setPhoneError(false);
+  };
+  // handle change phone
+  const handleChangePhone = (e) => {
+    regexPhone(e.target.value);
+    setPhone(e.target.value);
+  };
+  // handle blur phone
+  const handleBlurPhone = (e) => {
+    regexPhone(e.target.value);
+    setIconPhone(true);
+  };
+  // regex password
+  const regexPassword = (value) => {
+    const regex = /^[A-Za-z\d]{8,}$/;
+    if (value === "" || !regex.test(value)) setPasswordError(true);
+    else setPasswordError(false);
+  };
+  // handle change password
+  const handleChangePassword = (e) => {
+    regexPassword(e.target.value);
+    setPassword(e.target.value);
+  };
+  // handle blur password
+  const handleBlurPassword = (e) => {
+    regexPassword(e.target.value);
+    setIconPassword(true);
+  };
+  // handle show password
+  const handleShowPassword = () => {
+    setEye(!eye);
+  };
   return (
     <div className="h-[450px] w-[400px] bg-white rounded-[5px] shadow-gray-2xl mt-2 px-6">
       {/* div title */}
@@ -8,32 +59,75 @@ export default function FormLogin() {
         <span className="text-2xl">Đăng nhập</span>
       </div>
       {/* div phone  */}
-      <div className="mt-6">
-        <input className="text-sm border-2 border-solid border-gray w-full h-10 px-2" placeholder="Email/Số điện thoại" />
+      <div className="mt-6 relative flex items-center">
+        <input
+          value={phone}
+          onChange={handleChangePhone}
+          onBlur={handleBlurPhone}
+          className={`text-sm border-2 border-solid border-gray w-full h-10 px-2 ${
+            phoneError ? "border-red-500 bg-red-50" : ""
+          }`}
+          placeholder="Email/Số điện thoại"
+        />
+        {iconPhone &&
+          (phoneError ? (
+            <span className="text-red-500 absolute mt-16 text-sm">
+              Số điện thoại không hợp lệ.
+            </span>
+          ) : (
+            <span className="text-green-500 absolute right-4 justify-center">
+              <FontAwesomeIcon icon={faCircleCheck} />
+            </span>
+          ))}
       </div>
       {/* div password */}
-      <div className="mt-6">
-        <input className="text-sm border-2 border-solid border-gray w-full h-10 px-2" placeholder="Mật khẩu"/>
+      <div className="mt-8 relative flex items-center">
+        <input
+          type={eye ? "text" : "password"}
+          value={password}
+          onChange={handleChangePassword}
+          onBlur={handleBlurPassword}
+          className={`text-sm border-2 border-solid border-gray w-full h-10 px-2 ${
+            passwordError ? "border-red-500 bg-red-50" : ""
+          }`}
+          placeholder="Mật khẩu"
+        />
+        <button onClick={handleShowPassword} className="absolute right-3">
+          {eye ? (
+            <FontAwesomeIcon icon={faEye} />
+          ) : (
+            <FontAwesomeIcon icon={faEyeSlash} />
+          )}
+        </button>
+        {iconPassword && passwordError && (
+          <span className="absolute text-sm text-red-500 mt-16">
+            Vui lòng điền vào mục này.
+          </span>
+        )}
       </div>
       {/* div button login */}
-      <div className="mt-6">
+      <div className="mt-8">
         <button className="bg-orange-500 w-full h-10">Đăng nhập</button>
       </div>
       {/* div forget password & sms */}
       <div className="mt-[5px] flex justify-between items-center">
         {/* forget password */}
         <div>
-          <a href="fb.com" className="text-sm text-blue-900">Quên mật khẩu</a>
+          <a href="fb.com" className="text-sm text-blue-900">
+            Quên mật khẩu
+          </a>
         </div>
         {/* sms */}
         <div>
-          <a href="fb.com" className="text-sm text-blue-900">Đăng nhập với SMS</a>
+          <a href="fb.com" className="text-sm text-blue-900">
+            Đăng nhập với SMS
+          </a>
         </div>
       </div>
       {/* line */}
       <div className="flex items-center justify-center space-x-4 mt-6">
         <div className="h-0.5 w-[45%] bg-gray-200"></div>
-        <div className="text-gray-300">HOẶC</div>
+        <div className="text-gray-300 text-sm">HOẶC</div>
         <div className="h-0.5 w-[45%] bg-gray-200"></div>
       </div>
       {/* div button fb & gg */}
@@ -85,8 +179,11 @@ export default function FormLogin() {
       </div>
       {/* foreign register */}
       <div className="mt-6 flex justify-center">
-        <span className="text-gray-300 text-sm">Bạn mới biết đến ShopIamhau? &nbsp;
-            <a href="fb.com" className="text-orange-500">Đăng ký</a>
+        <span className="text-gray-300 text-sm">
+          Bạn mới biết đến ShopIamhau? &nbsp;
+          <a href="fb.com" className="text-orange-500">
+            Đăng ký
+          </a>
         </span>
       </div>
     </div>
