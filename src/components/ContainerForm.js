@@ -1,13 +1,13 @@
 import React from "react";
 import banner_ver1 from "../assets/banner-ver1.jpg";
-import FormRegisterLogin from "./FormRegisterLogin";
+import FormRegister from "./FormRegister";
 export default function ContainerForm() {
   return (
     <div
       className="bg-orange-500 h-screen w-full flex mx-auto px-[300px] bg-center bg-cover"
       style={{ backgroundImage: `url(${banner_ver1})` }}
     >
-        <FormRegisterLogin/>
+        <FormRegister title={"Đăng ký"} value_button={"Tiếp theo"}/>
     </div>
   );
 }
