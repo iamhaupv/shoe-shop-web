@@ -1,19 +1,17 @@
 import React from "react";
-import logo from "../assets/4.png";
-export default function HeaderRegisterLogin({title}) {
+import logo from "../assets/1.png";
+export default function HeaderRegisterLogin() {
   return (
-    <div className="h-[120px] flex justify-between items-center w-full mx-auto px-[180px]">
+    <div className="h-[84px] flex justify-between items-center w-full mx-auto px-[200px]">
       {/* image logo */}
-      <div className="flex h-full w-full mt-2">
-        <img src={logo} alt="logo shop imhau" className="h-[110px] w-[170px] object-cover" />
+      <div className="flex items-center h-full w-full mt-2">
+        <img src={logo} alt="logo shop imhau" className="h-[50px] w-[190px] object-cover" />
         {/* title */}
-        <div className="ml-[30px] mt-[60px]">
-          <span className="text-2xl">{title}</span>
-        </div>
+        <div className="ml-4 text-2xl flex items-center">Đăng ký</div>
       </div>
       {/* help */}
-      <div className="flex w-[150px] mt-[50px]">
-        <span className="">Bạn cần giúp đỡ?</span>
+      <div className="flex jus items-center w-[150px]">
+        <span style={{color: '#EE4D2D' }}>Bạn cần giúp đỡ?</span>
       </div>
     </div>
   );

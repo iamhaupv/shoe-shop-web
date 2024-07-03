@@ -1,15 +1,24 @@
 import React from "react";
-import banner_ver1 from "../assets/banner-ver1.jpg";
+import banner_shopee from "../assets/banner-shopee.jpg"; // Đường dẫn tới hình ảnh
+
 import FormRegister from "./FormRegister";
 import FormLogin from "./FormLogin";
+
 export default function ContainerForm() {
   return (
-    <div
-      className="bg-orange-500 h-screen w-full flex mx-auto px-[300px] bg-center bg-cover"
-      style={{ backgroundImage: `url(${banner_ver1})` }}
-    >
-        {/* <FormRegister title={"Đăng ký"} value_button={"Tiếp theo"}/> */}
-        <FormLogin/>
+    <div className="h-[600px] w-full" style={{ backgroundColor: 'rgb(210, 5, 4)' }}>
+      <div
+        className="flex items-center justify-center bg-no-repeat bg-center h-full w-full"
+        style={{
+          backgroundImage: `url(${banner_shopee})`,
+          backgroundSize: "contain",
+        }}
+      >
+        <div>
+          <FormRegister />
+          {/* <FormLogin /> */}
+        </div>
+      </div>
     </div>
   );
 }
