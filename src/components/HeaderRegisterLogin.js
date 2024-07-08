@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/1.png";
 export default function HeaderRegisterLogin() {
   return (
-    <div className="h-[84px] flex justify-between items-center w-full mx-auto px-[200px]">
+    <div className="h-[84px] w-auto flex justify-between items-center mx-auto px-[15%]">
       {/* image logo */}
       <div className="flex items-center h-full w-full mt-2">
         <img src={logo} alt="logo shop imhau" className="h-[50px] w-[190px] object-cover" />
