@@ -27,9 +27,9 @@ export default function FormRegister() {
   };
   return (
     <div className="flex justify-center mx-auto px-[70px] h-[476px] w-full">
-      <div className="h-[476px] w-[400px]"></div>
-      <div className="h-[476px] w-[400px]"></div>
-      <div className="h-[476px] w-[400px] mx-auto w-auto bg-white rounded-[3px] shadow-gray-2xl px-6 py-6">
+      <div className="h-[476px] w-[405px]"></div>
+      <div className="h-[476px] w-[405px]"></div>
+      <div className="h-[476px] w-[405px] mx-auto w-auto bg-white rounded-[3px] shadow-gray-2xl px-6 py-6">
         <div>
           {/* div title */}
           <div className="">
@@ -46,7 +46,7 @@ export default function FormRegister() {
               }`}
               placeholder="Số điện thoại"
             />
-            {iconPhone &&
+            {/* {iconPhone &&
               (phoneError ? (
                 <span className="text-sm text-red-500 absolute top-10">
                   Số điện thoại không hợp lệ
@@ -55,7 +55,7 @@ export default function FormRegister() {
                 <span className="absolute right-4 text-green-500 flex justify-center items-center right-[100px]">
                   <FontAwesomeIcon icon={faCircleCheck} />
                 </span>
-              ))}
+              ))} */}
           </div>
           {/* div submit */}
           <div className="mt-8">
