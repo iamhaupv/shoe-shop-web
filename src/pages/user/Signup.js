@@ -19,6 +19,7 @@ import CheckUserExistService from "../../services/user/CheckUserExistService";
 import HeaderRegisterLogin from "../../components/HeaderRegisterLogin";
 import ContainerForm from "../../components/ContainerForm";
 import FooterRegisterLogin from "../../components/FooterRegisterLogin";
+import FormRegister from "../../components/FormRegister";
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false); // show password
   const [phone, setPhone] = useState(""); // phone number
@@ -297,7 +298,7 @@ const Signup = () => {
     // </div>
     <div className="h-screen w-full">
       <HeaderRegisterLogin title={"Đăng ký"}/>
-      <ContainerForm/>
+      <ContainerForm component={FormRegister}/>
       <FooterRegisterLogin/>
     </div>
   );

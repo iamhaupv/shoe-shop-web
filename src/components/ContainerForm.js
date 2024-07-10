@@ -4,7 +4,7 @@ import banner_shopee from "../assets/banner-shopee.jpg"; // Đường dẫn tớ
 import FormRegister from "./FormRegister";
 import FormLogin from "./FormLogin";
 
-export default function ContainerForm() {
+export default function ContainerForm({component: Component}) {
   return (
     <div className="h-[600px] w-auto mx-auto" style={{ backgroundColor: 'rgb(210, 5, 4)' }}>
       <div
@@ -15,7 +15,7 @@ export default function ContainerForm() {
         }}
       >
         <div>
-          <FormRegister />
+          <div>{Component && <Component />}</div>
           {/* <FormLogin /> */}
         </div>
       </div>
