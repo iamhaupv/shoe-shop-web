@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faQuestion } from "@fortawesome/free-solid-svg-icons";
 import fb from "../assets/fbw.png";
 import ig from "../assets/igw.png";
-export default function HeaderContainerNavBar() {
+export default function HeaderNavBar() {
   return (
     <div
       className="flex justify-center"

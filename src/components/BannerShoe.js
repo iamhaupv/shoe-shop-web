@@ -7,7 +7,7 @@ import shoe5 from "../assets/shoe-5.avif";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-const BannerAnimate = () => {
+const BannerShoe = () => {
   const [images] = useState([shoe1, shoe2, shoe3, shoe4, shoe5]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -38,8 +38,8 @@ const BannerAnimate = () => {
   };
 
   return (
-    <div className="mt-4 w-1/2 w-full">
-      <div className="relative w-[670px] h-[384px] border border-gray-300 rounded-lg overflow-hidden shadow-lg">
+    <div className="mt-4">
+      <div className="relative w-[700px] h-[384px] border border-gray-300 rounded-lg overflow-hidden shadow-lg">
         <img
           className="w-full h-full object-cover"
           src={images[currentImageIndex]}
@@ -73,4 +73,4 @@ const BannerAnimate = () => {
   );
 };
 
-export default BannerAnimate;
+export default BannerShoe;

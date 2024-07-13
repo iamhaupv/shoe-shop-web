@@ -1,10 +1,15 @@
-import banner from "../assets/banner.jpg"
-const Banner = () => {
-    return (
-        <div className="w-1/2">
-            <img src={banner} alt="banner" className="object-cover w-full h-full" />
-        </div>
-    )
-}
+import BannerShoe from "./BannerShoe";
+import BannerVoucher from "./BannerVoucher";
 
-export default Banner
+const Banner = () => {
+  return (
+    <div className="flex justify-center px-[50px] mx-auto">
+      <div className="flex items-center justify-between" style={{width: "1200px"}}>
+        <BannerShoe />
+        <BannerVoucher />
+      </div>
+    </div>
+  );
+};
+
+export default Banner;

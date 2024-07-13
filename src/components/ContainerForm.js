@@ -1,9 +1,5 @@
 import React from "react";
-import banner_shopee from "../assets/banner-shopee.jpg"; // Đường dẫn tới hình ảnh
-
-import FormRegister from "./FormRegister";
-import FormLogin from "./FormLogin";
-
+import banner_shopee from "../assets/banner-shopee.jpg"; 
 export default function ContainerForm({component: Component}) {
   return (
     <div className="h-[600px] w-auto mx-auto" style={{ backgroundColor: 'rgb(210, 5, 4)' }}>

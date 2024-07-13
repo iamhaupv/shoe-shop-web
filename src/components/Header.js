@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import HeaderContainerNavBar from "./HeaderContainerNavBar";
+import HeaderNavBar from "./HeaderNavBar";
 import HeaderContainer from "./HeaderContainer";
 
 export default function Header() {
@@ -21,7 +21,7 @@ export default function Header() {
   }, []);
   return (
     <div className={`${isSticky ? "sticky top-0 z-50" : ""}`} style={{ background: "#f94c2f" }}>
-      <HeaderContainerNavBar />
+      <HeaderNavBar />
       <HeaderContainer />
     </div>
   );
