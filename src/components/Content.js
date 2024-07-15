@@ -5,6 +5,7 @@ import ContentFlashSale from "./ContentFlashSale";
 import ContentBannerVoucher from "./ContentBannerVoucher";
 import ContentMall from "./ContentMall";
 import ContentListProduct from "./ContentListProduct";
+import FooterContent from "./FooterContent";
 
 export default function Content() {
   return (
@@ -15,6 +16,7 @@ export default function Content() {
       <ContentBannerVoucher/>
       <ContentMall/>
       <ContentListProduct/>
+      <FooterContent/>
     </div>
   );
 }

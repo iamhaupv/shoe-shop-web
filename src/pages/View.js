@@ -15,13 +15,14 @@ const View = () => {
       <Banner />
       <ContentNavBar />
       <Content />
-      <Title shoeName={"Jordan"} />
+      <FooterRegisterLogin />
+      {/* <Title shoeName={"Jordan"} />
       <RowJordan />
       <Title shoeName={"Nike"} />
       <RowNike />
       <Title shoeName={"Adidas"} />
-      <RowAdidas />
-      <FooterRegisterLogin />
+      <RowAdidas /> */}
+      
     </div>
   );
 };
