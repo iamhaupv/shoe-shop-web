@@ -33,6 +33,9 @@ export default function FooterRegisterLogin() {
       className="flex justify-center"
       style={{
         background: "#f5f5f5",
+        fontFamily:
+          "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
+        lineHeight: 1.2,
       }}
     >
       <div className="h-[836px] w-[1200px]">

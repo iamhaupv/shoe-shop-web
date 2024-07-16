@@ -7,6 +7,9 @@ export default function HeaderNavBar() {
   return (
     <div
       className="flex justify-center"
+      style={{fontFamily:
+        "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
+      lineHeight: 1.2,}}
     >
       {/* nav.container.navbar */}
       <div
@@ -15,7 +18,7 @@ export default function HeaderNavBar() {
           width: "1200px",
           height: "34px",
           margin: "0px 34.4px",
-          fontSize: "14px",
+          fontSize: "13px",
         }}
       >
         {/* left */}

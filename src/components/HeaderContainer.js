@@ -6,7 +6,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 export default function HeaderContainer() {
   return (
-    <div className="flex justify-center">
+    <div
+      className="flex justify-center"
+      style={{
+        fontFamily:
+          "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
+        lineHeight: 1.2,
+      }}
+    >
       <div
         className="flex justify-center"
         style={{
@@ -26,10 +33,7 @@ export default function HeaderContainer() {
             padding: "0px 40px 0px 0px",
           }}
         >
-          <div
-            className="flex"
-            style={{ width: "162px", height: "50px" }}
-          >
+          <div className="flex" style={{ width: "162px", height: "50px" }}>
             <span
               className="block flex justify-center items-center"
               style={{ width: "146.15px", height: "46.73px" }}
@@ -108,7 +112,7 @@ export default function HeaderContainer() {
             style={{ width: "840px", height: "24px", margin: "3px 0px 0px" }}
           >
             <ul className="flex">
-                {/* jordan */}
+              {/* jordan */}
               <li>
                 <a
                   style={{
@@ -256,21 +260,6 @@ export default function HeaderContainer() {
                   href="fb.com"
                 >
                   Phụ Kiện
-                </a>
-              </li>
-              {/* su kien */}
-              <li>
-                <a
-                  style={{
-                    width: "auto",
-                    height: "14px",
-                    margin: "5px 0px 5px 13px",
-                    fontSize: "12px",
-                    color: "#ffffffe6",
-                  }}
-                  href="fb.com"
-                >
-                  Even
                 </a>
               </li>
               {/* thông tin */}
