@@ -151,7 +151,7 @@ export default function ContentMall() {
           </a>
         </div>
         {/* content  */}
-        <div className="flex" style={{marginTop: "15px"}}>
+        <div className="flex" style={{ marginTop: "15px" }}>
           {/* img */}
           <a style={{ width: "390px", height: "463.89px" }} href="fb.com">
             <img src={banner_shopee_mall1} alt="" />
@@ -168,152 +168,168 @@ export default function ContentMall() {
             {/*  */}
             <div className="flex">
               {/* Quà mọi đơn */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={samsung} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px"}}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Quà mọi đơn
+                  <img className="absolute" src={samsung} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Quà mọi đơn
+                  </div>
                 </div>
-              </div>
+              </a>
               {/* Giảm sốc 50% */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={serum} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Giảm sốc 50%
+                  <img className="absolute" src={serum} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Giảm sốc 50%
+                  </div>
                 </div>
-              </div>
+              </a>
               {/* Giảm đến 50% */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={feelex} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Giảm đến 50%
+                  <img className="absolute" src={feelex} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Giảm đến 50%
+                  </div>
                 </div>
-              </div>
+              </a>
               {/* Deli siêu sale */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={deli} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Deli siêu sale
+                  <img className="absolute" src={deli} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Deli siêu sale
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
             {/*  */}
             <div className="flex" style={{ marginTop: "25px" }}>
               {/* Thời trang -50% */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={lovito} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Thời trang -50%
+                  <img className="absolute" src={lovito} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Thời trang -50%
+                  </div>
                 </div>
-              </div>
+              </a>
               {/* Mua 1 được 2 */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={omo} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Mua 1 được 2
+                  <img className="absolute" src={omo} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Mua 1 được 2
+                  </div>
                 </div>
-              </div>
+              </a>
               {/* Ưu đãi đến 50% */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={loreal} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Ưu đãi đến 50%
+                  <img className="absolute" src={loreal} alt="" />
+                  <div
+                    className="absolute flex justify-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Ưu đãi đến 50%
+                  </div>
                 </div>
-              </div>
+              </a>
               {/* Mua 1 tặng 1 */}
-              <div
-                className="relative flex justify-center items-center"
-                style={{
-                  width: "180px",
-                  height: "216px",
-                  flexDirection: "column",
-                  // padding: "216px 0px 0px",
-                }}
-              >
-                <img className="absolute" src={cocoon} alt="" />
+              <a href="fb.com">
                 <div
-                  className="absolute flex justify-center items-center"
-                  style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  className="relative flex justify-center items-center"
+                  style={{
+                    width: "180px",
+                    height: "216px",
+                    flexDirection: "column",
+                    // padding: "216px 0px 0px",
+                  }}
                 >
-                  Mua 1 tặng 1
+                  <img className="absolute" src={cocoon} alt="" />
+                  <div
+                    className="absolute flex justify-center items-center"
+                    style={{ width: "172px", height: "27px", bottom: "10px" }}
+                  >
+                    Mua 1 tặng 1
+                  </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
