@@ -9,7 +9,14 @@ import hangquocte from "../assets/hangquocte.png";
 import dichvukhac from "../assets/dichvukhac.png";
 export default function ContentNavBar() {
   return (
-    <div className="flex justify-center mt-4">
+    <div
+      className="flex justify-center mt-4"
+      style={{
+        fontFamily:
+          "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
+        lineHeight: 1.2,
+      }}
+    >
       <div className="flex justify-center items-center">
         {/* voucher xtra */}
         <a
@@ -177,7 +184,11 @@ export default function ContentNavBar() {
           </div>
         </a>
         {/* shopee style */}
-        <a className="flex justify-center items-center" style={{ width: "150px", height: "108px" }} href="fb.com">
+        <a
+          className="flex justify-center items-center"
+          style={{ width: "150px", height: "108px" }}
+          href="fb.com"
+        >
           <div
             style={{
               width: "150px",
@@ -198,7 +209,7 @@ export default function ContentNavBar() {
                 color: "#222222",
                 fontSize: "13px",
                 textAlign: "center",
-                padding: "4px"
+                padding: "4px",
               }}
             >
               Shopee Style Voucher 40%
@@ -206,8 +217,20 @@ export default function ContentNavBar() {
           </div>
         </a>
         {/* hang quoc te */}
-        <a className="flex justify-center items-center" style={{ width: "150px", height: "108px" }} href="fb.com">
-          <div style={{ width: "150px", height: "81px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <a
+          className="flex justify-center items-center"
+          style={{ width: "150px", height: "108px" }}
+          href="fb.com"
+        >
+          <div
+            style={{
+              width: "150px",
+              height: "81px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <div style={{ width: "45px", height: "45px", marginBottom: "8px" }}>
               <img src={hangquocte} alt="Hàng quốc tế" title="" />
             </div>
@@ -219,7 +242,7 @@ export default function ContentNavBar() {
                 color: "#222222",
                 fontSize: "13px",
                 textAlign: "center",
-                padding: "4px"
+                padding: "4px",
               }}
             >
               Hàng Quốc Tế
@@ -227,8 +250,20 @@ export default function ContentNavBar() {
           </div>
         </a>
         {/* dich vu khac */}
-        <a className="flex justify-center items-center" style={{ width: "150px", height: "108px" }} href="fb.com">
-          <div style={{ width: "150px", height: "81px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <a
+          className="flex justify-center items-center"
+          style={{ width: "150px", height: "108px" }}
+          href="fb.com"
+        >
+          <div
+            style={{
+              width: "150px",
+              height: "81px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <div style={{ width: "45px", height: "45px", marginBottom: "8px" }}>
               <img src={dichvukhac} alt="Dịch vụ khác" title="" />
             </div>
@@ -240,7 +275,7 @@ export default function ContentNavBar() {
                 color: "#222222",
                 fontSize: "13px",
                 padding: "4px",
-                textAlign: "center"
+                textAlign: "center",
               }}
             >
               Nạp Thẻ, Dịch Vụ & Vé Máy Bay

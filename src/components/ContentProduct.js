@@ -21,7 +21,13 @@ import bachhoaonline from "../assets/bachhoaonline.png";
 import nhasachonline from "../assets/nhasachonline.png";
 export default function ContentProduct() {
   return (
-    <div>
+    <div
+      style={{
+        fontFamily:
+          "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
+        lineHeight: 1.2,
+      }}
+    >
       {/* 1 */}
       <div className="flex justify-center items-center">
         {/* Thời Trang Nam*/}

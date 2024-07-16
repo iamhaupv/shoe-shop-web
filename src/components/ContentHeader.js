@@ -2,7 +2,14 @@ import React from "react";
 
 export default function ContentHeader() {
   return (
-    <div className="flex justify-center">
+    <div
+      className="flex justify-center"
+      style={{
+        fontFamily:
+          "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
+        lineHeight: 1.2,
+      }}
+    >
       {/* danh muc */}
       <div
         className="flex justify-center items-center"
