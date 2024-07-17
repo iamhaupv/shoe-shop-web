@@ -296,7 +296,7 @@ const Signup = () => {
     //     <Banner />
     //   </div>
     // </div>
-    <div className="h-screen w-full">
+    <div>
       <HeaderRegisterLogin title={"Đăng ký"}/>
       <ContainerForm component={FormRegister}/>
       <FooterRegisterLogin/>

@@ -5,6 +5,7 @@ import {
   faEyeSlash,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
+import logo_h from "../assets/logo_h.png"
 export default function FormLogin() {
   const [phone, setPhone] = useState(""); // phone
   const [password, setPassword] = useState(""); // password
@@ -71,7 +72,7 @@ export default function FormLogin() {
         background: "#ffffff",
         borderRadius: "4px",
         boxSizing: "border-box",
-        boxShadow: ""
+        boxShadow: "0 3px 10px 0 rgba(0, 0, 0, .14)"
       }}
     >
       <div>
@@ -99,6 +100,7 @@ export default function FormLogin() {
             }}
           >
             <div
+            className="flex justify-center items-center"
               style={{
                 width: "166.4px",
                 height: "58.8px",
@@ -107,7 +109,10 @@ export default function FormLogin() {
                 margin: "0px 16px 0px 0px",
                 padding: "14px 11px",
               }}
-            ></div>
+            >
+              <img src={logo_h} alt="" className="object-cover w-[47.25px] h-[54.24px]" />
+              <span style={{marginLeft: "4px", color: "#ee4d2d", marginTop: "10px", fontSize: "15px"}}>auShop</span>
+              </div>
             <div style={{ width: "55.74px", height: "1px" }}></div>
           </div>
         </div>
@@ -127,7 +132,7 @@ export default function FormLogin() {
                   width: "338.4px",
                   height: "40.8px",
                   padding: "12px",
-                  background: "#E8F0FE",
+                  
                 }}
                 value={phone}
                 onChange={handleChangePhone}
@@ -157,10 +162,10 @@ export default function FormLogin() {
             >
               <input
                 style={{
-                  width: "291.4px",
+                  width: "338.4px",
                   height: "40.8px",
                   padding: "12px",
-                  background: "#E8F0FE",
+                  
                 }}
                 type={eye ? "text" : "password"}
                 value={password}
@@ -174,7 +179,7 @@ export default function FormLogin() {
               <button
                 style={{ width: "20px", height: "16px" }}
                 onClick={handleShowPassword}
-                className="absolute right-3"
+                className="absolute right-[300px] top-[333px]"
               >
                 {eye ? (
                   <FontAwesomeIcon icon={faEye} />
@@ -272,7 +277,7 @@ export default function FormLogin() {
                     d="M37.1,0H10.9C5,0,0,5,0,11.1v26.2C0,43,5,48,10.9,48H24V29H18V22h6V17.4c0-6.1,3.7-9.5,9.3-9.5c2.6,0,4.8,0.2,5.4,0.3v6.5h-3c-2.9,0-3.5,1.4-3.5,3.4V22h6.8l-0.9,7H29v19h8.9C43,48,48,43,48,37.1V10.9C48,5,43,0,37.1,0z"
                   />
                 </svg>
-                <span style={{ marginLeft: "5px" }}>Facebook</span>
+                <span style={{ marginLeft: "5px", color: "#000000" }}>Facebook</span>
               </button>
             </div>
             {/* Google */}
