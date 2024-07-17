@@ -1,6 +1,6 @@
-Signup
-<img src ='https://i.imgur.com/2D7XIqE.jpeg' />
 Signin
+<img src ='https://i.imgur.com/2D7XIqE.jpeg' />
+Signup
 <img src ='https://i.imgur.com/smoc2OW.jpeg' />
 
 # Getting Started with Create React App
