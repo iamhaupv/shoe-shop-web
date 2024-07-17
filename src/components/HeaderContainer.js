@@ -41,10 +41,7 @@ export default function HeaderContainer() {
               <span
                 style={{
                   fontSize: "50px",
-                  backgroundImage:
-                    "linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080)",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
+                  color: "#ffffff",
                   display: "inline-block",
                 }}
               >
@@ -53,10 +50,7 @@ export default function HeaderContainer() {
               <span
                 style={{
                   fontSize: "30px",
-                  backgroundImage:
-                    "linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #80ff00, #00ff00, #00ffff, #0080ff, #0000ff, #8000ff, #ff00ff, #ff0080)",
-                  WebkitBackgroundClip: "text",
-                  color: "transparent",
+                  color: "#ffffff",
                   display: "inline-block",
                 }}
               >

@@ -6,6 +6,11 @@ import { faCartPlus, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import AddProductToCart from "../../services/cart/AddProductToCartService";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import HeaderHome from "../../components/HeaderHome";
+import Banner from "../../components/Banner";
+import ContentNavBar from "../../components/ContentNavBar";
+import Content from "../../components/Content";
+import FooterRegisterLogin from "../../components/FooterRegisterLogin";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -35,38 +40,45 @@ const Home = () => {
     }
   };
   return (
-    <div className="h-screen">
-      <ToastContainer />
-      <div>
-        <button
-          className="bg-red-500 border-2 border-solid border-black"
-          onClick={handleSubmit}
-        >
-          <FontAwesomeIcon icon={faCartShopping} />
-        </button>
-        <table>
-          <tr>
-            <td>ID</td>
-            <td>Name</td>
-            <td>quantity</td>
-          </tr>
-          {products.map((product, index) => (
-            <tr>
-              <td>{product._id}</td>
-              <td>{product.name}</td>
-              <td>{product.quantity}</td>
-              <td>
-                <button
-                  className="bg-green-400 text-2xl"
-                  onClick={() => handleAddProductToCart(product._id)}
-                >
-                  <FontAwesomeIcon icon={faCartPlus} />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </table>
-      </div>
+    // <div className="h-screen">
+    //   <ToastContainer />
+    //   <div>
+    //     <button
+    //       className="bg-red-500 border-2 border-solid border-black"
+    //       onClick={handleSubmit}
+    //     >
+    //       <FontAwesomeIcon icon={faCartShopping} />
+    //     </button>
+    //     <table>
+    //       <tr>
+    //         <td>ID</td>
+    //         <td>Name</td>
+    //         <td>quantity</td>
+    //       </tr>
+    //       {products.map((product, index) => (
+    //         <tr>
+    //           <td>{product._id}</td>
+    //           <td>{product.name}</td>
+    //           <td>{product.quantity}</td>
+    //           <td>
+    //             <button
+    //               className="bg-green-400 text-2xl"
+    //               onClick={() => handleAddProductToCart(product._id)}
+    //             >
+    //               <FontAwesomeIcon icon={faCartPlus} />
+    //             </button>
+    //           </td>
+    //         </tr>
+    //       ))}
+    //     </table>
+    //   </div>
+    // </div>
+    <div>
+      <HeaderHome/>
+      <Banner />
+      <ContentNavBar />
+      <Content />
+      <FooterRegisterLogin />
     </div>
   );
 };

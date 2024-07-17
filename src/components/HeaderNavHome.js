@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faQuestion } from "@fortawesome/free-solid-svg-icons";
 import fb from "../assets/fbw.png";
 import ig from "../assets/igw.png";
-export default function HeaderNavBar() {
+export default function HeaderNavHome() {
   return (
     <div
       className="flex justify-center"
@@ -126,7 +126,7 @@ export default function HeaderNavBar() {
           style={{ padding: "0px 5px 0px 0px" }}
         >
           {/* Thông báo */}
-          <a
+          <a className="flex justify-center items-center"
             href="fb.com"
             style={{ width: "auto", height: "30px", padding: "4px" }}
           >
@@ -145,7 +145,7 @@ export default function HeaderNavBar() {
             </span>
           </a>
           {/* Hỗ trợ*/}
-          <a
+          <a className="flex justify-center items-center"
             href="fb.com"
             style={{ width: "auto", height: "30px", padding: "4px" }}
           >
@@ -163,45 +163,14 @@ export default function HeaderNavBar() {
               Hỗ Trợ
             </span>
           </a>
-          {/* Đăng ký */}
-          <a
-            href="fb.com"
-            style={{ width: "auto", height: "30px", padding: "4px" }}
-          >
-            <span
-              style={{
-                width: "auto",
-                height: "15.6px",
-                color: "#ffffff",
-              }}
-            >
-              Đăng Ký
-            </span>
-          </a>
-          {/* | */}
-          <div
-            className="flex justify-center items-center"
-            style={{
-              width: "auto",
-              height: "15px",
-              border: "1.5px solid #f86c5c",
-            }}
-          ></div>
-          {/* Đăng nhập */}
-          <a
-            href="fb.com"
-            style={{ width: "auto", height: "30px", padding: "4px" }}
-          >
-            <span
-              style={{
-                width: "auto",
-                height: "15.6px",
-                color: "#ffffff",
-              }}
-            >
-              Đăng Nhập
-            </span>
-          </a>
+          {/* avt */}
+          <div className="flex justify-center items-center" style={{width: "auto", height: "32px", padding: "0px 10px"}}>
+              {/* img */}
+              <img src={fb} alt="" className="h-[20.4px] w-[20.4px] object-cover" />
+              <div style={{with: "auto", height: "16.8px", color: "#ffffff", fontSize: "14px", padding: "0px 0px 0px 5px"}}>
+                54545
+              </div>
+          </div>
         </div>
       </div>
     </div>
