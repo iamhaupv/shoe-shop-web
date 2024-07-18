@@ -5,7 +5,7 @@ import {
   faEyeSlash,
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
-import logo_h from "../assets/logo_h.png"
+import logo_h from "../assets/logo_h.png";
 export default function FormLogin() {
   const [phone, setPhone] = useState(""); // phone
   const [password, setPassword] = useState(""); // password
@@ -18,6 +18,17 @@ export default function FormLogin() {
   // eyes
   const [eye, setEye] = useState(false);
   const [formValid, setFormValid] = useState(false);
+  // focus
+  const [focusPhone, setFocusPhone] = useState(false); // focus phone
+  const [focusPasswor, setFocusPassword] = useState(false); // focus password
+  //  handle focus
+  const handleFocusPhone = () => {
+    setFocusPhone(true);
+  };
+  // handle focus password
+  const handleFocusPassword = () => {
+    setFocusPassword(true);
+  };
   // regex phone
   const regexPhone = (value) => {
     const regex = /^(0[3|5|7|8|9]\d{8}|0\d{9})$/;
@@ -28,11 +39,12 @@ export default function FormLogin() {
   const handleChangePhone = (e) => {
     regexPhone(e.target.value);
     setPhone(e.target.value);
+    setIconPhone(true)
   };
   // handle blur phone
   const handleBlurPhone = (e) => {
     regexPhone(e.target.value);
-    setIconPhone(true);
+    setFocusPhone(false);
   };
   // regex password
   const regexPassword = (value) => {
@@ -49,10 +61,12 @@ export default function FormLogin() {
   const handleBlurPassword = (e) => {
     regexPassword(e.target.value);
     setIconPassword(true);
+    setFocusPassword(false);
   };
   // handle show password
   const handleShowPassword = () => {
     setEye(!eye);
+    // setEye(prevEye => !prevEye);
   };
   // form valid
   useEffect(() => {
@@ -72,7 +86,7 @@ export default function FormLogin() {
         background: "#ffffff",
         borderRadius: "4px",
         boxSizing: "border-box",
-        boxShadow: "0 3px 10px 0 rgba(0, 0, 0, .14)"
+        boxShadow: "0 3px 10px 0 rgba(0, 0, 0, .14)",
       }}
     >
       <div>
@@ -100,7 +114,7 @@ export default function FormLogin() {
             }}
           >
             <div
-            className="flex justify-center items-center"
+              className="flex justify-center items-center"
               style={{
                 width: "166.4px",
                 height: "58.8px",
@@ -110,9 +124,22 @@ export default function FormLogin() {
                 padding: "14px 11px",
               }}
             >
-              <img src={logo_h} alt="" className="object-cover w-[47.25px] h-[54.24px]" />
-              <span style={{marginLeft: "4px", color: "#ee4d2d", marginTop: "10px", fontSize: "15px"}}>auShop</span>
-              </div>
+              <img
+                src={logo_h}
+                alt=""
+                className="object-cover w-[47.25px] h-[54.24px]"
+              />
+              <span
+                style={{
+                  marginLeft: "4px",
+                  color: "#ee4d2d",
+                  marginTop: "10px",
+                  fontSize: "15px",
+                }}
+              >
+                auShop
+              </span>
+            </div>
             <div style={{ width: "55.74px", height: "1px" }}></div>
           </div>
         </div>
@@ -127,75 +154,122 @@ export default function FormLogin() {
           <form style={{ width: "340px", height: "184px" }}>
             {/* div phone  */}
             <div>
-              <input
+              <div
+                onFocus={handleFocusPhone}
+                className="flex justify-center items-center"
                 style={{
-                  width: "338.4px",
-                  height: "40.8px",
-                  padding: "12px",
-                  
+                  border: phoneError
+                    ? "1px solid red"
+                    : focusPhone
+                    ? "1px solid black"
+                    : "1px solid rgba(0, 0, 0, .14)",
+                  boxShadow: "inset 0 2px 0 rgba(0, 0, 0, .02)",
+                  boxSizing: "border-box",
+                  borderRadius: "2px",
                 }}
-                value={phone}
-                onChange={handleChangePhone}
-                onBlur={handleBlurPhone}
-                className={`text-sm border-2 border-solid border-gray w-full h-10 px-2 ${
-                  phoneError ? "border-red-500 bg-red-50" : ""
-                }`}
-                placeholder="Email/Số điện thoại"
-              />
-              {iconPhone &&
-                (phoneError ? (
-                  <span className="text-red-500 absolute mt-16 text-sm">
-                    Số điện thoại không hợp lệ.
-                  </span>
+              >
+                <input
+                  style={{
+                    width: phoneError ? "338.4px" : "295.4px",
+                    height: "40px",
+                    padding: "12px",
+                    outline: "none",
+                    fontSize: "14px",
+                    background: phoneError ? "#fff6f7" : "#ffffff",
+                  }}
+                  value={phone}
+                  onChange={handleChangePhone}
+                  onBlur={handleBlurPhone}
+                  placeholder="Email/Số điện thoại"
+                />
+                {phoneError ? (
+                  <div></div>
                 ) : (
-                  <span className="text-green-500 absolute right-4 justify-center">
-                    <FontAwesomeIcon icon={faCircleCheck} />
-                  </span>
-                ))}
+                  <div
+                    style={{
+                      width: "43px",
+                      height: "16px",
+                      padding: "0px 15px 0px 12px",
+                      color: "green",
+                    }}
+                    className="flex justify-center items-center"
+                  >
+                    {iconPhone ? <div><FontAwesomeIcon icon={faCircleCheck} /></div> : <div></div>}
+                  </div>
+                )}
+              </div>
             </div>
             <div
               style={{ width: "340px", height: "20px", padding: "4px 0px 0px" }}
-            ></div>
+            >
+              {iconPhone && phoneError ? (
+                <span style={{ color: "#ff424f", fontSize: "12px" }}>
+                  Số điện thoại không hợp lệ.
+                </span>
+              ) : (
+                <div></div>
+              )}
+            </div>
             {/* div password */}
             <div
-              style={{ width: "340px", height: "40px", marginTop: "11.2px" }}
+              onFocus={handleFocusPassword}
+              className="flex justify-center items-center"
+              style={{
+                width: "340px",
+                // height: "40px",
+                background: passwordError ? "#fff6f7" : "#ffffff",
+                marginTop: "11.2px",
+                boxShadow: "inset 0 2px 0 rgba(0, 0, 0, .02)",
+                boxSizing: "border-box",
+                borderRadius: "2px",
+                border: passwordError
+                  ? "1px solid red"
+                  : focusPasswor
+                  ? "1px solid black"
+                  : "1px solid rgba(0, 0, 0, .14)",
+              }}
             >
               <input
                 style={{
-                  width: "338.4px",
-                  height: "40.8px",
+                  width: "340px",
+                  height: "40px",
                   padding: "12px",
-                  
+                  outline: "none",
+                  fontSize: "14px",
+                  background: passwordError ? "#fff6f7" : "#ffffff",
                 }}
                 type={eye ? "text" : "password"}
                 value={password}
                 onChange={handleChangePassword}
                 onBlur={handleBlurPassword}
-                className={`text-sm border-2 border-solid border-gray w-full h-10 px-2 ${
-                  passwordError ? "border-red-500 bg-red-50" : ""
-                }`}
                 placeholder="Mật khẩu"
               />
               <button
-                style={{ width: "20px", height: "16px" }}
+              className="flex justify-center items-center"
+              type="button"
+                style={{
+                  width: "47px",
+                  height: "16px",
+                  padding: "0px 15px 0px 12px",
+                }}
                 onClick={handleShowPassword}
-                className="absolute right-[300px] top-[333px]"
-              >
-                {eye ? (
+              > 
+                 {eye ? (
                   <FontAwesomeIcon icon={faEye} />
                 ) : (
                   <FontAwesomeIcon icon={faEyeSlash} />
                 )}
-              </button>
+               </button> 
+            </div>
+            <div
+              style={{ width: "340px", height: "20px", padding: "4px 0px 0px" }}
+            >
               {iconPassword && passwordError && (
-                <span className="absolute text-sm text-red-500 mt-16">
+                <span style={{ color: "#ff424f", fontSize: "12px" }}>
                   Vui lòng điền vào mục này.
                 </span>
               )}
             </div>
-            <div
-              style={{ width: "340px", height: "20px", padding: "4px 0px 0px" }}
-            ></div>
             {/* div button login */}
             <div style={{ marginTop: "11.2px" }}>
               <button
@@ -277,7 +351,9 @@ export default function FormLogin() {
                     d="M37.1,0H10.9C5,0,0,5,0,11.1v26.2C0,43,5,48,10.9,48H24V29H18V22h6V17.4c0-6.1,3.7-9.5,9.3-9.5c2.6,0,4.8,0.2,5.4,0.3v6.5h-3c-2.9,0-3.5,1.4-3.5,3.4V22h6.8l-0.9,7H29v19h8.9C43,48,48,43,48,37.1V10.9C48,5,43,0,37.1,0z"
                   />
                 </svg>
-                <span style={{ marginLeft: "5px", color: "#000000" }}>Facebook</span>
+                <span style={{ marginLeft: "5px", color: "#000000" }}>
+                  Facebook
+                </span>
               </button>
             </div>
             {/* Google */}
