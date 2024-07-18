@@ -16,7 +16,7 @@ Khi nhập đúng password (password có 8 kí tự trở lên và không có kh
 <img src = 'https://i.imgur.com/9xGTu9y.png' />
 
 Signup
-<img src ='https://i.imgur.com/Q1OfB8p.jpeg' />
+<img src ='https://i.imgur.com/IjLczjR.png' />
 
 # Getting Started with Create React App
 
