@@ -13,10 +13,13 @@ Khi nhập sai password <br/>
 <img src='https://i.imgur.com/s6fTDJT.png' />
 <br/>
 Khi nhập đúng password (password có 8 kí tự trở lên và không có khoảng trắng, ký tự đặc biệt) <br/>
-<img src = 'https://i.imgur.com/9xGTu9y.png' />
+<img src = 'https://i.imgur.com/9xGTu9y.png' /> <br/>
 
-Signup
-<img src ='https://i.imgur.com/IjLczjR.png' />
+Signup <br/>
+<img src ='https://i.imgur.com/IjLczjR.png' /> <br/>
+
+Khi nhập sai số điện thoại <br/>
+<img src= 'https://i.imgur.com/p8R56HF.png' />
 
 # Getting Started with Create React App
 
