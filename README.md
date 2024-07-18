@@ -1,7 +1,10 @@
 Signin
 <img src ='https://i.imgur.com/IBChDCo.png' />
+<br/>
 Khi nhập số điện thoại sai 
+<br/>
 <img src ='https://i.imgur.com/uaKVyan.png' />
+<br/>
 Signup
 <img src ='https://i.imgur.com/Q1OfB8p.jpeg' />
 
