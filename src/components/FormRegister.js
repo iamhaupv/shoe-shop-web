@@ -4,8 +4,13 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 export default function FormRegister() {
   const [phone, setPhone] = useState(""); // phone
   const [phoneError, setPhoneError] = useState(false); // phone error
-  const [iconPhone, setIconPhone] = useState(true); // icon phone
+  const [iconPhone, setIconPhone] = useState(false); // icon phone
   const [formValid, setFormValid] = useState(false);
+  const [focus, setFocus] = useState(false); // focus
+  // handle focus
+  const handleFocus = () => {
+    setFocus(true);
+  };
   useEffect(() => {
     setFormValid(!phoneError);
   }, [phone, phoneError]);
@@ -53,22 +58,48 @@ export default function FormRegister() {
           >
             <form style={{ width: "340px", height: "110px", display: "block" }}>
               {/* div phone */}
-              <div style={{ width: "340px", height: "40px" }}>
+              <div
+                onFocus={handleFocus}
+                className="flex justify-center items-center"
+                style={{
+                  width: "340px",
+                  border: phoneError
+                    ? "1px solid red"
+                    : focus
+                    ? "1px solid black"
+                    : "1px solid rgba(0, 0, 0, .14)",
+                  background: phoneError ? "#fff6f7" : "#ffffff",
+                }}
+              >
                 <input
                   style={{
-                    width: "338.4px",
+                    width: phoneError ? "338.4px" : "295.4px",
                     height: "40.8px",
-                    background: "#fff6f7",
                     padding: "12px",
+                    fontSize: "14px",
+                    outline: "none",
+                    background: phoneError ? "#fff6f7" : "#ffffff",
                   }}
                   value={phone}
                   onChange={handleChangePhone}
                   onBlur={handleBlurPhone}
-                  className={`text-sm border-2 border-gray border-solid w-full h-10 px-2 ${
-                    phoneError ? "border-red-500 bg-red-50" : ""
-                  }`}
                   placeholder="Số điện thoại"
                 />
+                {phoneError ? (
+                  <div></div>
+                ) : (
+                  <div
+                    className="flex justify-center items-center"
+                    style={{
+                      width: "46px",
+                      height: "13px",
+                      padding: "0px 15px 0px 12px",
+                      color: "green",
+                    }}
+                  >
+                    {iconPhone ? <div><FontAwesomeIcon icon={faCircleCheck} /></div> : <div></div>}
+                  </div>
+                )}
                 {/* {iconPhone &&
               (phoneError ? (
                 <span className="text-sm text-red-500 absolute top-10">
@@ -120,7 +151,7 @@ export default function FormRegister() {
                 width: "340px",
                 height: "28.4px",
                 padding: "0px 0px 14px",
-                marginTop: "14px"
+                marginTop: "14px",
               }}
             >
               <span
