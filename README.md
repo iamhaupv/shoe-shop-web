@@ -5,6 +5,9 @@ Khi nhập số điện thoại sai
 <br/>
 <img src ='https://i.imgur.com/uaKVyan.png' />
 <br/>
+Khi nhập số điện thoại đúng (có 10 số và bắt đầu bằng số 0 và các đầu số của các nhà mạng)
+<img src ='https://i.imgur.com/2sqmthX.png' />
+<br/>
 Signup
 <img src ='https://i.imgur.com/Q1OfB8p.jpeg' />
 
