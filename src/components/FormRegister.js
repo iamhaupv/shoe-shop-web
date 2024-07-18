@@ -119,7 +119,7 @@ export default function FormRegister() {
                 </span>
               ) : (
                 <span>
-                  <FontAwesomeIcon icon={faCircleCheck} />
+                  {/* <FontAwesomeIcon icon={faCircleCheck} /> */}
                 </span>
               ))}
               </div>
