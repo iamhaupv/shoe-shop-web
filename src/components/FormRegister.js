@@ -100,16 +100,6 @@ export default function FormRegister() {
                     {iconPhone ? <div><FontAwesomeIcon icon={faCircleCheck} /></div> : <div></div>}
                   </div>
                 )}
-                {/* {iconPhone &&
-              (phoneError ? (
-                <span className="text-sm text-red-500 absolute top-10">
-                  Số điện thoại không hợp lệ
-                </span>
-              ) : (
-                <span className="absolute right-4 text-green-500 flex justify-center items-center right-[100px]">
-                  <FontAwesomeIcon icon={faCircleCheck} />
-                </span>
-              ))} */}
               </div>
               {/*  */}
               <div
@@ -121,9 +111,20 @@ export default function FormRegister() {
                   color: "#ff424f",
                   display: "block",
                 }}
-              ></div>
+              >
+                {iconPhone &&
+              (phoneError ? (
+                <span>
+                  Số điện thoại không hợp lệ.
+                </span>
+              ) : (
+                <span>
+                  <FontAwesomeIcon icon={faCircleCheck} />
+                </span>
+              ))}
+              </div>
               {/* div submit */}
-              <div>
+              <div className="mt-2">
                 <button
                   style={{
                     width: "340px",
