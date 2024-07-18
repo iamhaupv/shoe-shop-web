@@ -8,6 +8,8 @@ Khi nhập số điện thoại sai
 Khi nhập số điện thoại đúng (có 10 số và bắt đầu bằng số 0 và các đầu số của các nhà mạng)
 <img src ='https://i.imgur.com/2sqmthX.png' />
 <br/>
+Khi nhập đúng password (password có 8 kí tự trở lên và không có khoảng trắng, ký tự đặc biệt)
+<img src='https://i.imgur.com/s6fTDJT.png' />
 Signup
 <img src ='https://i.imgur.com/Q1OfB8p.jpeg' />
 
