@@ -12,7 +12,8 @@ Khi nhập số điện thoại đúng (có 10 số và bắt đầu bằng số
 Khi nhập sai password <br/>
 <img src='https://i.imgur.com/s6fTDJT.png' />
 <br/>
-Khi nhập đúng password (password có 8 kí tự trở lên và không có khoảng trắng, ký tự đặc biệt)
+Khi nhập đúng password (password có 8 kí tự trở lên và không có khoảng trắng, ký tự đặc biệt) <br/>
+<img src = 'https://i.imgur.com/9xGTu9y.png' />
 
 Signup
 <img src ='https://i.imgur.com/Q1OfB8p.jpeg' />
