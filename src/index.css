@@ -31,3 +31,14 @@
 .hover\\:animate-shake:hover {
   animation: shake 0.5s linear;
 }
+
+.li {
+  padding: 5px 0px;
+  color: #000000; 
+  transition: color 0.3s ease; 
+}
+
+.li:hover {
+  color: #30b566;
+  background-color: #f5f5f5; 
+}

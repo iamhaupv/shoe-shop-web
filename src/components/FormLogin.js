@@ -6,7 +6,10 @@ import {
   faEye,
 } from "@fortawesome/free-solid-svg-icons";
 import logo_h from "../assets/logo_h.png";
+import LoginService from "../services/user/LoginService";
+import { useNavigate } from "react-router-dom";
 export default function FormLogin() {
+  const navigate = useNavigate();
   const [phone, setPhone] = useState(""); // phone
   const [password, setPassword] = useState(""); // password
   // error
@@ -39,12 +42,13 @@ export default function FormLogin() {
   const handleChangePhone = (e) => {
     regexPhone(e.target.value);
     setPhone(e.target.value);
-    setIconPhone(true)
+    setIconPhone(true);
   };
   // handle blur phone
   const handleBlurPhone = (e) => {
     regexPhone(e.target.value);
     setFocusPhone(false);
+    setIconPhone(true);
   };
   // regex password
   const regexPassword = (value) => {
@@ -74,6 +78,16 @@ export default function FormLogin() {
       !phoneError && !passwordError && phone.length >= 8 && password.length >= 8
     );
   }, [phone, password, phoneError, passwordError]);
+  // handle login
+  const handleLogin = async () => {
+    try {
+      const response = await LoginService(phone, password);
+      localStorage.setItem("token", response.data.token);
+      navigate("/home", {state: {user: response.data}})
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
   return (
     <div
       className="flex justify-center"
@@ -151,7 +165,7 @@ export default function FormLogin() {
             padding: "0px 30px 30px",
           }}
         >
-          <form style={{ width: "340px", height: "184px" }}>
+          <div style={{ width: "340px", height: "184px" }}>
             {/* div phone  */}
             <div>
               <div
@@ -194,7 +208,13 @@ export default function FormLogin() {
                     }}
                     className="flex justify-center items-center"
                   >
-                    {iconPhone ? <div><FontAwesomeIcon icon={faCircleCheck} /></div> : <div></div>}
+                    {iconPhone ? (
+                      <div>
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                      </div>
+                    ) : (
+                      <div></div>
+                    )}
                   </div>
                 )}
               </div>
@@ -245,21 +265,21 @@ export default function FormLogin() {
                 placeholder="Mật khẩu"
               />
               <button
-              className="flex justify-center items-center"
-              type="button"
+                className="flex justify-center items-center"
+                type="button"
                 style={{
                   width: "47px",
                   height: "16px",
                   padding: "0px 15px 0px 12px",
                 }}
                 onClick={handleShowPassword}
-              > 
-                 {eye ? (
+              >
+                {eye ? (
                   <FontAwesomeIcon icon={faEye} />
                 ) : (
                   <FontAwesomeIcon icon={faEyeSlash} />
                 )}
-               </button> 
+              </button>
             </div>
             <div
               style={{ width: "340px", height: "20px", padding: "4px 0px 0px" }}
@@ -273,6 +293,7 @@ export default function FormLogin() {
             {/* div button login */}
             <div style={{ marginTop: "11.2px" }}>
               <button
+                onClick={handleLogin}
                 style={{
                   width: "340px",
                   height: "40px",
@@ -289,7 +310,7 @@ export default function FormLogin() {
                 ĐĂNG NHẬP
               </button>
             </div>
-          </form>
+          </div>
           {/* div forget password & sms */}
           <div
             className="flex justify-between items-center"
@@ -402,7 +423,7 @@ export default function FormLogin() {
         >
           Bạn mới biết đến HauShop? &nbsp;
           <a
-            href="fb.com"
+            href="/signup"
             style={{
               fontSize: "14px",
               color: "#ee4d2d",

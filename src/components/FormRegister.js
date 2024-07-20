@@ -270,7 +270,7 @@ export default function FormRegister() {
                   fontSize: "14px",
                   color: "#ee4d2d",
                 }}
-                href="fb.com"
+                href="/signin"
               >
                 Đăng nhập
               </a>
