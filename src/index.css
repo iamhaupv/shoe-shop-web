@@ -42,3 +42,10 @@
   color: #30b566;
   background-color: #f5f5f5; 
 }
+.div-text-gray{
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+.div-text-gray:hover{
+  color: #bdbdbd;
+}

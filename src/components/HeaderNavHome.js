@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faBell, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import fb from "../assets/fbw.png";
 import ig from "../assets/igw.png";
 import { useNavigate } from "react-router-dom";
@@ -79,13 +79,12 @@ export default function HeaderNavHome() {
         >
           {/* kenh nguoi ban */}
           <a
-            className="flex justify-center items-center"
+            className="flex justify-center items-center div-text-gray"
             href="fb.com"
             style={{
               width: "auto",
               height: "23.6px",
               padding: "4px",
-              color: "#ffffff",
             }}
           >
             Kênh người bán
@@ -99,7 +98,7 @@ export default function HeaderNavHome() {
           </div>
           {/* Tải ứng dụng */}
           <div
-            className="flex justify-center items-center "
+            className="flex justify-center items-center"
             href="fb.com"
             style={{
               width: "auto",
@@ -111,7 +110,7 @@ export default function HeaderNavHome() {
             onMouseEnter={handleHoverDownEnter}
             onMouseLeave={handleHoverDownLeave}
           >
-            Tải ứng dụng
+            <span className="div-text-gray">Tải ứng dụng</span>
             <div
               style={{
                 width: "200px",
@@ -131,33 +130,23 @@ export default function HeaderNavHome() {
               <img src={qr} alt="" className="object-cover" />
               <div
                 className="flex justify-center items-center"
-                style={{flexWrap: "wrap"}}
+                style={{ flexWrap: "wrap" }}
               >
-               <div className="flex justify-center w-[80px] mt-2 ml-2" >
-               <img
-                  src={applestore}
-                  alt=""
-                  className="object-cover"
-                  style={{objectFit: "cover"}}
-                />
-               </div>
-               <div className="flex justify-center w-[80px] mt-2 ml-2"  >
-               <img
-                  src={chplay}
-                  alt=""
-                  className="object-cover"
-                  
-                />
-               </div>
-               <div className="flex justify-center w-[80px] mt-2">
-               <img
-                  src={appgallery}
-                  alt=""
-                  className="object-cover"
-                />
-               </div>
-               <div className="flex justify-center w-[80px]">
-               </div>
+                <div className="flex justify-center w-[80px] mt-2 ml-2">
+                  <img
+                    src={applestore}
+                    alt=""
+                    className="object-cover"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div className="flex justify-center w-[80px] mt-2 ml-2">
+                  <img src={chplay} alt="" className="object-cover" />
+                </div>
+                <div className="flex justify-center w-[80px] mt-2">
+                  <img src={appgallery} alt="" className="object-cover" />
+                </div>
+                <div className="flex justify-center w-[80px]"></div>
               </div>
             </div>
           </div>
@@ -229,44 +218,27 @@ export default function HeaderNavHome() {
         >
           {/* Thông báo */}
           <a
-            className="flex justify-center items-center"
-            href="fb.com"
+            className="flex items-center div-text-gray"
+            href="https://fb.com"
             style={{ width: "auto", height: "30px", padding: "4px" }}
           >
-            <span style={{ width: "14px", height: "18px", color: "#ffffff" }}>
-              <FontAwesomeIcon icon={faBell} />
-            </span>
-            <span
-              style={{
-                width: "auto",
-                height: "15.6px",
-                color: "#ffffff",
-                margin: "0px 0px 0px 5px",
-              }}
-            >
-              Thông Báo
+            <span className="div-text-gray">
+              <FontAwesomeIcon icon={faBell} className="mr-2" />
+              <span>Thông Báo</span>
             </span>
           </a>
           {/* Hỗ trợ*/}
           <a
-            className="flex justify-center items-center"
-            href="fb.com"
+            className="flex items-center div-text-gray"
+            href="https://fb.com"
             style={{ width: "auto", height: "30px", padding: "4px" }}
           >
-            <span style={{ width: "14px", height: "18px", color: "#ffffff" }}>
-              <FontAwesomeIcon icon={faQuestion} />
-            </span>
-            <span
-              style={{
-                width: "auto",
-                height: "15.6px",
-                color: "#ffffff",
-                margin: "0px 0px 0px 5px",
-              }}
-            >
-              Hỗ Trợ
+            <span className="div-text-gray">
+            <FontAwesomeIcon icon={faCircleQuestion} className="mr-2" />
+              <span>Hỗ Trợ</span>
             </span>
           </a>
+
           {/* avt */}
           <div
             className="relative"
@@ -293,7 +265,7 @@ export default function HeaderNavHome() {
                   padding: "0px 0px 0px 5px",
                 }}
               >
-                {user.name}
+                <span className="div-text-gray">{user.name}</span>
               </div>
             </div>
             <div
