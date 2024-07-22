@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
+import logo_h from "../assets/logo_h.png"
 export default function HeaderContainer() {
+  const [focusSearch, setFocusSearch] = useState(false) // focus search
+  // handle focus
+  const handleFocusSearch = () => {
+    setFocusSearch(true)
+  }
+  // handle blur search
+  const handleBlurSearch = () => {
+    setFocusSearch(false)
+  }
   return (
     <div
       className="flex justify-center"
@@ -24,9 +34,9 @@ export default function HeaderContainer() {
         }}
       >
         {/* logo */}
-        <a
+        <button
+         onClick={() => window.location.reload()}
           className="block flex"
-          href="fb.com"
           style={{
             width: "202px",
             height: "59px",
@@ -41,11 +51,11 @@ export default function HeaderContainer() {
               <span
                 style={{
                   fontSize: "50px",
-                  color: "#ffffff",
+                  background: "#f94c2f",
                   display: "inline-block",
                 }}
               >
-                ℌ
+                <img src={logo_h} alt="" />
               </span>
               <span
                 style={{
@@ -54,29 +64,39 @@ export default function HeaderContainer() {
                   display: "inline-block",
                 }}
               >
-                aushop
+                auShop
               </span>
             </span>
           </div>
-        </a>
+        </button>
         {/* form */}
         <div>
           <div
-            className="flex"
+            className="flex justify-center items-center"
             style={{
               width: "840px",
               height: "40px",
               padding: "3px",
               background: "#ffffff",
+              position: focusSearch ? "relative" : "",
+              boxSizing: "border-box"
             }}
+            onFocus={handleFocusSearch}
+              onBlur={handleBlurSearch}
           >
             <div
+            className="flex justify-center items-center"
               style={{
                 width: "774px",
-                height: "34px",
-                padding: "0px 10px",
-                background: "#ffffff",
+                height: focusSearch ? "50px" : "34px",
+                padding: focusSearch ? "10px" : "0px 10px",
+                background: focusSearch ? "#f94c2f" : "#ffffff",
+                position: focusSearch ? "absolute" : "",
+                left: focusSearch ? "-3px" : "",
+                border: focusSearch ? "2px solid black" : "",
+                boxSizing: "border-box"
               }}
+              
             >
               {/* input */}
               <input
@@ -84,23 +104,32 @@ export default function HeaderContainer() {
                   width: "754px",
                   height: "34px",
                   background: "#ffffff",
+                  outline: "none",
+                  boxSizing: "border-box",
+                  borderRadius: "2px",
+                  padding: "4px 6px"
                 }}
                 placeholder="Tìm sản phẩm"
               />
             </div>
             {/* button */}
             <button
+            className="bg-search"
               style={{
                 width: "64px",
                 height: "34px",
-                background: "#fb5533",
                 padding: "0px 15px",
                 color: "#ffffff",
+                position: focusSearch ? "absolute" : "",
+                right: focusSearch ? "3px" : "",
+                boxSizing: "border-box",
+                cursor: "pointer"
               }}
             >
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
+          
           {/* menu */}
           <div
             style={{ width: "840px", height: "24px", margin: "3px 0px 0px" }}
@@ -304,7 +333,7 @@ export default function HeaderContainer() {
             style={{ width: "55.78px", height: "46px", padding: "10px 0px" }}
           >
             <a
-              href="fb.com"
+              href="/cart"
               style={{
                 width: "50.78px",
                 height: "26px",

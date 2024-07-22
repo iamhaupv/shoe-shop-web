@@ -25,7 +25,7 @@ const AppRouter = () => {
         <Route index path="/home" element={<Home />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/my-cart" element={<Cart />} />
+        <Route path="/cart" element={<Cart />} />
         {/* admin manager */}
         <Route path="/wp-admin-manager" element={<AdminManger />} />
         {/* admin product */}

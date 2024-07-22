@@ -49,3 +49,9 @@
 .div-text-gray:hover{
   color: #bdbdbd;
 }
+.bg-search {
+  background-color: #fb5533;
+}
+.bg-search:hover{
+  background-color: rgb(254 98 50);
+}

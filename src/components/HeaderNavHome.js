@@ -60,6 +60,7 @@ export default function HeaderNavHome() {
         fontFamily:
           "'Helvetica Neue', Helvetica, Arial, '文泉驛正黑', 'WenQuanYi Zen Hei', 'Hiragino Sans GB', '儷黑 Pro', 'LiHei Pro', 'Heiti TC', '微軟正黑體', 'Microsoft JhengHei UI', 'Microsoft JhengHei', sans-serif",
         lineHeight: 1.2,
+        background: "#f94c2f",
       }}
     >
       {/* nav.container.navbar */}
@@ -234,7 +235,7 @@ export default function HeaderNavHome() {
             style={{ width: "auto", height: "30px", padding: "4px" }}
           >
             <span className="div-text-gray">
-            <FontAwesomeIcon icon={faCircleQuestion} className="mr-2" />
+              <FontAwesomeIcon icon={faCircleQuestion} className="mr-2" />
               <span>Hỗ Trợ</span>
             </span>
           </a>
