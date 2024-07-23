@@ -1,3 +1,4 @@
+Link drive : https://drive.google.com/drive/folders/1reB2YbjF0CVz9UjDeaozJMFD9xHOYNk-?usp=sharing <br/>
 Signin
 <img src ='https://i.imgur.com/IBChDCo.png' />
 <br/>
@@ -24,8 +25,6 @@ Khi nhập số điện thoại đúng (có 10 số và bắt đầu bằng số
 <img src = 'https://i.imgur.com/GE9UgqX.png'/> <br/>
 UI Giỏ Hàng <br/>
 <img src ='https://i.imgur.com/179BvP4.png' /> <br/>
-UI Home <br/>
-<img src = 'blob:https://imgur.com/c01d28db-dd3b-4eac-be10-f3241315f88c' />
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
