@@ -111,6 +111,7 @@ import HeaderNavHome from "../../components/HeaderNavHome";
 import FooterRegisterLogin from "../../components/FooterRegisterLogin";
 import CartContent from "../../components/CartContent";
 import ProductLoveAndDisCount from "../../components/ProductLoveAndDisCount";
+import ProductDiscount from "../../components/ProductDiscount";
 
 export default function Cart() {
   return (
@@ -118,6 +119,7 @@ export default function Cart() {
       <HeaderNavHome/>
       <CartContent/>
       <ProductLoveAndDisCount/>
+      <ProductDiscount/>
       <div style={{width: "100%", height: "840px", borderTop: "4px solid rgb(238, 77, 45)"}}>
       <FooterRegisterLogin/>
       </div>
