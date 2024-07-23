@@ -21,7 +21,9 @@ Signup <br/>
 Khi nhập sai số điện thoại <br/>
 <img src= 'https://i.imgur.com/p8R56HF.png' /> <br/>
 Khi nhập số điện thoại đúng (có 10 số và bắt đầu bằng số 0 và các đầu số của các nhà mạng) <br/>
-<img src = 'https://i.imgur.com/GE9UgqX.png'/>
+<img src = 'https://i.imgur.com/GE9UgqX.png'/> <br/>
+UI Giỏ Hàng <br/>
+<img src ='https://i.imgur.com/179BvP4.png' />
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
