@@ -65,7 +65,7 @@ export default function ProductMall() {
                 position: "absolute",
                 top: "5px",
                 zIndex: "999",
-                left: "5px"
+                left: "6px"
               }}
             >
               <div style={{ height: "18px" }}>
