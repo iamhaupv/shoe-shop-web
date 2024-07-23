@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FindAllProductService from "../services/product/FindAllProductService";
-export default function ContentListProduct() {
+import lovely from "../assets/051cfc30b97d6ec91d2f.png";
+export default function ProductLovely() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllProduct = async () => {
@@ -53,8 +54,28 @@ export default function ContentListProduct() {
         }}
       >
         {products.map((product, index) => (
-          <a href="fb.com">
-            {" "}
+          <a href="fb.com" style={{ position: "relative" }}>
+            {/* lovely */}
+            <div
+              style={{
+                width: "190.06px",
+                height: "26px",
+                margin: "0px 0px 0px -3px",
+                padding: "8px 0px 0px",
+                position: "absolute",
+                top: "5px",
+                zIndex: "999"
+              }}
+            >
+              <div style={{ height: "18px" }}>
+                <img
+                  src={lovely}
+                  style={{ width: "auto", height: "100%" }}
+                  className="object-cover"
+                  alt=""
+                />
+              </div>
+            </div>
             <div
               style={{
                 width: "200px",
@@ -67,8 +88,22 @@ export default function ContentListProduct() {
                   width: "188.4px",
                   height: "298px",
                   border: "1px solid #e5e5e5",
+                  position: "relative"
                 }}
               >
+                {/* discount */}
+            <div
+              style={{
+                width: "36.03px",
+                height: "18px",
+                fontSize: "12px",
+                color: "#ee4d2d",
+                background: "#feeeea",
+                padding: "2px 4px",
+                position: "absolute",
+                right: "0"
+              }}
+            >-45%</div>
                 <img
                   style={{ width: "188.4px", height: "188.4px" }}
                   src={product.images[0]}
