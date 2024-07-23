@@ -114,7 +114,7 @@ import ProductLoveAndDisCount from "../../components/ProductLoveAndDiscount";
 import ProductDiscount from "../../components/ProductDiscount";
 import ProductMallDiscount from "../../components/ProductMallDiscount";
 import ProductMall from "../../components/ProductMall"
-import ProductFreeShip from "../../components/ProductFreeShip";
+import ProductLoveFreeShipDiscount from "../../components/ProductLoveFreeShipDiscount";
 export default function Cart() {
   return (
     <div>
@@ -124,7 +124,7 @@ export default function Cart() {
       <ProductDiscount/>
       <ProductMallDiscount/>
       <ProductMall/>
-      <ProductFreeShip/>
+      <ProductLoveFreeShipDiscount/>
       <div style={{width: "100%", height: "840px", borderTop: "4px solid rgb(238, 77, 45)"}}>
       <FooterRegisterLogin/>
       </div>
