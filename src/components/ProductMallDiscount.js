@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FindAllProductService from "../services/product/FindAllProductService";
-import lovely from "../assets/051cfc30b97d6ec91d2f.png";
-export default function ProductLoveAndDisCount() {
+import mall from "../assets/mall.png";
+export default function ProductMallDiscount() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllProduct = async () => {
@@ -55,7 +55,7 @@ export default function ProductLoveAndDisCount() {
       >
         {products.map((product, index) => (
           <a href="fb.com" style={{ position: "relative" }}>
-            {/* lovely */}
+            {/* mall */}
             <div
               style={{
                 width: "190.06px",
@@ -65,12 +65,12 @@ export default function ProductLoveAndDisCount() {
                 position: "absolute",
                 top: "5px",
                 zIndex: "999",
-                left: "6px",
+                left: "6px"
               }}
             >
               <div style={{ height: "18px" }}>
                 <img
-                  src={lovely}
+                  src={mall}
                   style={{ width: "auto", height: "100%" }}
                   className="object-cover"
                   alt=""
@@ -89,9 +89,22 @@ export default function ProductLoveAndDisCount() {
                   width: "188.4px",
                   height: "298px",
                   border: "1px solid #e5e5e5",
-                  position: "relative",
+                  position: "relative"
                 }}
               >
+                {/* discount */}
+            <div
+              style={{
+                width: "36.03px",
+                height: "18px",
+                fontSize: "12px",
+                color: "#ee4d2d",
+                background: "#feeeea",
+                padding: "2px 4px",
+                position: "absolute",
+                right: "0"
+              }}
+            >-45%</div>
                 <img
                   style={{ width: "188.4px", height: "188.4px" }}
                   src={product.images[0]}
