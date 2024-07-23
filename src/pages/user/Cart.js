@@ -110,14 +110,14 @@ import React from 'react'
 import HeaderNavHome from "../../components/HeaderNavHome";
 import FooterRegisterLogin from "../../components/FooterRegisterLogin";
 import CartContent from "../../components/CartContent";
-import ProductLovely from "../../components/ProductLovely";
+import ProductLoveAndDisCount from "../../components/ProductLoveAndDisCount";
 
 export default function Cart() {
   return (
     <div>
       <HeaderNavHome/>
       <CartContent/>
-      <ProductLovely/>
+      <ProductLoveAndDisCount/>
       <div style={{width: "100%", height: "840px", borderTop: "4px solid rgb(238, 77, 45)"}}>
       <FooterRegisterLogin/>
       </div>
