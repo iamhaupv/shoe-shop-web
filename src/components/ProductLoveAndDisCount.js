@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FindAllProductService from "../services/product/FindAllProductService";
 import lovely from "../assets/051cfc30b97d6ec91d2f.png";
-export default function ProductLoveAndDisCount() {
+export default function ProductLoveAndDiscount() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllProduct = async () => {

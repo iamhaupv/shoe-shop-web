@@ -110,7 +110,7 @@ import React from 'react'
 import HeaderNavHome from "../../components/HeaderNavHome";
 import FooterRegisterLogin from "../../components/FooterRegisterLogin";
 import CartContent from "../../components/CartContent";
-import ProductLoveAndDisCount from "../../components/ProductLoveAndDisCount";
+import ProductLoveAndDisCount from "../../components/ProductLoveAndDiscount";
 import ProductDiscount from "../../components/ProductDiscount";
 import ProductMall from "../../components/ProductMall";
 
