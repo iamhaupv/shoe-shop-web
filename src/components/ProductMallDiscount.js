@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import FindAllProductService from "../services/product/FindAllProductService";
+import FindAllProductMallAndDiscountService from "../services/product/FindAllProductMallAndDiscountService";
 import mall from "../assets/mall.png";
 export default function ProductMallDiscount() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllProduct = async () => {
-      const response = await FindAllProductService();
+      const response = await FindAllProductMallAndDiscountService();
       setProducts(response.data);
     };
     fetchAllProduct();

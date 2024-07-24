@@ -122,11 +122,11 @@ export default function Cart() {
       <HeaderNavHome/>
       <CartContent/>
       <ProductLoveAndDisCount/>
-      {/* <ProductDiscount/> */}
-      {/* <ProductMallDiscount/> */}
-      {/* <ProductMall/> */}
-      {/* <ProductLoveFreeShipDiscount/> */}
-      {/* <ProductFreeShip/> */}
+      <ProductDiscount/>
+      <ProductMallDiscount/>
+      <ProductMall/>
+      <ProductLoveFreeShipDiscount/>
+      <ProductFreeShip/>
       <div style={{width: "100%", height: "840px", borderTop: "4px solid rgb(238, 77, 45)"}}>
       <FooterRegisterLogin/>
       </div>
