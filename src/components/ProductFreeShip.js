@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import mall from "../assets/mall.png";
-import FindAllProductShopMallService from "../services/product/FindAllProductShopMallService";
-export default function ProductMall() {
+import freeship from "../assets/vn-11134258-7r98o-lxhaq518hlg993.png";
+import FindAllProductFreeShipService from "../services/product/FindAllProductFreeShipService";
+export default function ProductFreeShip() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllProduct = async () => {
-      const response = await FindAllProductShopMallService();
+      const response = await FindAllProductFreeShipService();
       setProducts(response.data);
     };
     fetchAllProduct();
@@ -40,8 +40,7 @@ export default function ProductMall() {
             color: "#EE4D2D",
           }}
         >
-          {/* GỢI Ý HÔM NAY */}
-          SHOP MALL
+          GỢI Ý HÔM NAY
         </span>
       </div>
       {/* list product */}
@@ -56,28 +55,6 @@ export default function ProductMall() {
       >
         {products.map((product, index) => (
           <a href="fb.com" style={{ position: "relative" }}>
-            {/* lovely */}
-            <div
-              style={{
-                width: "190.06px",
-                height: "26px",
-                margin: "0px 0px 0px -3px",
-                padding: "8px 0px 0px",
-                position: "absolute",
-                top: "5px",
-                zIndex: "999",
-                left: "6px",
-              }}
-            >
-              <div style={{ height: "18px" }}>
-                <img
-                  src={mall}
-                  style={{ width: "auto", height: "100%" }}
-                  className="object-cover"
-                  alt=""
-                />
-              </div>
-            </div>
             <div
               style={{
                 width: "200px",
@@ -93,6 +70,17 @@ export default function ProductMall() {
                   position: "relative",
                 }}
               >
+                <div
+                  style={{
+                    height: "auto",
+                    width: "220px",
+                    zIndex: "999",
+                    position: "absolute",
+                    top: "166px",
+                  }}
+                >
+                  <img src={freeship} alt="" />
+                </div>
                 <img
                   style={{ width: "188.4px", height: "188.4px" }}
                   src={product.images[0]}

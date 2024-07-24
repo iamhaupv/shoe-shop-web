@@ -115,16 +115,18 @@ import ProductDiscount from "../../components/ProductDiscount";
 import ProductMallDiscount from "../../components/ProductMallDiscount";
 import ProductMall from "../../components/ProductMall"
 import ProductLoveFreeShipDiscount from "../../components/ProductLoveFreeShipDiscount";
+import ProductFreeShip from "../../components/ProductFreeShip";
 export default function Cart() {
   return (
     <div>
       <HeaderNavHome/>
       <CartContent/>
-      <ProductLoveAndDisCount/>
-      <ProductDiscount/>
-      <ProductMallDiscount/>
+      {/* <ProductLoveAndDisCount/> */}
+      {/* <ProductDiscount/> */}
+      {/* <ProductMallDiscount/> */}
       <ProductMall/>
-      <ProductLoveFreeShipDiscount/>
+      {/* <ProductLoveFreeShipDiscount/> */}
+      {/* <ProductFreeShip/> */}
       <div style={{width: "100%", height: "840px", borderTop: "4px solid rgb(238, 77, 45)"}}>
       <FooterRegisterLogin/>
       </div>
