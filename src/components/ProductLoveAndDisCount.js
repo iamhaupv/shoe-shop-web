@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import FindAllProductService from "../services/product/FindAllProductService";
+import FindAllProductLoveAndDiscountService from "../services/product/FindAllProductLoveAndDiscountService";
 import lovely from "../assets/051cfc30b97d6ec91d2f.png";
 export default function ProductLoveAndDiscount() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchAllProduct = async () => {
-      const response = await FindAllProductService();
+      const response = await FindAllProductLoveAndDiscountService();
       setProducts(response.data);
     };
     fetchAllProduct();
@@ -34,13 +34,13 @@ export default function ProductLoveAndDiscount() {
       >
         <span
           style={{
-            width: "123.66px",
+            width: "auto",
             height: "19.2px",
             fontSize: "16px",
             color: "#EE4D2D",
           }}
         >
-          GỢI Ý HÔM NAY
+          YÊU THÍCH VÀ GIẢM GIÁ
         </span>
       </div>
       {/* list product */}

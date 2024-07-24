@@ -121,10 +121,10 @@ export default function Cart() {
     <div>
       <HeaderNavHome/>
       <CartContent/>
-      {/* <ProductLoveAndDisCount/> */}
+      <ProductLoveAndDisCount/>
       {/* <ProductDiscount/> */}
       {/* <ProductMallDiscount/> */}
-      <ProductMall/>
+      {/* <ProductMall/> */}
       {/* <ProductLoveFreeShipDiscount/> */}
       {/* <ProductFreeShip/> */}
       <div style={{width: "100%", height: "840px", borderTop: "4px solid rgb(238, 77, 45)"}}>
