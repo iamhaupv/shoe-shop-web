@@ -1,6 +1,6 @@
 import React from "react";
 import logo_h from "../../assets/logo_h.png"
-export default function Header(props) {
+export default function HeaderRegisterLogin(props) {
   return (
     <div
       className="flex justify-center items-center"
