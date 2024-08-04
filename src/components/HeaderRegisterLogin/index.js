@@ -30,10 +30,7 @@ export default function HeaderRegisterLogin(props) {
         </div>
         {/* header__content__right */}
         <div>
-          <a
-            href="fb.com"
-            className="header__content__right"
-          >
+          <a href="fb.com" className="header__content__right">
             Bạn cần giúp đỡ?
           </a>
         </div>
