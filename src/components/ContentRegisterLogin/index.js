@@ -1,29 +1,20 @@
 import React from "react";
 import banner_myshoe from "../../assets/pngegg.png";
+import "./ContentRegisterLogin.css";
 export default function ContentRegisterLogin({ component: Component }) {
   return (
-    <div
-      className="h-[600px] flex justify-center items-center"
-      style={{ backgroundColor: "rgb(238, 77, 45)" }}
-    >
-      <div
-        className="flex items-center justify-end"
-        style={{ width: "1040px", height: "476.4px" }}
-      >
+    // content
+    <div className="flex justify-center items-center content">
+      {/* content__child */}
+      <div className="flex items-center justify-end content__child ">
         <div className="flex justify-center items-center">
-          {/*  */}
-          <div style={{ width: "550px", height: "450.4px", marginRight: "10px", }}>
-            <div
-              className="flex justify-center items-center"
-              style={{ width: "390px", height: "476.4px" }}
-            >
-              <img
-                src={banner_myshoe}
-                alt=""
-                className="h-[auto] w-[auto] object-cover"
-              />
+          {/* banner */}
+          <div className="banner">
+            {/* banner__child */}
+            <div className="flex justify-center items-center banner__child">
+              {/* banner__child__img */}
+              <img src={banner_myshoe} alt="Banner" className="banner__child__img" />
             </div>
-
           </div>
         </div>
         {Component && <Component />}

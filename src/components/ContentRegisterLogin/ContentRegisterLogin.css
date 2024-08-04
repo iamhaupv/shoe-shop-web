@@ -1,0 +1,22 @@
+.content{
+    height: 600px;
+    background-color: rgb(238, 77, 45);
+}
+.content .content__child{
+    width: 1040px;
+    height: 476.4px;
+}
+.content .content__child .banner{
+    width: 550px;
+    height: 450.4px;
+    margin-right: 10px;
+}
+.content .content__child .banner .banner__child{
+    width: 390px;
+    height: 476.4px;
+}
+.content .content__child .banner .banner__child .banner__child__img{
+    object-fit: cover;
+    width: auto;
+    height: auto;
+}
