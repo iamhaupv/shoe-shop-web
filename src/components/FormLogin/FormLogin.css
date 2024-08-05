@@ -1,0 +1,151 @@
+.container{
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    line-height: 1.2;
+    width: 400px;
+    height: 476.4px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .14);
+    font-size: 14px;
+}
+.container .container__title{
+    width: 400px;
+    height: 102.8px;
+    padding: 22px 30px;
+}
+.container .container__title .container__title__text{
+    width: auto;
+    height: 24px;
+    color: #222222;
+    font-size: 20px;
+}
+.container .container__title .container__title__wrap{
+    width: 222.14px;
+    height: 58.8px;
+    margin: 0px 0px 0px 20px;
+}
+.container .container__title .container__title__wrap .container__title__wrap__child{
+    width: 100%;
+    height: 100%;
+    color: #ffbf00;
+    margin: 0px 16px 0px 0px;
+    padding: 14px 11px;
+}
+.container .container__title .container__title__wrap .container__title__wrap__child .container__title__wrap__child__img{
+    object-fit: cover;
+    width: 47.25px;
+    height: 54.24px;
+}
+.container .container__title .container__title__wrap .container__title__wrap__child .container__title__wrap__child__text{
+    margin-top: 10px;
+    margin-left: 4px;
+    color: #ee4d2d;
+    font-size: 15px;
+}
+.container .container__content{
+   width: 400px;
+   height: 326.8px;
+   padding: 0px 30px 30px;
+}
+.container .container__content .container__content__form{
+    width: 340px;
+    height: 184px;
+ }
+ .container .container__content .container__content__form .phone{
+    border-radius: 2px;
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, .02);
+ }
+ .container .container__content .container__content__form .phone__input{
+    height: 40px;
+    padding: 12px;
+    outline: none;
+ }
+ .container .container__content .container__content__form .phone__input__pass{
+    width: 43px;
+    height: 16px;
+    padding: 0px 15px 0px 12px;
+    color: green;
+ }
+ .container .container__content .container__content__form .blank__block{
+    width: 340px;
+    height: 20px;
+    padding: 4px 0px 0px;
+ }
+ .container .container__content .container__content__form .password{
+    margin-top: 11.2px;
+    box-shadow: inset 0 2px 0 rgba(0, 0, 0, .02);
+    border-radius: 2px;
+    width: 100%;
+ }
+ .container .container__content .container__content__form .password__input{
+    width: 100%;
+   height: 40px;
+   padding: 12px; 
+   outline: none;
+}
+.container .container__content .container__content__form .password__eye__block{
+    width: 47px;
+   height: 16px;
+   padding: 0px 15px 0px 12px; 
+}
+.container .container__content .container__content__form .btn{
+    margin-top: 11.2px;
+ }
+ .container .container__content .container__content__form .btn__login{
+    width: 340px;
+    height: 40px;
+    color: #ffffff;
+    padding: 0px 10px;
+    background-color: #EE4D2D;
+ }
+ .container .container__content .container__content__forget__sms{
+    width: 340px;
+    height: 14.4px;
+    margin: 10px 0px;
+    color: #0055AA;
+    font-size: 12px;
+ }
+ .container .container__content .container__content__line{
+    width: 340px;
+    height: 28.4px;
+    padding: 0px 0px 14px;
+ }
+ .container .container__content .container__content__line .container__content__line__text{
+    width: 66.68px;
+    color: #ccc;
+    padding: 0px 16px;
+    font-size: 12px;
+ }
+ .container .container__content .container__content__btn__fb__gg{
+    width: 350px;
+    height: 50px;
+    margin: 0px -5px;
+ }
+ .container .container__content .container__content__btn__fb__gg .btn__fb{
+    margin: 5px;
+    padding: 0px 8px 0px 2px;
+    width: 165px;
+    height: 40px;
+ }
+ .container .container__content .container__content__btn__fb__gg .btn__gg{
+    margin: 5px;
+    padding: 0px 8px 0px 2px;
+    width: 165px;
+    height: 40px;
+ }
+ .container .container__content .container__content__btn__fb__gg .text{
+    margin-left: 5px;
+    color: #000000;
+ }
+ .container .container__foreign{
+    width: 404px;
+    height: 16.8px;
+    padding: 0px 4px 0px 0px;
+    color: #00000042;
+ }
+ .container .container__foreign .sign__up{
+    width: 51.36px;
+    height: 16.8px;
+    color: #ee4d2d;
+ }
