@@ -1,0 +1,117 @@
+.container__register{
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    line-height: 1.2;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .14);
+}
+.container__register .content{
+    width: 400px;
+    height: 429px;
+    background-color: #fff;
+}
+.container__register .content .content__title{
+    width: 100%;
+    height: 68px;
+    padding: 22px 30px;
+    font-size: 24px;
+}
+.container__register .content .content__content{
+    width: 100%;
+    height: 302.2px;
+    padding: 0px 30px 30px;
+}
+.container__register .content .content__content .form{
+    width: 340px;
+    height: 110px;
+    display: block;
+}
+.form .form__phone{
+    width: 100%;
+}
+.form .form__phone .form__phone__input{
+    height: 40.8px;
+    padding: 12px;
+    outline: none;
+}
+.form .form__phone .form__phone__input__pass{
+    width: 46px;
+    height: 13px;
+    padding: 0px 15px 0px 12px;
+    color: green;
+}
+.form .form__phone__error{
+    width: 100%;
+    height: 20px;
+    font-size: 12px;
+    padding: 4px 0px 0px;
+    color: #ff424f;
+    display: block;
+}
+.form .form__btn{
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    padding: 4px 0px 0px;
+    color: #fff;
+    background-color: #ee4d2d;
+    margin: 0px 0px 30px;
+    padding: 0px 10px;
+}
+.content__content .line{
+    width: 100%;
+    height: 28.4px;
+    padding: 0px 0px 14px;
+    margin-top: 14px;
+}
+.content__content .line .line__text{
+    width: 66.68px;
+    height: 14.4px;
+    padding: 0px 16px;
+    color: #ccc;
+    font-size: 12px;
+}
+.content__content .btn__fb__gg{
+    width: 350px;
+    height: 50px;
+    margin: 0px -5px;
+}
+.content__content .btn__fb__gg .btn__fb{
+    width: 165px;
+    height: 40px;
+    margin: 5px;
+    padding: 0px 8px 0px 2px;
+}
+.content__content .btn__fb__gg .btn__fb .btn__fb__text{
+    margin-left: 5px;
+}
+.content__content .btn__fb__gg .btn__gg{
+    width: 165px;
+    height: 40px;
+    margin: 5px;
+    padding: 0px 8px 0px 2px;
+}
+.content__content .btn__fb__gg .btn__gg .btn__gg__text{
+    margin-left: 5px;
+}
+.content__content .des{
+   width: 335px;
+   height: 28.8px; 
+   font-size: 12px;
+   margin: 0px 5px 0px 0px;
+   padding: 0px 25px;
+   color: #000000DE;
+   margin-top: 39px;
+}
+.content .content__foreign{
+    width: 404px;
+    height: 16.8px;
+    padding: 0px 4px 0px 0px;
+    color: #00000042;
+}
+.content .content__foreign .content__foreign__login{
+    width: 68.51px;
+    height: 16.8px;
+    color: #ee4d2d;
+}
