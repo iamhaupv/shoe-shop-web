@@ -93,7 +93,7 @@
     margin: auto;
     padding: 40px 0px;
     color: #0000008A;
-    border-top: 1px solid #0000008A;
+    border-top: 1px solid rgba(0,0,0,.1)
 }
 .nation .nation__left{
     margin: 0px 25px 0px 0px;
@@ -102,7 +102,7 @@
     height: 18px;
 }
 .nation__right div{
-    border-right: 1px solid #0000008A;
+    border-right: 1px solid rgba(0, 0, 0, .2);
     padding: 0px 5px;
 }
 .nation__right div a{
@@ -125,7 +125,7 @@
 .footer__footer__content .wrap__policies div{
     height: 14.4px;
     padding: 0px 25px;
-    border-right: 1px solid #0000008A;
+    border-right: 1px solid rgba(0,0,0,.09);;
 }
 .footer__footer__content .wrap__policies div span{
     height: 13.6px;
@@ -159,4 +159,10 @@
     justify-content: center;
     margin: 8px 0px 0px;
     font-size: 12px;
+}
+.wrap__policies div:last-child{
+    border: none;
+}
+.nation__right div:last-child{
+    border: none;
 }

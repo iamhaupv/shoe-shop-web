@@ -328,7 +328,7 @@ export default function FooterRegisterLogin() {
             <div>
               <a href="fb.com">Chile</a>
             </div>
-            <div>
+            <div className="tail">
               <a href="fb.com">Đài Loan</a>
             </div>
           </div>
@@ -354,7 +354,7 @@ export default function FooterRegisterLogin() {
                   <span>CHÍNH SÁCH VẬN CHUYỂN</span>
                 </a>
               </div>
-              <div>
+              <div className="tail">
                 <a href="fb.com">
                   <span>CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</span>
                 </a>
