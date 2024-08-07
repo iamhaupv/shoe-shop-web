@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../pages/user/Home";
 import NotFound from "../pages/NotFound";
-import Signup from "../pages/user/Signup";
-import Signin from "../pages/user/Signin";
+import Signup from "../pages/Signup";
+import Signin from "../pages/Signin";
 import View from "../pages/View";
 import AdminManagerProduct from "../pages/admin/AdminManagerProduct";
 import AdminUpdateProduct from "../pages/admin/AdminUpdateProduct";
