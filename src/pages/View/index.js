@@ -1,4 +1,4 @@
-import Banner from "../../components/Banner";
+import BannerViewHome from "../../components/BannerViewHome";
 import Header from "../../components/Header";
 import FooterRegisterLogin from "../../components/FooterRegisterLogin";
 import ContentNavBar from "../../components/ContentNavBar";
@@ -9,7 +9,7 @@ const View = () => {
     <>
       <div>
         <Header />
-        <Banner />
+        <BannerViewHome />
         <ContentNavBar />
         <Content />
         <FooterRegisterLogin />

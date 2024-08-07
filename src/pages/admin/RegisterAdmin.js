@@ -1,4 +1,4 @@
-import Banner from "../../components/Banner";
+import BannerViewHome from "../../components/BannerViewHome";
 import logo from "../../assets/logo.png";
 import { CgSpinner } from "react-icons/cg";
 import { useState } from "react";
@@ -187,7 +187,7 @@ const RegisterAdmin = () => {
       )}
 
       {/* right */}
-      <Banner />
+      <BannerViewHome />
     </div>
   );
 };

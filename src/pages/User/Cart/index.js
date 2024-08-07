@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import FindCartByIdService from "../../services/cart/FindCartByIdService";
+import FindCartByIdService from "../../../services/cart/FindCartByIdService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
-import AddProductToCartService from "../../services/cart/AddProductToCartService";
-import RemoveProductFromCartService from "../../services/cart/RemoveProductFromCartService";
+import AddProductToCartService from "../../../services/cart/AddProductToCartService";
+import RemoveProductFromCartService from "../../../services/cart/RemoveProductFromCartService";
 // const Cart = () => {
 //   const [products, setProducts] = useState([]);
 
@@ -107,15 +107,15 @@ import RemoveProductFromCartService from "../../services/cart/RemoveProductFromC
 // };
 // export default Cart
 import React from 'react'
-import HeaderNavHome from "../../components/HeaderNavHome";
-import FooterRegisterLogin from "../../components/FooterRegisterLogin";
-import CartContent from "../../components/CartContent";
-import ProductLoveAndDisCount from "../../components/ProductLoveAndDiscount";
-import ProductDiscount from "../../components/ProductDiscount";
-import ProductMallDiscount from "../../components/ProductMallDiscount";
-import ProductMall from "../../components/ProductMall"
-import ProductLoveFreeShipDiscount from "../../components/ProductLoveFreeShipDiscount";
-import ProductFreeShip from "../../components/ProductFreeShip";
+import HeaderNavHome from "../../../components/HeaderNavHome";
+import FooterRegisterLogin from "../../../components/FooterRegisterLogin";
+import CartContent from "../../../components/CartContent";
+import ProductLoveAndDisCount from "../../../components/ProductLoveAndDiscount";
+import ProductDiscount from "../../../components/ProductDiscount";
+import ProductMallDiscount from "../../../components/ProductMallDiscount";
+import ProductMall from "../../../components/ProductMall"
+import ProductLoveFreeShipDiscount from "../../../components/ProductLoveFreeShipDiscount";
+import ProductFreeShip from "../../../components/ProductFreeShip";
 export default function Cart() {
   return (
     <div>

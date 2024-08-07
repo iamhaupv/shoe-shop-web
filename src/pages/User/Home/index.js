@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import FindAllProduct from "../../services/product/FindAllProductService";
+import FindAllProduct from "../../../services/product/FindAllProductService";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus, faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import AddProductToCart from "../../services/cart/AddProductToCartService";
+import AddProductToCart from "../../../services/cart/AddProductToCartService";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import HeaderHome from "../../components/HeaderHome";
-import Banner from "../../components/Banner";
-import ContentNavBar from "../../components/ContentNavBar";
-import Content from "../../components/Content";
-import FooterRegisterLogin from "../../components/FooterRegisterLogin";
+import HeaderHome from "../../../components/HeaderHome";
+import BannerViewHome from "../../../components/BannerViewHome";
+import ContentNavBar from "../../../components/ContentNavBar";
+import Content from "../../../components/Content";
+import FooterRegisterLogin from "../../../components/FooterRegisterLogin";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const Home = () => {
     // </div>
     <div>
       <HeaderHome/>
-      <Banner />
+      <BannerViewHome />
       <ContentNavBar />
       <Content />
       <FooterRegisterLogin />
