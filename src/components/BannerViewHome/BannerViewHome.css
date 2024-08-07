@@ -1,0 +1,12 @@
+.banner__container{
+    display: flex;
+    justify-content: center;
+    padding: 0px 50px;
+    margin: auto;
+}
+.banner__container .banner__container__content{
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
