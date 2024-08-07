@@ -9,7 +9,7 @@ import AdminUpdateProduct from "../pages/admin/AdminUpdateProduct";
 import AdminAddProduct from "../pages/admin/AdminAddProduct";
 import LogninAdmin from "../pages/admin/LoginAdmin";
 import RegisterAdmin from "../pages/admin/RegisterAdmin";
-import Cart from "../pages/user/Cart";
+import Cart from "../pages/Cart";
 import AdminManagerCategory from "../pages/admin/AdminManagerCategory";
 import AdminAddCategory from "../pages/admin/AdminAddCategory";
 import AdminUpdateCategory from "../pages/admin/AdminUpdateCategory";
