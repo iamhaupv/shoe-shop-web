@@ -1,5 +1,6 @@
 import React from "react";
 import "./FrameProductTitle.css";
+import ProductMall from "../ProductMall";
 export default function FrameProductTitle(props) {
   return (
     <>
@@ -13,7 +14,9 @@ export default function FrameProductTitle(props) {
             <span className="title">{props.text}</span>
           </div>
           {/* list__products */}
-          <div className="list__products">asdflkjaslfkjaslk</div>
+          <div className="list__products">
+            <ProductMall/>
+          </div>
         </div>
       </div>
     </>
