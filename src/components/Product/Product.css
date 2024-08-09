@@ -8,7 +8,7 @@
     padding: 8px 0px 0px;
     position: absolute;
     top: 5px;
-    z-index: 999;
+    z-index: 3;
     left: 6px;
 }
 .logo__mall .logo__mall__child{
