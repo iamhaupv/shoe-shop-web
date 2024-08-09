@@ -11,6 +11,7 @@ import BannerViewHome from "../../../components/BannerViewHome";
 import ContentNavBar from "../../../components/ContentNavBar";
 import Content from "../../../components/Content";
 import FooterRegisterLogin from "../../../components/FooterRegisterLogin";
+import FrameProductTitle from "../../../components/FrameProductTitle";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -78,6 +79,7 @@ const Home = () => {
       <BannerViewHome />
       <ContentNavBar />
       <Content />
+      <FrameProductTitle text={"SHOPMALL"}/>
       <FooterRegisterLogin />
     </div>
   );

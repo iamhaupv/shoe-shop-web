@@ -8,6 +8,8 @@
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    line-height: 1.2;
 }
 .section__content{
     width: 1200px;

@@ -1,0 +1,36 @@
+.container__frame{
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container__frame .container__frame__content{
+
+}
+.container__frame .header{
+    width: 1200px;
+    height: 60px;
+    padding: 15px 46px;
+    border-bottom: 4px solid #ee4d2d;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.header .title{
+    font-size: 16px;
+    color: #EE4D2D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list__products{
+    width: 1200px;
+    font-size: 14px;
+    margin-top: 5px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

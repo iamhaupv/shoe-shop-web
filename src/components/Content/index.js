@@ -6,11 +6,11 @@ import ContentBannerVoucher from "../ContentBannerVoucher";
 import ContentMall from "../ContentMall";
 import ContentListProduct from "../ContentListProduct";
 import FooterContent from "../FooterContent";
-
+import "./Content.css";
 export default function Content() {
   return (
     <>
-      <div style={{ background: "#f5f5f5" }}>
+      <div className="container__content">
         <ContentHeader />
         <ContentProduct />
         <ContentFlashSale />
