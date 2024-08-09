@@ -5,6 +5,7 @@ import ProductDisCount from "../ProductDiscount";
 import Product from "../Product";
 import ProductFreeShip from "../ProductFreeShip";
 import ProductLoveAndDiscount from "../ProductLoveAndDiscount";
+import ProductMallDiscount from "../ProductMallDiscount";
 export default function FrameProductTitle(props) {
   return (
     <>
@@ -24,6 +25,7 @@ export default function FrameProductTitle(props) {
             <ProductDisCount/> */}
             {/* <ProductFreeShip/> */}
             <ProductLoveAndDiscount/>
+            <ProductMallDiscount/>
           </div>
         </div>
       </div>
