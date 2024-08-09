@@ -3,43 +3,16 @@ import "./FooterContent.css";
 export default function FooterContent() {
   return (
     <>
-      <div
-        className="flex justify-center"
-        style={{
-          width: "100%",
-          background: "#ffffff",
-          borderTop: "4px solid #ee4d2d",
-          fontFamily: "Roboto,sans-serif",
-          marginTop: "50px",
-        }}
-      >
-        <section
-          style={{
-            width: "1200px",
-            height: "1177.8px",
-            padding: "0px 0px 30px",
-            color: "#0000008A",
-            fontSize: "14px",
-            fontFamily: "Roboto,sans-serif",
-            marginTop: "65px",
-          }}
-        >
-          {/* 1 */}
-          <h1 style={{ width: "1200px", height: "24.6px", color: "#000000" }}>
+      {/* container__footer */}
+      <div className="container__footer">
+        {/* section__content */}
+        <section className="section__content">
+          {/* title__parent */}
+          <h1 className="title__parent">
             <b>SHOPEE - GÌ CŨNG CÓ, MUA HẾT Ở SHOPEE</b>
           </h1>
-          {/* 2 */}
-          <p
-            style={{
-              width: "1200px",
-              height: "35.2px",
-              margin: "10px 0px 0px",
-              color: "#000000",
-              fontFamily: "Roboto,sans-serif",
-              fontSize: "9pt",
-              whiteSpace: "wrap",
-            }}
-          >
+          {/* child__1__text */}
+          <p className="child__text">
             <span>
               <span>
                 Shopee - ứng dụng mua sắm trực tuyến thú vị, tin cậy, an toàn và
@@ -48,81 +21,67 @@ export default function FooterContent() {
                 vực&nbsp;
               </span>
               <span>
-                {/* Singapore */}
-                <u style={{ display: "inline" }}>
+                <u>
                   <a href="fb.com">
-                    <b style={{ fontFamily: "Arial" }}>Singapore</b>
+                    <b>Singapore</b>
                   </a>
                 </u>
                 ,&nbsp;
-                {/* Malaysia */}
-                <u style={{ display: "inline" }}>
+                <u>
                   <a href="fb.com">
-                    <b style={{ fontFamily: "Arial" }}>Malaysia</b>
+                    <b>Malaysia</b>
                   </a>
                 </u>
                 ,&nbsp;
                 <div className="flex">
-                  {/* Indonesia */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>Indonesia</b>
+                      <b>Indonesia</b>
                     </a>
                   </u>
                   ,&nbsp;
-                  {/* Thái Lan */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>Thái Lan</b>
+                      <b>Thái Lan</b>
                     </a>
                   </u>
                   ,&nbsp;
-                  {/* Philippines */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>Philippines</b>
+                      <b>Philippines</b>
                     </a>
                   </u>
                   ,&nbsp;
-                  {/*  Đài Loan */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}> Đài Loan</b>
+                      <b> Đài Loan</b>
                     </a>
                   </u>
                   ,&nbsp;
-                  {/*  Brazil */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>Brazil</b>
+                      <b>Brazil</b>
                     </a>
                   </u>
                   ,&nbsp;
-                  {/*  México */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>México</b>
+                      <b>México</b>
                     </a>
                   </u>
                   ,&nbsp;
-                  {/*  Colombia */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>Colombia</b>
+                      <b>Colombia</b>
                     </a>
                   </u>
                   ,&nbsp; <b>&</b> &nbsp;
-                  {/*  Chile */}
-                  <u style={{ display: "flex" }}>
+                  <u>
                     <a href="fb.com">
-                      <b style={{ fontFamily: "Arial" }}>Chile</b>
+                      <b>Chile</b>
                     </a>
                   </u>
-                  <span
-                    style={{
-                      height: "14.4px",
-                    }}
-                  >
+                  <span>
                     . Với sự đảm bảo của Shopee, bạn sẽ mua hàng trực tuyến an
                     tâm và nhanh chóng hơn bao giờ hết!
                   </span>
@@ -130,29 +89,14 @@ export default function FooterContent() {
               </span>
             </span>
           </p>
-          {/* 3 */}
-          <h2 style={{ width: "1200px", height: "23.8px" }}>
-            <b
-              style={{
-                width: "406.25px",
-                height: "14.4px",
-                color: "#000000",
-                fontSize: "12px",
-              }}
-            >
+          {/* title__child */}
+          <h2 className="title__child">
+            {/* title__child__text */}
+            <b className="title__child__text">
               MUA SẮM VÀ BÁN HÀNG ONLINE ĐƠN GIẢN, NHANH CHÓNG VÀ AN TOÀN
             </b>
           </h2>
-          {/* 4 */}
-          <p
-            style={{
-              width: "1200px",
-              height: "70.4px",
-              margin: "10px 0px 0px",
-              color: "#000000",
-              fontSize: "12px",
-            }}
-          >
+          <p className="child__text">
             <span>
               <span>
                 Nếu bạn đang tìm kiếm một trang web để mua và bán hàng trực
@@ -197,16 +141,7 @@ export default function FooterContent() {
               </span>
             </span>
           </p>
-          {/* 5 */}
-          <p
-            style={{
-              width: "1200px",
-              height: "58.2px",
-              fontSize: "12px",
-              color: "#000000",
-              margin: "10px 0px 0px",
-            }}
-          >
+          <p className="child__text">
             <span>
               Đến với Shopee, cơ hội để trở thành một nhà bán hàng dễ dàng hơn
               bao giờ hết. Chỉ với vài thao tác trên ứng dụng, bạn đã có thể
@@ -223,16 +158,7 @@ export default function FooterContent() {
               ngay các hoạt động của shop.
             </span>
           </p>
-          {/* 6 */}
-          <p
-            style={{
-              width: "1200px",
-              height: "35.2px",
-              color: "#000000",
-              margin: "10px 0px 0px",
-              fontSize: "12px",
-            }}
-          >
+          <p className="child__text">
             <span>
               Bên cạnh đó, Shopee hợp tác với nhiều đơn vị vận chuyển uy tín
               trên thị trường như &nbsp;
@@ -247,67 +173,33 @@ export default function FooterContent() {
               thuận tiện nhất.
             </span>
           </p>
-          {/*  */}
-          <h2
-            className="flex items-center"
-            style={{
-              with: "1200px",
-              height: "23.8px",
-              fontSize: "12px",
-              color: "#000000",
-              marginTop: "15px",
-            }}
-          >
+          <h2 className="title__child">
             <b>TẢI ỨNG DỤNG SHOPEE NGAY ĐỂ MUA BÁN ONLINE MỌI LÚC, MỌI NƠI</b>
           </h2>
-          {/*  */}
-          <p
-            style={{
-              height: "35.2px",
-              with: "1200px",
-              margin: "10px 0px 0px",
-              color: "#000000",
-              fontSize: "12px",
-            }}
-          >
+          <p className="title__child">
             Ưu điểm của ứng dụng Shopee là cho phép bạn mua và bán hàng mọi lúc,
             mọi nơi. Bạn có thể tải ứng dụng Shopee cũng như đăng sản phẩm bán
             hàng một cách nhanh chóng và tiện lợi. Ngoài ra, ứng dụng Shopee còn
             có những ưu điểm sau:
           </p>
-          {/*  */}
-          <ul
-            style={{
-              with: "1200px",
-              height: "78.4px",
-              fontSize: "12px",
-              margin: "14px 0px",
-              padding: "0px 0px 0px 40px",
-              listStyle: "disc",
-            }}
-          >
-            <li
-              style={{ with: "1160px", height: "18.6px", margin: "14px 0px" }}
-            >
-              <span style={{ height: "14.4px", color: "#000000" }}>
+          {/* child__ul */}
+          <ul className="child__ul">
+            <li>
+              <span>
                 Giao diện thân thiện, đơn giản, dễ sử dụng. Bạn sẽ dễ dàng thấy
                 được ngay những sản phẩm nổi bật cũng như dễ dàng tìm đến các ô
                 tìm kiếm, giỏ hàng hoặc tính năng chat liền tay.
               </span>
             </li>
-            <li
-              style={{ with: "1160px", height: "18.6px", margin: "14px 0px" }}
-            >
-              <span style={{ height: "14.4px", color: "#000000" }}>
+            <li>
+              <span>
                 Ứng dụng tích hợp công nghệ quản lý đơn mua và bán hàng tiện lợi
                 trên cùng một tài khoản. Bạn sẽ vừa là người mua hàng, vừa là
                 người bán hàng rất linh hoạt, dễ dàng.
               </span>
             </li>
-            <li
-              style={{ with: "1160px", height: "18.6px", margin: "14px 0px" }}
-            >
-              <span style={{ height: "14.4px", color: "#000000" }}>
+            <li>
+              <span>
                 Cập nhập thông tin khuyến mãi, &nbsp;
                 <u>
                   <a href="fb.com">
@@ -318,16 +210,7 @@ export default function FooterContent() {
               </span>
             </li>
           </ul>
-          {/*  */}
-          <p
-            style={{
-              with: "1200px",
-              height: "70.4px",
-              margin: "10px 0px 0px",
-              fontSize: "12px",
-              color: "#000000",
-            }}
-          >
+          <p className="child__text">
             <span>
               Tại Shopee, bạn có thể lưu các &nbsp;
               <u>
@@ -450,26 +333,10 @@ export default function FooterContent() {
               để săn hàng ngàn deal hời giá sốc.
             </span>
           </p>
-          {/*  */}
-          <h2
-            className="flex items-center"
-            style={{ with: "1200px", height: "23.8px", marginTop: "15px" }}
-          >
-            <span
-              style={{ height: "14.4px", color: "#000000", fontSize: "12px" }}
-            >
-              <b>MUA HÀNG HIỆU CAO CẤP GIÁ TỐT TẠI SHOPEE </b>
-            </span>
+          <h2 className="title__child">
+            <b>MUA HÀNG HIỆU CAO CẤP GIÁ TỐT TẠI SHOPEE </b>
           </h2>
-          {/*  */}
-          <p
-            style={{
-              with: "1200px",
-              height: "70.4px",
-              fontSize: "12px",
-              color: "#000000",
-            }}
-          >
+          <p className="child__text">
             Bên cạnh{" "}
             <u>
               <a href="fb.com">
@@ -579,27 +446,10 @@ export default function FooterContent() {
             </u>
             ,...
           </p>
-          {/*  */}
-          <h2
-            className="flex items-center"
-            style={{ with: "1200px", height: "23.8px", marginTop: "15px" }}
-          >
-            <span
-              style={{ height: "14.4px", color: "#000000", fontSize: "12px" }}
-            >
-              <b>MUA HÀNG CHÍNH HÃNG TỪ CÁC THƯƠNG HIỆU LỚN VỚI SHOPEE</b>
-            </span>
+          <h2 className="title__child">
+            <b>MUA HÀNG CHÍNH HÃNG TỪ CÁC THƯƠNG HIỆU LỚN VỚI SHOPEE</b>
           </h2>
-          {/*  */}
-          <p
-            style={{
-              with: "1200px",
-              height: "88px",
-              color: "#000000",
-              margin: "10px 0px 0px",
-              fontSize: "12px",
-            }}
-          >
+          <p className="child__text">
             <span>
               Mua hàng trên Shopee luôn là một trải nghiệm ấn tượng. Dù bạn đang
               có nhu cầu mua bất kỳ mặt hàng{" "}
@@ -653,16 +503,7 @@ export default function FooterContent() {
               Shopee có đảm bảo không.
             </span>
           </p>
-          {/*  */}
-          <p
-            style={{
-              with: "1200px",
-              height: "88px",
-              color: "#000000",
-              margin: "10px 0px 0px",
-              fontSize: "12px",
-            }}
-          >
+          <p className="child__text">
             <span>
               Shopee luôn cam kết mọi sản phẩm trên Shopee, đặc biệt là Shopee
               Mall đều là những sản phẩm chính hãng, đầy đủ tem nhãn, bảo hành
@@ -722,27 +563,10 @@ export default function FooterContent() {
               hoặc tải ngay ứng dụng Shopee về điện thoại ngay hôm nay!
             </span>
           </p>
-          {/*  */}
-          <h2
-            className="flex items-center"
-            style={{ with: "1200px", height: "23.8px", marginTop: "15px" }}
-          >
-            <span
-              style={{ height: "14.4px", color: "#000000", fontSize: "12px" }}
-            >
-              <b>TOP THƯƠNG HIỆU NỔI BẬT</b>
-            </span>
+          <h2 className="title__child">
+            <b>TOP THƯƠNG HIỆU NỔI BẬT</b>
           </h2>
-          {/*  */}
-          <p
-            style={{
-              with: "1200px",
-              height: "67.2px",
-              margin: "10px 0px 0px",
-              fontSize: "12px",
-              color: "#000000",
-            }}
-          >
+          <p className="child__text">
             <span>
               <a href="fb.com">Philips</a> | <a href="fb.com">Deerma</a> |{" "}
               <a href="fb.com">L'Oréal</a> | <a href="fb.com">Kiehl's</a> |{" "}
@@ -778,27 +602,10 @@ export default function FooterContent() {
               <a href="fb.com">Laura Sunshine</a> | <a href="fb.com">Vijully</a>
             </span>
           </p>
-          {/*  */}
-          <h2
-            className="flex items-center"
-            style={{ with: "1200px", height: "23.8px", marginTop: "15px" }}
-          >
-            <span
-              style={{ height: "14.4px", color: "#000000", fontSize: "12px" }}
-            >
-              <b>TOP TỪ KHÓA XU HƯỚNG</b>
-            </span>
+          <h2 className="title__child">
+            <b>TOP TỪ KHÓA XU HƯỚNG</b>
           </h2>
-          {/*  */}
-          <p
-            style={{
-              with: "1200px",
-              height: "33.6px",
-              margin: "10px 0px 0px",
-              fontSize: "12px",
-              color: "#000000",
-            }}
-          >
+          <p className="child__text">
             <span>
               <a href="fb.com">áo bóng đá</a> | <a href="fb.com">cờ lgbt</a> |{" "}
               <a href="fb.com">ưng tỷ</a> | <a href="fb.com">áo</a> |{" "}
