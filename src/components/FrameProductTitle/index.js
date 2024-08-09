@@ -3,6 +3,7 @@ import "./FrameProductTitle.css";
 import ProductMall from "../ProductMall";
 import ProductDisCount from "../ProductDiscount";
 import Product from "../Product";
+import ProductFreeShip from "../ProductFreeShip";
 export default function FrameProductTitle(props) {
   return (
     <>
@@ -17,9 +18,10 @@ export default function FrameProductTitle(props) {
           </div>
           {/* list__products */}
           <div className="list__products">
-            <Product/>
+            {/* <Product/>
             <ProductMall/>
-            <ProductDisCount/>
+            <ProductDisCount/> */}
+            <ProductFreeShip/>
           </div>
         </div>
       </div>
