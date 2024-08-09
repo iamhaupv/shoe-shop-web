@@ -1,6 +1,8 @@
 import React from "react";
 import "./FrameProductTitle.css";
 import ProductMall from "../ProductMall";
+import ProductDisCount from "../ProductDiscount";
+import Product from "../Product";
 export default function FrameProductTitle(props) {
   return (
     <>
@@ -15,7 +17,9 @@ export default function FrameProductTitle(props) {
           </div>
           {/* list__products */}
           <div className="list__products">
+            <Product/>
             <ProductMall/>
+            <ProductDisCount/>
           </div>
         </div>
       </div>
