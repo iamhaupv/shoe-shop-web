@@ -20,11 +20,16 @@
 }
 .child .child__ul{
     margin: 0px 0px 16px;
+    width: 240px;
 }
 .child .child__ul li{
     height: 14.4px;
     margin: 0px 0px 12px;
     font-size: 12px;
+    list-style: none;
+    height: 14.4px;
+    width: 240px;
+    margin-left: -40px;
 }
 .child .child__3__ul{
     width: 240px;

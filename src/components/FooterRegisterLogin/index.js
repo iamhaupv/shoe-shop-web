@@ -103,7 +103,7 @@ export default function FooterRegisterLogin() {
                   <a href="fb.com">Flash Sales</a>
                 </li>
                 <li>
-                  <a href="fb.com">Chương Trình Tiếp Thị Liên Kết IAMHAU</a>
+                  <a href="fb.com">Chương Trình Tiếp Thị Liên Kết HauShop</a>
                 </li>
                 <li>
                   <a href="fb.com">Liên Hệ Với Truyền Thống</a>

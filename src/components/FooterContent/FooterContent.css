@@ -43,7 +43,7 @@
     margin: 14px 0px;
     list-style: disc;
 }
-.child__ul li{
+.section__content .child__ul li{
     width: 1160px;
     height: 16.8px;
     margin: 14px 0px;
