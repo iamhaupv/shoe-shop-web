@@ -1,0 +1,81 @@
+.content__product{
+    position: relative;
+}
+.logo__mall{
+    width: 190.06px;
+    height: 26px;
+    margin: 0px 0px 0px -3px;
+    padding: 8px 0px 0px;
+    position: absolute;
+    top: 5px;
+    z-index: 999;
+    left: 6px;
+}
+.logo__mall .logo__mall__child{
+    height: 18px;
+}
+.logo__mall .logo__mall__child img{
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+.wrap__product{
+    width: 200px;
+    height: 308px;
+    padding: 5px;
+}
+.wrap__product .wrap__details{
+    width: 188.4px;
+    height: 298px;
+    position: relative;
+    border: 1px solid #e5e5e5;
+}
+.wrap__details img{
+    width: 100%;
+    height: 188.4px;
+}
+.wrap__details .des{
+    width: 100%;
+    height: 109.6px;
+    padding: 8px;
+}
+.des .des__name{
+    width: 172.4px;
+    height: 40px;
+    color: #000000CC;
+    margin: 0px 0px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.des .des__active{
+    height: 20px;
+    width: 100%;
+    margin: 0px 0px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.des .wrap__price__sold{
+    height: 20px;
+    margin: 0px 0px 8px;
+    width: 172.4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+.wrap__price__sold .child__price__sold{
+    color: #ee4d2d;
+}
+.child__price__sold span:first-child{
+    font-size: 12px;
+}
+.child__price__sold span:last-child{
+    font-size: 16px;
+}
+.wrap__price__sold .sold{
+    height: 16px;
+    color: #000000DE;
+    font-size: 12px;
+    margin: 0px 0px 0px 4px;
+}
