@@ -1,0 +1,59 @@
+.container__frame__flash__sale{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    line-height: 1.2;
+    font-size: 13px;
+}
+.header__flash__sale{
+    width: 1200px;
+    height: 60px;
+    padding: 15px 20px;
+    background-color: #fff;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+.header__flash__sale .wrap__whole__logo{
+    width: 220px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrap__whole__logo .wrap__logo{
+    width: 130px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrap__whole__logo .wrap__countdown{
+    width: 77.28px;
+    height: 25.2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.wrap__countdown .countdown__space{
+    width: 2.52px;
+    height: 7.14px;
+}
+.wrap__countdown .countdown{
+    width: 21.84px;
+    height: 15.96px;
+    background-color: #000;
+    margin: 0px 0px 4px;
+    padding: 1px 3px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #fff;
+}
