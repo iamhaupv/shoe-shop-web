@@ -8,7 +8,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import HeaderHome from "../../../components/HeaderHome";
 import BannerViewHome from "../../../components/BannerViewHome";
-import ContentNavBar from "../../../components/ContentNavBar";
+import NavContent from "../../../components/NavContent";
 import Content from "../../../components/Content";
 import FooterRegisterLogin from "../../../components/FooterRegisterLogin";
 import FrameProductTitle from "../../../components/FrameProductTitle";
@@ -77,7 +77,7 @@ const Home = () => {
     <div>
       <HeaderHome/>
       <BannerViewHome />
-      <ContentNavBar />
+      <NavContent />
       <Content />
       <FrameProductTitle text={"SHOPMALL"}/>
       <FooterRegisterLogin />

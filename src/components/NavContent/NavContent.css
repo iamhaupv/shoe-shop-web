@@ -1,0 +1,46 @@
+.nav__container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-family: Helvetica Neue, Helvetica, Arial, 文泉驛正黑, WenQuanYi Zen Hei, Hiragino Sans GB, 儷黑 Pro, LiHei Pro, Heiti TC, 微軟正黑體, Microsoft JhengHei UI, Microsoft JhengHei, sans-serif;
+    line-height: 1.2;
+    font-size: 13px;
+    align-items: center;
+    color: #222222;
+}
+.nav__content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav__content a{
+    width: 150px;
+    height: 108px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nav__content a div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.nav__container a div div:first-child{
+    width: 45px;
+    height: 45px;
+    margin-bottom: 8px;
+    position: absolute;
+    top: 0px;
+}
+.nav__container a div div:last-child{
+    width: 100px;
+    margin: 0px 0px 8px;
+    text-align: center;
+    position: absolute;
+    top: 60px;
+    display: flex;
+    align-items: center;
+}

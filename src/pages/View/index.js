@@ -1,7 +1,7 @@
 import BannerViewHome from "../../components/BannerViewHome";
 import Header from "../../components/Header";
 import FooterRegisterLogin from "../../components/FooterRegisterLogin";
-import ContentNavBar from "../../components/ContentNavBar";
+import NavContent from "../../components/NavContent";
 import Content from "../../components/Content";
 
 const View = () => {
@@ -10,7 +10,7 @@ const View = () => {
       <div>
         <Header />
         <BannerViewHome />
-        <ContentNavBar />
+        <NavContent />
         <Content />
         <FooterRegisterLogin />
       </div>
