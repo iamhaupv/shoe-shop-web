@@ -14,8 +14,12 @@ export default function Content() {
         <ContentHeader />
         <ContentProduct />
         <ContentFlashSale />
-        <ContentBannerVoucher />
-        <ContentMall />
+        <div className="content__banner__voucher">
+          <ContentBannerVoucher />
+        </div>
+        <div className="content__mall">
+          <ContentMall />
+        </div>
         <ContentListProduct />
         <FooterContent />
       </div>

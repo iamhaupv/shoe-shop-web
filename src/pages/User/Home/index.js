@@ -12,6 +12,7 @@ import NavContent from "../../../components/NavContent";
 import Content from "../../../components/Content";
 import FooterRegisterLogin from "../../../components/FooterRegisterLogin";
 import FrameProductTitle from "../../../components/FrameProductTitle";
+import "./Home.css"
 const Home = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -75,11 +76,13 @@ const Home = () => {
     //   </div>
     // </div>
     <div>
-      <HeaderHome/>
+      <HeaderHome />
       <BannerViewHome />
-      <NavContent />
+      <div className="nav__content">
+        <NavContent />
+      </div>
       <Content />
-      <FrameProductTitle text={"SHOPMALL"}/>
+      <FrameProductTitle text={"SHOPMALL"} />
       <FooterRegisterLogin />
     </div>
   );
