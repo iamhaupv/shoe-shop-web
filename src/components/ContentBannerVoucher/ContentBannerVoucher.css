@@ -1,0 +1,18 @@
+.container__banner__voucher{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container__banner__voucher a{
+    width: 400px;
+    height: 110px;
+    color: #0000EE;
+    padding: 16px;
+    background-color: #fff;
+}
+.container__banner__voucher a img{
+    height: 90px;
+    width: 390px;
+    object-fit: cover;
+}
+/* className="h-[90px] w-[390px] object-cover" */
