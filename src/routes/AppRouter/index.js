@@ -1,19 +1,19 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "../pages/User/Home";
-import NotFound from "../pages/NotFound";
-import Signup from "../pages/User/Signup";
-import Signin from "../pages/User/Signin";
-import View from "../pages/View";
-import AdminManagerProduct from "../pages/admin/AdminManagerProduct";
-import AdminUpdateProduct from "../pages/admin/AdminUpdateProduct";
-import AdminAddProduct from "../pages/admin/AdminAddProduct";
-import LogninAdmin from "../pages/admin/LoginAdmin";
-import RegisterAdmin from "../pages/admin/RegisterAdmin";
-import Cart from "../pages/User/Cart";
-import AdminManagerCategory from "../pages/admin/AdminManagerCategory";
-import AdminAddCategory from "../pages/admin/AdminAddCategory";
-import AdminUpdateCategory from "../pages/admin/AdminUpdateCategory";
-import AdminManger from "../pages/admin/AdminManager";
+import Home from "../../pages/User/Home";
+import NotFound from "../../pages/NotFound";
+import Signup from "../../pages/User/Signup";
+import Signin from "../../pages/User/Signin";
+import View from "../../pages/View";
+import AdminManagerProduct from "../../pages/admin/AdminManagerProduct";
+import AdminUpdateProduct from "../../pages/admin/AdminUpdateProduct";
+import AdminAddProduct from "../../pages/admin/AdminAddProduct";
+import LogninAdmin from "../../pages/admin/LoginAdmin";
+import RegisterAdmin from "../../pages/admin/RegisterAdmin";
+import Cart from "../../pages/User/Cart";
+import AdminManagerCategory from "../../pages/admin/AdminManagerCategory";
+import AdminAddCategory from "../../pages/admin/AdminAddCategory";
+import AdminUpdateCategory from "../../pages/admin/AdminUpdateCategory";
+import AdminManger from "../../pages/admin/AdminManager";
 
 const AppRouter = () => {
   return (
