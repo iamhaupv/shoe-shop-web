@@ -1,11 +1,11 @@
 import React from "react";
-import banner_voucher1 from "../assets/banner_voucher1.jpg";
-import banner_voucher2 from "../assets/banner_voucher2.jpg";
-import banner_voucher3 from "../assets/banner_voucher3.jpg";
+import banner_voucher1 from "../../assets/banner_voucher1.jpg";
+import banner_voucher2 from "../../assets/banner_voucher2.jpg";
+import banner_voucher3 from "../../assets/banner_voucher3.jpg";
 export default function ContentBannerVoucher() {
   return (
     <div
-      style={{ marginTop: "15px" }}
+      style={{ marginTop: "15px", background: "red" }}
       className="flex justify-center items-center"
     >
       <a
